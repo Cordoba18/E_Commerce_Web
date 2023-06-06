@@ -1,10 +1,9 @@
 <?php 
 function productos(){
     $produc = array(
-        "Nombre"  => "valor1",
-        "Descripcion"  => "valor2",
-        "Precio"  => "valor3",
-        
+        "Nombre"  => "Zapato nike",
+        "Precio"  => "000000",
+        "cantidad" => "",
     );
 
 
