@@ -23,6 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
 
 }
 .car{
@@ -45,7 +46,7 @@
 #btn_fav{
     margin-left: 280px;
     background-color: red;
-        border: none;
+    border: none;
 }
 
 .sc{
