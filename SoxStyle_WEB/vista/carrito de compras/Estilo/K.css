@@ -1,0 +1,54 @@
+#btn_vaciar{
+    margin-left: 400px;
+    /* margin: 10px; */
+    border: 1px rgb(228, 2, 2);
+    font-family: 'Times New Roman', Times, serif;
+}
+.btn_vaci{
+    background-color: rgb(3, 68, 179);
+}   
+
+.comprar{
+    border: 1px rgb(17, 13, 241);
+    display: flex;
+    margin: 40px;
+
+}
+
+.total{
+    margin-right: 400px;
+}
+
+.hd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.car{
+    margin-left: 60px;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fav{
+    margin-left: 50px;
+}
+
+.close{
+    margin-left: 320px;
+}
+
+#btn_fav{
+    margin-left: 280px;
+    background-color: red;
+        border: none;
+}
+
+.sc{
+    width: 55px;
+    margin-left: 270px;
+}
