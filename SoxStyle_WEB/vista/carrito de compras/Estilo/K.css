@@ -2,7 +2,6 @@
     margin-left: 400px;
     /* margin: 10px; */
     border: 1px rgb(228, 2, 2);
-    font-family: 'Times New Roman', Times, serif;
 }
 .btn_vaci{
     background-color: rgb(3, 68, 179);
@@ -39,7 +38,7 @@
 }
 
 .close{
-    margin-left: 320px;
+    margin-left: 310px;
 }
 
 #btn_fav{
@@ -51,4 +50,16 @@
 .sc{
     width: 55px;
     margin-left: 270px;
+}
+.np{
+
+}
+
+.btns{
+
+
+}
+
+.cont{
+    display: flex;
 }
