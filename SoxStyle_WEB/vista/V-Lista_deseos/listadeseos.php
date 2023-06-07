@@ -28,7 +28,7 @@
     </head>
      <body>  
              <div class="contenedor">
-                <img src="./img/SoxStyle.jpg" alt="" class="image">
+                <img src="../V-Lista_deseos/SoxStyle.jpg" alt="" class="image">
             </div>
                <div class="container">
                     <h3 class="text-left" id="carrito">Carrito:()</h3>
