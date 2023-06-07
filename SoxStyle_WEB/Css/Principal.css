@@ -1,0 +1,184 @@
+body {
+    background: white;
+    margin: 0%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*----------CAROUSEL-----------*/
+.carousel-productos {
+    max-width: 1500px;
+    width: 90%;
+    margin: auto;
+}
+
+.contenedor {
+
+    margin-bottom: 5%;
+}
+
+.carousel-contenedor {
+    position: relative;
+}
+
+.carousel-anterior,
+.carousel-siguiente {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(50% - 35px);
+    cursor: pointer;
+    line-height: 30px;
+    background: none;
+    text-align: center;
+    color: black;
+}
+
+.carousel-anterior:hover,
+.carousel-siguiente:hover {
+    background: rgba(0, 0, 0);
+    color: white;
+    border-radius: 50%;
+}
+
+.carousel-anterior {
+    left: -30px;
+}
+
+.carousel-siguiente {
+    right: -30px;
+}
+
+.carousel-indicadores .glider-dot {
+    display: block;
+    height: 10px;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.carousel-indicadores .glider-dot:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-indicadores .glider-dot.active {
+    background: rgba(0, 0, 0);
+}
+
+/*--------------TARJETAS DE PORDUCTOS----------------*/
+.product {
+    margin: 10px;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.ico {
+    position: relative;
+    margin: 10px;
+    left: 60%;
+    border: none;
+    background: none;
+}
+.si-fav{
+    color:#fa163f;
+}
+.corazon {
+    cursor: pointer;
+    transition: 5s;
+}
+
+.cart-agg{
+    font-size: 17px;
+    margin-right: 0px;
+    color: #0096ff;
+}
+
+.p-precio-producto{
+    color: black;
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Courier, monospace ;
+}
+.p-nombre-producto{
+    color: black;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+.p-envio-gratis{
+    color: #5d9c59;
+}
+/*---------------SLIDER--------------*/
+.swiper {
+    width: 100%;
+    max-height: 1600px;
+}
+
+.swiper img {
+    height: 200px;
+    width: 100%;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    --swiper-navigation-size: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    height: 50px;
+    width: 50px;
+    margin-top: -25px;
+    border-radius: 50%;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+    opacity: 1;
+
+}
+
+.swiper .swiper-button-prev:hover,
+.swiper .swiper-button-next:hover {
+    background: rgba(0, 0, 0);
+}
+
+.swiper .swiper-pagination {
+    --swiper-pagination-color: black;
+}
+
+@media(min-width: 800px) {
+    .swiper img {
+        height: 250px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .swiper img {
+        height: 200px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .swiper img {
+        height: 100px;
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,180 @@
+/*------------Header------------*/
+.fondo-negro {
+    background-color: black;
+}
+
+.contact-info {
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+}
+.contact-info:hover {
+    color: red;
+}
+a{
+    text-decoration: none;
+}
+.info-contact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-header, .nav-inferior {
+    width: 100%;
+    background-color: white;
+    padding: 1em;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.nav-header .icon-user {
+    border-radius: 50%;
+}
+
+
+.nav-header .button, .nav-inferior .button-inferior {
+    display: none;
+    border: none;
+    background-color: white;
+}
+
+.nav-header .i {
+    width: 2em;
+    height: 2em;
+    fill: white;
+}
+
+.nav-header .nav {
+    margin-right: 3em;
+}
+
+.nav-header .ul,.nav-inferior .ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.nav-header .li, .nav-inferior .li {
+    margin: 0 .5em;
+}
+
+.nav-inferior .a{
+    color: black;
+}
+.nav-inferior .a:hover{
+    transition: all .2s;
+    color: red;
+    font-weight: bold;
+}
+.buscador {
+    margin: 0 22px;
+    padding: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buscador .buscador-input {
+    width: 350px;
+    height: 40px;
+    margin-right: 0;
+    border: 1px solid rgb(85, 81, 81);
+    border-right: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: 0;
+    padding-left: 7px;
+}
+
+.buscador .buscador-btn {
+    height: 40px;
+    margin: 5px 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: white;
+    border: 1px solid rgb(77, 75, 75);
+    border-left: 0;
+    outline: none;
+}
+
+.buscador .buscador-btn:focus {
+    outline: none;
+}
+.carrito-icon{
+    color: black;
+}
+.btn-login, .btn-register{
+    color: black;
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 7px;
+    border-radius: 3px;
+    transition: all .2s;
+}
+.btn-login:hover, .btn-register:hover{
+    background: rgb(0, 0, 0);
+    color: red;
+    border-radius: 2px;
+}
+.nav-header .img-logo{
+    width: 70px;
+    margin: 0;
+}
+.nav-header .logo{
+    color: black;
+}
+@media screen and (max-width:1150px){
+    .buscador .buscador-input {
+        width: 250px;
+    }
+}
+@media screen and (max-width:884px) {
+    .nav-header .button, .nav-inferior .button-inferior {
+        display: block;
+        cursor: pointer;
+        margin-right: 1%;
+    }
+
+    .nav-header .nav ,  .nav-inferior .nav-inf{
+        width: 100%;
+        display: none;
+        margin-right: 1%;
+    }
+
+    .nav-header .nav.activo,  .nav-inferior .nav-inf.activo{
+        display: block;
+    }
+
+    .nav-header .ul {
+        flex-direction: column;
+    }
+
+    .nav-header .li {
+        margin: 1rem 0;
+    }
+    .buscador .buscador-input {
+        width: 200px;
+    }
+
+    .nav-inferior .ul {
+        flex-direction: column;
+    }
+
+    .nav-inferior .li {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width:357px) {
+    .buscador .buscador-input {
+        width: 100px;
+    }
+}
