@@ -1,7 +1,7 @@
 <?php $url = "../"; ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="myhead">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <div class="container-title">Camisas</div>
     <main>
         <div class="container-img">
-            <img src="https://img.freepik.com/vector-premium/diseno-camisetas-futbol-sublimacion-diseno-camisetas-deportivas_29096-3212.jpg" alt="">
+            <img class="myimg" src="https://img.freepik.com/vector-premium/diseno-camisetas-futbol-sublimacion-diseno-camisetas-deportivas_29096-3212.jpg" alt="">
         </div>
         <div class="container-info-product">
             <div class="container-price">
@@ -104,7 +104,7 @@
         <div class="card-list-products">
             <div class="card">
                 <div class="card-img">
-                    <img src="https://i.pinimg.com/474x/b0/51/7f/b0517f994ba914a3e1ee0019274e56fb.jpg" alt="producto-1">
+                    <img class="myimg"  src="https://i.pinimg.com/474x/b0/51/7f/b0517f994ba914a3e1ee0019274e56fb.jpg" alt="producto-1">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
@@ -120,7 +120,7 @@
         <div class="card-list-products">
             <div class="card">
                 <div class="card-img">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_882560-MCO49091233620_022022-W.jpg" alt="producto-2">
+                    <img class="myimg"  src="https://http2.mlstatic.com/D_NQ_NP_882560-MCO49091233620_022022-W.jpg" alt="producto-2">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
@@ -136,7 +136,7 @@
         <div class="card-list-products">
             <div class="card">
                 <div class="card-img">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_763184-MCO54061214742_022023-W.jpg" alt="producto-3">
+                    <img class="myimg"  src="https://http2.mlstatic.com/D_NQ_NP_763184-MCO54061214742_022023-W.jpg" alt="producto-3">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
@@ -152,7 +152,7 @@
         <div class="card-list-products">
             <div class="card">
                 <div class="card-img">
-                    <img src="https://racketball.vteximg.com.br/arquivos/ids/186386-1248-1546/41962-LICRA-DEPORTIVA-ROSA-MUJER-PANTALONES-Y-LICRAS-RACKETBALL-7701650788425-1.jpg?v=637407337357900000" alt="producto-4">
+                    <img class="myimg"  src="https://racketball.vteximg.com.br/arquivos/ids/186386-1248-1546/41962-LICRA-DEPORTIVA-ROSA-MUJER-PANTALONES-Y-LICRAS-RACKETBALL-7701650788425-1.jpg?v=637407337357900000" alt="producto-4">
                 </div>
                 <div class="info-card">
                     <div class="text-product">

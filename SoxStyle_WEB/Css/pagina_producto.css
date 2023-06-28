@@ -5,13 +5,14 @@
     box-sizing: border-box;
 }
 body{
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1400px;
+    margin: 0 auto ;
 }
-img{
-    max-width: 100%;
+.myimg{
+    width: 100%;
+    height: 100%;
 }
-header{
+.myheader{
     display: flex;
     align-items: center;
     padding: 30px;
@@ -29,7 +30,8 @@ main{
 }
 .container-img{
     flex: 1;
-    background-color: #f7f7f9;
+   
+   
 }
 .container-info-product{
     flex: 1;
@@ -147,7 +149,7 @@ position: relative;
     font-weight: 700;
 }
 .btn-add-to-cart:hover{
-    color: #1bbeb4;
+    color: black;
 }
 
 .hidden{
