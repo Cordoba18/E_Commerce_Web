@@ -17,7 +17,7 @@
 
 <form action="cod_verify.php" method="POST">
     <div class="form-group">
-    <label for="inputEmail3">Correo Electronico</label>
+    <label for="inputEmail3"><strong>Correo Electronico</strong></label>
     <br>
     <input type="email" name="passEmail" id="inputEmail3" class="form-control">
     <button type="submit" class="boton">Enviar codigo</button>

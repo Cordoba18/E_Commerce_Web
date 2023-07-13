@@ -20,13 +20,13 @@
   
 <form>
   <div class="form-group">
-    
-  <label for="inputEmail3" class="col-sm-2 col-form-label">Nueva contraseña</label>  
+    <strong>
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Nueva contraseña</label> <br>
   <input type="email" class="form-control" id="inputEmail3">
   
-  <label for="inputPassword3" class="col-sm-2 col-form-label">Confirmar contraseña</label>
+  <label for="inputPassword3" class="col-sm-2 col-form-label">Confirmar contraseña</label><br>
   <input type="password" class="form-control" id="inputPassword3">
-
+  </strong>
   <button type="submit" class="boton">Crear</button>  
   
 </div>
