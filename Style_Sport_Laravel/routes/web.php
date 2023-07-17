@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/login', [AuthenticatedSessionController::class, 'index'])->name('login');
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
 Route::get('/register', [RegisteredUserController::class, 'index'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
 
 Route::get('/product/catalog', [ProductController::class, 'index'])->name('productcatalog');
