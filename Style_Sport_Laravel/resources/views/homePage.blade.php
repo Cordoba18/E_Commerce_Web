@@ -2,7 +2,13 @@
 
 @section('title', 'home')
 
+@section('css')
+
+@endsection
+
 @section('content')
+
+@include('layaouts.partials.navBar')
 
 <h1>Inicio</h1>
 
@@ -15,5 +21,7 @@
 </form>
 
 @endauth
+
+@include('layaouts.partials.footer')
 
 @endsection

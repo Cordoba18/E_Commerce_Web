@@ -30,7 +30,7 @@
             <button type="submit">Log in</button>
         </form>
         <div class="not-member">
-            <a href="/">Cancelar</a>
+            <a href="{{route('home')}}">Cancelar</a>
         </div>
         <div class="not-member">
             No tienes cuenta? <a href="{{ route('register') }}">Registrate ahora</a>

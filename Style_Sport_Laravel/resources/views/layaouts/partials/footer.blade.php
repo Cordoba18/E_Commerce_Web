@@ -1,0 +1,41 @@
+<div class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href="{{route('home')}}" class="logo">
+                    <img src="{{asset('storage/imgs/icon/Logo.png')}}" alt="">
+                    <p>Style sport</p>
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>MAS CONTENIDO</h2>
+            <ul class="list-footer">
+                <li class="li"><a href="{{route('home')}}" class="a">Inicio</a></li>
+                @auth
+                <li class="li"><a href="{{route('customerprofile')}}" class="a">Perfil</a></li>
+                @endauth
+                @guest
+                <li class="li"><a href="{{route('login')}}" class="a">Iniciar sesion</a></li>
+                <li class="li"><a href="{{route('register')}}" class="a">Registrarse</a></li>
+                @endguest
+            
+                <li class="li"><a href="#" class="a">Categorias</a></li>
+                <li class="li"><a href="#" class="a">About</a></li>
+                <li class="li"><a href="#" class="a">Ayuda</a></li>
+                <li class="li"><a href="#" class="a">Terminos y condiciones</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="#"> <i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2023 <b>Style sport</b> - Todos los Derechos Reservados.</small>
+    </div>
+</div>

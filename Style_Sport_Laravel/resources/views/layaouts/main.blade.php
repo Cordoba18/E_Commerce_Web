@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- titulo --}}
     <title>@yield('title')</title>
-    {{-- Bootstrap --}}
-    @vite(['resources/css/app.scss'])
+    {{-- Bootstrap and Fontawesome--}}
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
     {{-- Css --}}
+    @vite(['resources/css/navbar.css'])
     @yield('css')
 </head>
 <body>
