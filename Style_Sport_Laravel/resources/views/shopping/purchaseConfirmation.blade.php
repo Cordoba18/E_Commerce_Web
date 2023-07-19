@@ -2,12 +2,15 @@
 
 @section('title', 'confirmacion compra')
 
+@section('css')
+@vite(['resources/css/purchaseconfirmation.css'])
+@endsection
+
 @section('content')
 
-<h1>confirmacion de compra</h1>
-
 <div class="container">
-    <h1>Lista de productos</h1>
+<h1>confirmacion de compra</h1><br><br>
+    <h2>Lista de productos</h2><br>
 
     <div class="table-container">
       <table>

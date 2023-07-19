@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+  }
+
+.table-container {
+    position: relative;
+  }
+  
+  .table-container::before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-left: 2px solid #000000;
+    height: calc(100% - 60px);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 40px;
+  }
+  
+  .t1 {
+    text-align: left;
+  }
+  
+  .t2 {
+    text-align: right;
+  }
+  
+  .tot {
+    text-align: right;
+  }
+
+  .linea-horizontal {
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+  }
+
+.conta2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.txt2 {
+    display: inline-block;
+    width: 80px;
+    text-align: left;
+  }
+  
+  .campos2 {
+    width: 200px;
+    padding: 1px;
+    text-align: left;
+  }

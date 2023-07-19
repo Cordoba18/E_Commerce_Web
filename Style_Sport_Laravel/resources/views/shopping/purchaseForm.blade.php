@@ -3,13 +3,14 @@
 @section('title', 'formulario compras')
 
 @section('css')
-@vite(['resources/css/app.scss'])
+@vite(['resources/css/purchaseform.css'])
 @endsection
 @section('content')
 
-<h1>Formulario de compras</h1>
-
 <div class="container">
+
+<h1>Formulario de compras</h1>
+<br><br>
     <form action="" method="post">
     <label for="nombre" class="txt">Nombre</label>
     <input type="text" name="nombre" class="campos">
