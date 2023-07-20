@@ -23,6 +23,7 @@ Route::post('/register', [RegisteredUserController::class, 'store'])->name('regi
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
 
 Route::get('/product/catalog', [ProductController::class, 'index'])->name('productcatalog');
+Route::post('/product/catalog', [ProductController::class, 'search'])->name('productcatalog.search');
 Route::get('/product/profile', [ProductController::class, 'show'])->name('productprofile');
 
 Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');

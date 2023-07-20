@@ -8,7 +8,7 @@
     </div>
     <div class="columntwo">
         <div class="columntwo-one">
-            <form action="{{route('productcatalog')}}" method="get">
+            <form action="{{route('productcatalog.search')}}" method="post">
                 @csrf
                 <input type="text" name="search">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>

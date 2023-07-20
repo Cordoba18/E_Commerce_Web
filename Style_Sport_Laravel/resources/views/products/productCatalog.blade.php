@@ -4,6 +4,8 @@
 
 @section('content')
 
-<h1>catalogo de productos</h1>
+@foreach ($productos as $p )
+    {{$p->nombre}} <br>
+@endforeach
 
 @endsection
