@@ -6,8 +6,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/app.js', 
+                'resources/js/navBarResponsive.js', 
                 'resources/css/app.scss', 
                 'resources/css/form.css',
+                'resources/css/productCatalog.css', 
                 'resources/css/navbar.css', 
                 'resources/css/purchaseform.css',
                 'resources/css/purchaseconfirmation.css',

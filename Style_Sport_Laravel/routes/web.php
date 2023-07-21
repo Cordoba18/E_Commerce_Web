@@ -22,9 +22,10 @@ Route::get('/register', [RegisteredUserController::class, 'index'])->name('regis
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
 
-Route::get('/product/catalog', [ProductController::class, 'index'])->name('productcatalog');
-Route::post('/product/catalog', [ProductController::class, 'search'])->name('productcatalog.search');
-Route::get('/product/profile', [ProductController::class, 'show'])->name('productprofile');
+Route::get('/productcatalog', [ProductController::class, 'index'])->name('productcatalog');
+Route::get('/productcatalog/{id}', [ProductController::class, 'searchCategory'])->name('productcatalog.category');
+Route::post('/productcatalog', [ProductController::class, 'search'])->name('productcatalog.search');
+Route::get('/productprofile', [ProductController::class, 'show'])->name('productprofile');
 
 Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');

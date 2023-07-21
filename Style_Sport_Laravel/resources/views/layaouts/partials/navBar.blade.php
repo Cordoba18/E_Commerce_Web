@@ -5,6 +5,9 @@
             <img src="{{asset('storage/imgs/icon/Logo.png')}}" alt="">
             <h1>Style Sport</h1>
         </a>
+        <button class="button-responsive">
+            <i class="fa fa-bars i"></i>
+        </button>
     </div>
     <div class="columntwo">
         <div class="columntwo-one">
@@ -28,9 +31,9 @@
 </nav>
 <nav class="navbarbotton">
     <ul>
-        <li>Zapatillas</li>
-        <li>Camisas</li>
-        <li>Pantalones</li>
-        <li>Mas+</li>
+        <li><a href="{{route('productcatalog.category', 1)}}">Camisetas</a></li>
+        <li><a href="{{route('productcatalog.category', 2)}}">Pantalones</a></li>
+        <li><a href="{{route('productcatalog.category', 3)}}">Zapatillas</a></li>
+        <li><a href="{{route('productcatalog')}}">Mas +</a></li>
     </ul>
 </nav>

@@ -9,13 +9,18 @@
     {{-- Bootstrap and Fontawesome--}}
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
     {{-- Css --}}
-    @vite(['resources/css/navbar.css'])
+    @vite(['resources/css/navbar.css', 'resources/js/navBarResponsive.js'])
     @yield('css')
 </head>
 <body>
+    
+
+
+    @include('layaouts.partials.navBar')
 
     @yield('content')
     
+    @include('layaouts.partials.footer')
 </body>
 @yield('js')
 </html>

@@ -8,8 +8,6 @@
 
 @section('content')
 
-@include('layaouts.partials.navBar')
-
 @include('layaouts.partials.slider')
 
 <h1>Inicio</h1>
@@ -26,10 +24,8 @@
 
 @include('layaouts.partials.productCarousel')
 
-@include('layaouts.partials.footer')
-
 @section('js')
-<script src="glider.js"></script>
+
 @endsection
 
 @endsection

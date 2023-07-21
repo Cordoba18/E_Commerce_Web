@@ -1,0 +1,71 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.main .columnone {
+    width: 300px;
+}
+
+.main .columnone aside {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .columnone aside h2 {
+    margin: 15px auto;
+}
+
+.main .columnone aside ul {
+    width: 100%;
+}
+
+.main .columnone aside ul li {
+    margin: 10px auto;
+}
+
+.main .columnone aside ul li a {
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
+
+.main .columntwo {
+    margin: 30px 45px;
+    width: 100%;
+}
+
+.main .columntwo h2 {
+    margin: 0px auto 30px auto;
+}
+
+.main .columntwo .results {
+    padding: 0px;
+    width: 100%;
+}
+
+.main .columntwo .results .card-product {
+    width: 100%;
+    height: 150px;
+    border: 1px solid rgb(218, 218, 218);
+    background-color: #fff;
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.main .columntwo .results .card-product .card-product-body {
+    background-color: #f7f7f7;
+    width: 85%;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
