@@ -14,13 +14,7 @@
         </div>
         <div class="columntwo">
 
-            @if (session('search'))
-                <h2>Resultado de: {{ session('search') }}</h2>
-            @elseif (session('category'))
-                <h2>Resultado de: {{ session('category')->categoria }}</h2>
-            @else
-                <h2>Resultados:</h2>
-            @endif
+            <h2>Resultados:</h2>
 
             <div class="results">
                 @foreach ($productos as $p)
@@ -39,6 +33,7 @@
                     </div>
                 @endforeach
             </div>
+{{$productos->appends(['search'=> $search])->links()}}
         </div>
     </main>
 

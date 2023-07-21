@@ -11,8 +11,7 @@
     </div>
     <div class="columntwo">
         <div class="columntwo-one">
-            <form action="{{route('productcatalog.search')}}" method="post">
-                @csrf
+            <form action="{{route('productcatalog')}}" method="get">
                 <input type="text" name="search">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
@@ -31,9 +30,9 @@
 </nav>
 <nav class="navbarbotton">
     <ul>
-        <li><a href="{{route('productcatalog.category', 1)}}">Camisetas</a></li>
-        <li><a href="{{route('productcatalog.category', 2)}}">Pantalones</a></li>
-        <li><a href="{{route('productcatalog.category', 3)}}">Zapatillas</a></li>
+        <li><a href="{{route('productcatalog')}}">Camisetas</a></li>
+        <li><a href="{{route('productcatalog')}}">Pantalones</a></li>
+        <li><a href="{{route('productcatalog')}}">Zapatillas</a></li>
         <li><a href="{{route('productcatalog')}}">Mas +</a></li>
     </ul>
 </nav>

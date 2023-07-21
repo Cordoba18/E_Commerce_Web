@@ -10,44 +10,27 @@ use Nette\Utils\Strings;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        
-        if (session('search')) {
-            $search = session('search');
+        $search = $request->search;
 
-            if ($search == '') {
-                $productos = Product::all();
-            } else {
-                 $productos = DB::select("select * from productos INNER JOIN categorias on productos.categoria = categorias.id 
-                 WHERE productos.nombre LIKE '%$search%' OR productos.descripcion LIKE '%$search%' or categorias.categoria LIKE '%$search%'");
-            }
-        } else  if (session('category'))  {
-            $category =  session('category');
-            $productos = Product::where('categoria', $category->id)->get();
+        if ($search == '') {
+            $productos = Product::paginate(3);
         } else {
-            $productos = Product::all();
+            $productos = DB::table('productos')
+            ->join('categorias', 'productos.categoria', '=', 'categorias.id')
+            ->select('productos.*')
+            ->where('productos.nombre', 'LIKE', '%' . $search . '%')
+            ->orWhere('productos.descripcion', 'LIKE', '%' . $search . '%')
+            ->orWhere('categorias.categoria', 'LIKE', '%' . $search . '%')
+            ->paginate(3);
         }
         $categories = Category::all();
-
-        return view('products.productCatalog', compact('productos','categories'));
+        return view('products.productCatalog', compact('productos','categories','search'));
     }
 
     public function show()
     {
         return view('products.productProfile');
-    }
-
-    public function search(Request $request)
-    {
-        $search = $request->search;
-
-        return redirect()->route('productcatalog')->with('search', $search);
-    }
-
-    public function searchCategory(String $id)
-    {
-        $category = Category::where('id', $id)->first();
-        return redirect()->route('productcatalog')->with('category', $category);
     }
 }
