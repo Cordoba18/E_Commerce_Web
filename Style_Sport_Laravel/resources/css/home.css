@@ -1,0 +1,134 @@
+.carousel-productos {
+    max-width: 1500px;
+    width: 80%;
+    margin: auto;
+}
+
+.carousel-contenedor {
+    position: relative;
+}
+
+.carousel-contenedor .carousel-listaD .target{
+    margin: 30px;
+    border: 1px solid grey;
+}
+
+.carousel-anterior,
+.carousel-siguiente {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(50% - 35px);
+    cursor: pointer;
+    line-height: 30px;
+    background: none;
+    text-align: center;
+    color: black;
+}
+
+.carousel-anterior:hover,
+.carousel-siguiente:hover {
+    background: rgba(0, 0, 0);
+    color: white;
+    border-radius: 50%;
+}
+
+.carousel-anterior {
+    left: -30px;
+}
+
+.carousel-siguiente {
+    right: -30px;
+}
+
+/* ---------------------slider---------------------------- */
+.swiper {
+    width: 100%;
+    max-height: 1600px;
+}
+
+.swiper .img{
+    height: 360px;
+    width: 100%;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    --swiper-navigation-size: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    height: 50px;
+    width: 50px;
+    margin-top: -25px;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+    opacity: 1;
+
+}
+
+.swiper .swiper-button-prev:hover,
+.swiper .swiper-button-next:hover {
+    background: rgba(0, 0, 0);
+}
+
+.swiper .swiper-pagination {
+    --swiper-pagination-color: rgb(0, 0, 0);
+}
+
+@media (max-width:900px){
+    .carousel-contenedor .carousel-listaD .target{
+        margin: 17px;
+    }
+}
+
+@media (max-width: 800px) {
+    
+    .carousel-contenedor .carousel-listaD .target{
+        margin: 40px;
+    }
+
+    .swiper .img {
+        height: 200px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 680px) {
+    .carousel-contenedor .carousel-listaD .target{
+        margin: 17px;
+    }
+}
+
+@media (max-width: 530px) {
+    
+    .carousel-contenedor .carousel-listaD .target{
+        margin: 40px;
+    }
+
+    .swiper .img {
+        height: 170px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 300px) {
+    .carousel-contenedor .carousel-listaD .target{
+        margin: 10px;
+    }
+}
+
+@media(max-width: 800px) {
+
+
+}
+
+@media screen and (max-width:520px) {
+
+}

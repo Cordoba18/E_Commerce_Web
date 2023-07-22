@@ -5,11 +5,16 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+                // -------------JS-----------
                 'resources/js/app.js', 
                 'resources/js/navBarResponsive.js', 
-                'resources/css/app.scss', 
+                'resources/js/productCarousel.js', 
+                'resources/js/Slider.js',
+                // ------CSS----------
+                'resources/css/app.scss',
+                'resources/css/home.css',  
                 'resources/css/form.css',
-                'resources/css/productCatalog.css', 
+                'resources/css/ProductCatalog.css', 
                 'resources/css/navbar.css', 
                 'resources/css/purchaseform.css',
                 'resources/css/purchaseconfirmation.css',
