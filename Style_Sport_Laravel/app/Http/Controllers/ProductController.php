@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\ImgProduct;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class ProductController extends Controller
             ->paginate(3);
         }
         $categories = Category::all();
-        return view('products.productCatalog', compact('productos','categories','search'));
+        $imgProduct = ImgProduct::all();
+        return view('products.productCatalog', compact('productos','categories','search','imgProduct'));
     }
 
     public function show()

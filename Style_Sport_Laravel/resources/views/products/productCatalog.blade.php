@@ -14,12 +14,34 @@
         </div>
         <div class="columntwo">
 
-            <h2>Resultados:</h2>
+            <h2>Resultados:</h2> 
 
             <div class="results">
                 @foreach ($productos as $p)
                     <div class="card-product">
-                        <img src="">
+                        @php
+                        $foundImage = false;
+                        $imagePath = '';
+                    @endphp
+            
+                    @foreach ($imgProduct as $img)
+                        @if ($img->id_producto == $p->id)
+                            @php
+                                $imagePath = 'storage/imgs/..' . $img->imagen;
+                            @endphp
+                            @if (file_exists(public_path($imagePath)))
+                                <img src="{{ asset($imagePath) }}">
+                                @php
+                                    $foundImage = true;
+                                @endphp
+                            @endif
+                            @break
+                        @endif
+                    @endforeach
+            
+                    @unless ($foundImage)
+                        <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
+                    @endunless
                         <div class="card-product-body">
                             <div>
                                 <h3>{{ $p->nombre }}</h3>
