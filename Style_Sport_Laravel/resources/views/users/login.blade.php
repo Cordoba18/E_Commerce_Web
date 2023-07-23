@@ -21,7 +21,7 @@
             @error('password')
                 <h6>{{ $message }}</h6>
             @enderror
-            @if (session('status'))
+            @if (session('credentials'))
                 {{ session('credentials') }}
             @endif
             <p class="recover">

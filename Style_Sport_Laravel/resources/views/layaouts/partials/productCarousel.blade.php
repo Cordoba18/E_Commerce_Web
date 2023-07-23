@@ -8,7 +8,7 @@
         @foreach ($imgProduct as $img)
             @if ($img->id_producto == $P->id)
                 @php
-                    $imagePath = 'storage/imgs/..' . $img->imagen;
+                    $imagePath = 'storage/imgs/' . $img->imagen;
                 @endphp
                 @if (file_exists(public_path($imagePath)))
                     <img src="{{ asset($imagePath) }}">

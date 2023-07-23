@@ -23,7 +23,7 @@ class AuthenticatedSessionController extends Controller
 
     public function store(AuthenticatedSessionRequest $request)
     {
-        $user = User::where('correo', $request->email)->first();
+        $user = User::where('correo', $request->email)->where('estados_id', '1')->first();
 
         if (!$user) {
             return redirect()->route('login')->with('credentials', 'credenciales incorrectas');

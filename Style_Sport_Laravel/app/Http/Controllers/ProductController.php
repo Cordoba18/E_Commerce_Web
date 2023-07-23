@@ -16,14 +16,17 @@ class ProductController extends Controller
         $search = $request->search;
 
         if ($search == '') {
-            $productos = Product::paginate(3);
+            $productos = Product::where('estados_id', '1')->paginate(3);
         } else {
             $productos = DB::table('productos')
             ->join('categorias', 'productos.categoria', '=', 'categorias.id')
             ->select('productos.*')
-            ->where('productos.nombre', 'LIKE', '%' . $search . '%')
-            ->orWhere('productos.descripcion', 'LIKE', '%' . $search . '%')
-            ->orWhere('categorias.categoria', 'LIKE', '%' . $search . '%')
+            ->where(function($query) use ($search) {
+                $query->where('productos.nombre', 'LIKE', '%' . $search . '%')
+                    ->orWhere('productos.descripcion', 'LIKE', '%' . $search . '%')
+                    ->orWhere('categorias.categoria', 'LIKE', '%' . $search . '%');
+            })
+            ->where('estados_id','1')
             ->paginate(3);
         }
         $categories = Category::all();
