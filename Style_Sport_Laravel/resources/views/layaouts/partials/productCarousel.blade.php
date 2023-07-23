@@ -8,7 +8,7 @@
         @foreach ($imgProduct as $img)
             @if ($img->id_producto == $P->id)
                 @php
-                    $imagePath = 'storage/imgs/' . $img->imagen;
+                    $imagePath = 'storage/imgs/..' . $img->imagen;
                 @endphp
                 @if (file_exists(public_path($imagePath)))
                     <img src="{{ asset($imagePath) }}">
@@ -24,10 +24,10 @@
             <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
         @endunless
 
-        <div class="card-body">
-            <h5 class="card-title">{{ $P->nombre }}</h5>
-            <p class="card-text">{{ $P->descripcion }}</p>
-            <a href="#" class="btn btn-primary">Ver mas</a>
+        <div class="target-body">
+            <h5 class="target-title">{{ $P->nombre }}</h5>
+            <p class="target-text">${{ $P->precio }}</p>
+            <p class="target-text">Envio gratis</p>
         </div>
     </div>
 @endforeach
