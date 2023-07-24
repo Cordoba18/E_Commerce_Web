@@ -34,8 +34,9 @@ class ProductController extends Controller
         return view('products.productCatalog', compact('productos','categories','search','imgProduct'));
     }
 
-    public function show()
+    public function show(Product $product)
     {
-        return view('products.productProfile');
+        $category = Category::where('id',$product->categoria)->first();
+        return view('products.productProfile', compact('product','category'));
     }
 }

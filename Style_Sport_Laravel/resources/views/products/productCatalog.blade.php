@@ -14,34 +14,35 @@
         </div>
         <div class="columntwo">
 
-            <h2>Resultados:</h2> 
+            <h2>Resultados:</h2>
 
             <div class="results">
                 @foreach ($productos as $p)
-                    <div class="card-product">
-                        @php
-                        $foundImage = false;
-                        $imagePath = '';
-                    @endphp
-            
-                    @foreach ($imgProduct as $img)
-                        @if ($img->id_producto == $p->id)
+                    <a href="{{route('productprofile', $p->id)}}">
+                        <div class="card-product">
                             @php
-                                $imagePath = 'storage/imgs/..' . $img->imagen;
+                                $foundImage = false;
+                                $imagePath = '';
                             @endphp
-                            @if (file_exists(public_path($imagePath)))
-                                <img src="{{ asset($imagePath) }}">
-                                @php
-                                    $foundImage = true;
-                                @endphp
+
+                            @foreach ($imgProduct as $img)
+                                @if ($img->id_producto == $p->id)
+                                    @php
+                                        $imagePath = 'storage/imgs/..' . $img->imagen;
+                                    @endphp
+                                    @if (file_exists(public_path($imagePath)))
+                                        <img src="{{ asset($imagePath) }}">
+                                        @php
+                                            $foundImage = true;
+                                        @endphp
+                                    @endif
+                                @break
                             @endif
-                            @break
-                        @endif
-                    @endforeach
-            
-                    @unless ($foundImage)
-                        <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
-                    @endunless
+                        @endforeach
+
+                        @unless ($foundImage)
+                            <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
+                        @endunless
                         <div class="card-product-body">
                             <div>
                                 <h3>{{ $p->nombre }}</h3>
@@ -53,10 +54,11 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
-{{$productos->appends(['search'=> $search])->links()}}
+                </a>
+            @endforeach
         </div>
-    </main>
+        {{ $productos->appends(['search' => $search])->links() }}
+    </div>
+</main>
 
 @endsection

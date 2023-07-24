@@ -1,0 +1,60 @@
+.main{
+    width: 100%;
+}
+
+.main .header{
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    background: #dbe6f1;
+}
+
+.main .profileProduct{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto 20px auto;
+    background: #dbe6f1;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.main .profileProduct .columnone{
+    width: 50%;
+}
+
+.main .profileProduct .columnone .img{
+    margin: auto;
+    width: 70%;
+}
+
+.main .profileProduct .columnone .img img{
+    width: 100%;
+}
+
+.main .profileProduct .columntwo{
+width: 50%;
+}
+
+.main .profileProduct .columntwo .description{
+    width: 100%;
+    height: 200px;
+}
+
+.main .profileProduct .columntwo .details{
+    width: 100%;
+}
+
+.main .profileProduct .columntwo .details form{
+    display: flex;
+    width: 92%;
+    flex-direction: column;
+}
+
+.main .profileProduct .columntwo .details form .amount .btns{
+    display: flex;
+    flex-direction: row;
+}
+
+.main .profileProduct .columntwo .details form .btns{
+    margin: 20px auto;
+}
