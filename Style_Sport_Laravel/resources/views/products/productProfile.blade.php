@@ -61,11 +61,16 @@
                     <p class="title">{{ $product->nombre }}</p>
                     <p class="description">{{ $product->descripcion }}</p>
                     <p class="category">{{ $category->categoria }}</p>
-                    <p class="price">${{ $product->precio }} {{ $product->descuento }}%</p>
+                    <p class="price">${{ $product->precio }} ${{ $discount }} {{ $product->descuento }}%</p>
                 </div>
                 <div class="details">
                     <form action="{{ route('shoppingcart.store') }}" method="post">
                         @csrf
+                        @auth
+                        <input type="hidden" name="user" value"{{ Auth::user()->id }}">
+                        @endauth
+                        <input type="hidden" name="product" value="{{ $product->id }}">
+                        <input type="hidden" name="price" value="{{ $discount }}">
                         <label>Color:</label>
                         <select name="color" id="">
                             <option disabled selected value="">Escoge una opcion</option>
@@ -74,7 +79,7 @@
                             @endforeach
                         </select>
                         <label>Talla:</label>
-                        <select name="talla" id="selectTalla">
+                        <select name="size" id="selectTalla">
                             <option disabled selected value="">Escoge una opción</option>
                             @foreach ($size as $s)
                                 <option value="{{ $s->talla }}" data-cantidad="{{ $s->cantidad }}">{{ $s->talla }}</option>

@@ -51,42 +51,15 @@
 }
 
 /* ---------------------slider---------------------------- */
-.swiper {
-    width: 100%;
-    max-height: 1600px;
+.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.3);
 }
-
-.swiper .img{
-    height: 360px;
+.carousel-item{
     width: 100%;
 }
 
-.swiper .swiper-button-prev,
-.swiper .swiper-button-next {
-    --swiper-navigation-size: 24px;
-    background: rgba(0, 0, 0, 0.2);
-    height: 50px;
-    width: 50px;
-    margin-top: -25px;
-    border-radius: 50%;
-    color: rgb(255, 255, 255);
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.swiper:hover .swiper-button-prev,
-.swiper:hover .swiper-button-next {
-    opacity: 1;
-
-}
-
-.swiper .swiper-button-prev:hover,
-.swiper .swiper-button-next:hover {
-    background: rgba(0, 0, 0);
-}
-
-.swiper .swiper-pagination {
-    --swiper-pagination-color: rgb(0, 0, 0);
+.carousel-item .img{
+    width: 100%;
 }
 
 @media (max-width:900px){
@@ -99,11 +72,6 @@
 
     .carousel-contenedor .carousel-listaD .target{
         margin: 40px;
-    }
-
-    .swiper .img {
-        height: 200px;
-        width: 100%;
     }
 }
 
@@ -118,11 +86,6 @@
     .carousel-contenedor .carousel-listaD .target{
         margin: 40px;
     }
-
-    .swiper .img {
-        height: 170px;
-        width: 100%;
-    }
 }
 
 @media (max-width: 300px) {
@@ -131,11 +94,3 @@
     }
 }
 
-@media(max-width: 800px) {
-
-
-}
-
-@media screen and (max-width:520px) {
-
-}
