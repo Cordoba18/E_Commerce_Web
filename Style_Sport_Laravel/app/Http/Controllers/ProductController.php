@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\ImgProduct;
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Nette\Utils\Strings;
@@ -37,6 +39,14 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $category = Category::where('id',$product->categoria)->first();
-        return view('products.productProfile', compact('product','category'));
+
+        $imgs = ImgProduct::where('id_producto', $product->id)->where('estados_id','1')->get();
+
+        $color = Color::where('id_producto', $product->id)->where('estados_id','1')->get();
+
+        $size = Size::where('id_producto', $product->id)->where('estados_id','1')->get();
+
+        
+        return view('products.productProfile', compact('product','category','imgs','color', 'size'));
     }
 }

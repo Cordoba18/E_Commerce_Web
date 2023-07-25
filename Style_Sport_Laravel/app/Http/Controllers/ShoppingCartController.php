@@ -10,4 +10,9 @@ class ShoppingCartController extends Controller
     {
         return view('shopping.shoppingCart');
     }
+
+    public function store(Request $request)
+    {
+        dd($request);
+    }
 }

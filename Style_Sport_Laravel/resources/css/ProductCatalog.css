@@ -50,6 +50,10 @@
     width: 100%;
 }
 
+.main .columntwo .results a{
+    text-decoration: none;
+}
+
 .main .columntwo .results .card-product {
     width: 90%;
     height: 150px;
@@ -61,6 +65,10 @@
     justify-content: space-between;
 }
 
+.main .columntwo .results .card-product img{
+
+}
+
 .main .columntwo .results .card-product .card-product-body {
     background-color: #f7f7f7;
     width: 85%;
@@ -69,6 +77,8 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
+    text-decoration: none;
+    color: #000;
 }
 
 @media (max-width: 1000px) {

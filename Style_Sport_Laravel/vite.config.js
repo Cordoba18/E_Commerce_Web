@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/navBarResponsive.js',
                 'resources/js/productCarousel.js',
                 'resources/js/Slider.js',
+                'resources/js/productProfile.js',
                 // ------CSS----------
                 'resources/css/app.scss',
                 'resources/css/home.css',

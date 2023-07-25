@@ -14,41 +14,83 @@
         <div class="profileProduct">
             <section class="columnone">
                 <div class="img">
-                    <img src="https://img.freepik.com/vector-premium/diseno-camisetas-futbol-sublimacion-diseno-camisetas-deportivas_29096-3212.jpg" alt="">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            @php
+                                $imagePath = '';
+                                $active = true;
+                            @endphp
+
+                            @foreach ($imgs as $img)
+                                @php
+                                    $imagePath = 'storage/imgs/' . $img->imagen;
+                                    $imageInfo = @getimagesize(public_path($imagePath));
+                                @endphp
+                                @if ($imageInfo !== false)
+                                    <div class="carousel-item @if ($active) active @endif">
+                                        <img src="{{ asset($imagePath) }}" class="d-block w-100" alt="...">
+                                    </div>
+                                @else
+                                
+                                    <div class="carousel-item @if ($active) active @endif">
+                                        <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
+                                    </div>
+                                @endif
+                                @php
+                                    $active = false;
+                                @endphp
+                            @endforeach
+
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             </section>
             <section class="columntwo">
                 <div class="description">
-                    <p>{{$product->nombre}}</p>
-                    <p>{{$product->descripcion}}</p>
-                    <p>{{$category->categoria}}</p>
-                    <p>${{$product->precio}}  {{$product->descuento}}%</p>
+                    <p class="title">{{ $product->nombre }}</p>
+                    <p class="description">{{ $product->descripcion }}</p>
+                    <p class="category">{{ $category->categoria }}</p>
+                    <p class="price">${{ $product->precio }} {{ $product->descuento }}%</p>
                 </div>
                 <div class="details">
-                    <form action="#" method="post">
+                    <form action="{{ route('shoppingcart.store') }}" method="post">
                         @csrf
                         <label>Color:</label>
-                        <select name="" id="">
+                        <select name="color" id="">
                             <option disabled selected value="">Escoge una opcion</option>
-                            <option value="color">color</option>
+                            @foreach ($color as $c)
+                            <option value="{{ $c->color }}">{{ $c->color }}</option>
+                            @endforeach
                         </select>
                         <label>Talla:</label>
-                        <select name="" id="">
-                            <option disabled selected value="">Escoge una opcion</option>
-                            <option value="talla">talla</option>
+                        <select name="talla" id="selectTalla">
+                            <option disabled selected value="">Escoge una opción</option>
+                            @foreach ($size as $s)
+                                <option value="{{ $s->talla }}" data-cantidad="{{ $s->cantidad }}">{{ $s->talla }}</option>
+                            @endforeach
                         </select>
                         <label>Cantidad:</label>
                         <div class="amount">
-                            <button class="plus">+</button>
-                            <input type="number" name="amount" value="0">
-                            <button class="less">-</button>
+                            <button type="button" class="plus">+</button>
+                            <input type="number" name="amount" value="0" aria-valuemax="">
+                            <button type="button" class="less">-</button>
                         </div>
                         <div class="btns">
-                            <button class="clear">limpiar</button>
                             <button type="submit" class="addCart">Añadir al carrito</button>
-                            <button class="wishList">Favoritos</button>
                         </div>
                     </form>
+                    <button class="wishList">Favoritos</button>
                 </div>
             </section>
         </div>
@@ -57,4 +99,8 @@
         </div>
     </main>
 
+@endsection
+
+@section('js')
+@vite(['resources/js/productProfile.js'])
 @endsection

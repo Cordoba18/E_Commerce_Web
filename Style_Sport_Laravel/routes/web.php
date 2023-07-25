@@ -26,6 +26,7 @@ Route::get('/productcatalog', [ProductController::class, 'index'])->name('produc
 Route::get('/productprofile/{product}', [ProductController::class, 'show'])->name('productprofile');
 
 Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');
+Route::post('/shoppingcart/store', [ShoppingCartController::class, 'store'])->name('shoppingcart.store');
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
 
 Route::get('/customerprofile', [CustomerProfileController::class, 'index'])->name('customerprofile');

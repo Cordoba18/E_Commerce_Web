@@ -1,4 +1,5 @@
 @foreach ($Product as $P)
+<a href="{{route('productprofile', $P->id)}}">
     <div class="target">
         @php
             $foundImage = false;
@@ -30,6 +31,7 @@
             <p class="target-text">Envio gratis</p>
         </div>
     </div>
+</a>
 @endforeach
 
 

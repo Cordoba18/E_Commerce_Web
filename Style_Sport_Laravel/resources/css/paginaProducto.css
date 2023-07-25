@@ -37,7 +37,7 @@ width: 50%;
 
 .main .profileProduct .columntwo .description{
     width: 100%;
-    height: 200px;
+    display: block;
 }
 
 .main .profileProduct .columntwo .details{
