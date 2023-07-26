@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisteredUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class RegisteredUserController extends Controller
@@ -21,16 +20,24 @@ class RegisteredUserController extends Controller
 
     public function store(RegisteredUserRequest $request)
     {
+        $user = User::where('correo',$request->correo)->where('estados_id','1')->first();
 
-        $user = User::create([
-            'nombre' => $request->name.' '.$request->lastname,
-            'correo' => $request->correo,
-            'contrasena' => Hash::make($request->password),
-            'f_nacimiento' => $request->date,
-            'id_rol' => 2,
-            'estados_id' => 1,
-        ]);
+        if ($user) {
+            return redirect()->route('register')->with('credentials','el correo digitado ya tiene una cuenta existente');
+        }
 
-        return redirect()->route('login');
+        
+
+        return 'siga';
     }
 }
+
+
+// $user = User::create([
+//     'nombre' => $request->name.' '.$request->lastname,
+//     'correo' => $request->correo,
+//     'contrasena' => Hash::make($request->password),
+//     'f_nacimiento' => $request->date,
+//     'id_rol' => 2,
+//     'estados_id' => 1,
+// ]);

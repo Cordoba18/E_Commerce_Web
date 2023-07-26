@@ -37,6 +37,9 @@
             @error('password_confirmation')
             <h6>{{ $message }}</h6>
             @enderror
+            @if (session('credentials'))
+            <p>{{ session('credentials') }}</p>
+        @endif
             <button type="submit">Register</button>
         </form>
 

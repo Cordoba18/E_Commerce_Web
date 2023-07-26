@@ -26,7 +26,7 @@ class RegisteredUserRequest extends FormRequest
             'name' => ['required', 'string'],
             'lastname' => ['required', 'string'],
             'date' => ['required'],
-            'correo' => ['required', 'string', 'email','unique:Users'],
+            'correo' => ['required', 'string', 'email'],
             'password' => ['required', 'confirmed', Password::defaults()],
         ];
     }
@@ -39,7 +39,6 @@ class RegisteredUserRequest extends FormRequest
             'date.required' => 'la fecha es un valor requerido',
             'correo.required' => 'el correo es un valor requerido',
             'correo.email' => 'el correo debe ser un email valido',
-            'correo.unique' => 'el correo ya existe',
             'password.required' => 'la contraseña es un valor requerido',
             'password.confirmed' => 'las contraseñas no son iguales',
         ];
