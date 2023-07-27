@@ -20,6 +20,8 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
 Route::get('/register', [RegisteredUserController::class, 'index'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
+Route::get('/verification', [RegisteredUserController::class, 'verification'])->name('verification');
+Route::post('/verification', [RegisteredUserController::class, 'validation'])->name('verification.validate');
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
 
 Route::get('/productcatalog', [ProductController::class, 'index'])->name('productcatalog');
