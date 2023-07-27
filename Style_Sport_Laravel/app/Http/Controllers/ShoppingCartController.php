@@ -22,18 +22,19 @@ class ShoppingCartController extends Controller
 
     public function store(StoreProductCartShopping $request)
     {
-        $product = Product::where('id', $request->product)->where('estados_id', '1')->first();
+        
+    //    $cartshop = CartShop::create([
+    //     'cantidad_producto' => $request->amount,
+    //     'total' => $request->price,
+    //     'id_user' => $request->user,
+    //     'id_producto' =>$request->product,
+    //     'estados_id' => '1',
+    //     'tallas_id' => $request->size,
+    //     'colores_id' => $request->color,
+    //    ]);
 
-       $cartshop = CartShop::create([
-        'cantidad_producto' => $request->amount,
-        'total' => $request->price,
-        'id_user' => $request->product,
-        'id_producto' =>$request->user,
-        'estados_id' => '1',
-        'tallas_id' => $request->size,
-        'colores_id' => $request->color,
-       ]);
 
+       return redirect('productprofile/'.$request->product);
 
     }
 }
