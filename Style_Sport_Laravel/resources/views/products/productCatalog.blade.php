@@ -28,7 +28,7 @@
                             @foreach ($imgProduct as $img)
                                 @if ($img->id_producto == $p->id)
                                     @php
-                                        $imagePath = 'storage/imgs/.' . $img->imagen;
+                                        $imagePath = 'storage/imgs/' . $img->imagen;
                                     @endphp
                                     @if (file_exists(public_path($imagePath)))
                                         <img src="{{ asset($imagePath) }}">
@@ -41,7 +41,7 @@
                         @endforeach
 
                         @unless ($foundImage)
-                            <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
+                            <img src="{{ asset('storage/imgs/images.png') }}">
                         @endunless
                         <div class="card-product-body">
                             <div>

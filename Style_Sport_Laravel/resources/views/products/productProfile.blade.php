@@ -31,9 +31,8 @@
                                         <img src="{{ asset($imagePath) }}" class="d-block w-100" alt="...">
                                     </div>
                                 @else
-                                
                                     <div class="carousel-item @if ($active) active @endif">
-                                        <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
+                                        <img src="{{ asset('storage/imgs/images.png') }}">
                                     </div>
                                 @endif
                                 @php
@@ -67,7 +66,7 @@
                     <form action="{{ route('shoppingcart.store') }}" method="post">
                         @csrf
                         @auth
-                        <input type="hidden" name="user" value"{{ Auth::user()->id }}">
+                            <input type="hidden" name="user" value="{{ Auth::user()->id }}">
                         @endauth
                         <input type="hidden" name="product" value="{{ $product->id }}">
                         <input type="hidden" name="price" value="{{ $discount }}">
@@ -75,20 +74,27 @@
                         <select name="color" id="">
                             <option disabled selected value="">Escoge una opcion</option>
                             @foreach ($color as $c)
-                            <option value="{{ $c->color }}">{{ $c->color }}</option>
+                                <option value="{{ $c->id }}">{{ $c->color }}</option>
                             @endforeach
                         </select>
+                        @error('color')
+                            <h6>{{ $message }}</h6>
+                        @enderror
                         <label>Talla:</label>
                         <select name="size" id="selectTalla">
                             <option disabled selected value="">Escoge una opción</option>
                             @foreach ($size as $s)
-                                <option value="{{ $s->talla }}" data-cantidad="{{ $s->cantidad }}">{{ $s->talla }}</option>
+                                <option value="{{ $s->id }}" data-cantidad="{{ $s->cantidad }}">
+                                    {{ $s->talla }}</option>
                             @endforeach
                         </select>
+                        @error('size')
+                            <h6>{{ $message }}</h6>
+                        @enderror
                         <label>Cantidad:</label>
                         <div class="amount">
                             <button type="button" class="plus">+</button>
-                            <input type="number" name="amount" value="0" aria-valuemax="">
+                            <input type="number" name="amount" value="0">
                             <button type="button" class="less">-</button>
                         </div>
                         <div class="btns">
@@ -107,5 +113,5 @@
 @endsection
 
 @section('js')
-@vite(['resources/js/productProfile.js'])
+    @vite(['resources/js/productProfile.js'])
 @endsection

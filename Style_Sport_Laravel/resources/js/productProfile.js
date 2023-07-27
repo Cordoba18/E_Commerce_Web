@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var selectTalla = document.getElementById("selectTalla");
     var inputCantidad = document.querySelector("input[name='amount']");
     
-    
+    inputCantidad.disabled = true;
    
     // Manejar el evento de cambio en el select
     selectTalla.addEventListener("change", function () {

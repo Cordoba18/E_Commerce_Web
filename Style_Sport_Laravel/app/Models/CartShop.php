@@ -9,7 +9,7 @@ class CartShop extends Model
 {
     use HasFactory;
 
-    protected $table = 'categorias';
+    protected $table = 'carrito_compras';
 
     protected $fillable = [
         'cantidad_producto',

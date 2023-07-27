@@ -22,7 +22,7 @@
         @endforeach
 
         @unless ($foundImage)
-            <img src="{{ asset('storage/imgs/image_icon-icons.com_50366.png') }}">
+            <img src="{{ asset('storage/imgs/images.png') }}">
         @endunless
 
         <div class="target-body">
