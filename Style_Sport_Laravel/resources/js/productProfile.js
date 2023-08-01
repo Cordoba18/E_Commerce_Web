@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var selectTalla = document.getElementById("selectTalla");
     var inputCantidad = document.querySelector("input[name='amount']");
 
+<<<<<<< HEAD
+=======
+
+    // Manejar el evento de cambio en el select
+>>>>>>> 0903eb43bae793d8ec0832d96c79c4e56359037b
     selectTalla.addEventListener("change", function () {
         var selectedOption = selectTalla.options[selectTalla.selectedIndex];
         var maxCantidad = selectedOption.getAttribute("data-cantidad");
