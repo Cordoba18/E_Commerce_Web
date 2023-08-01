@@ -36,19 +36,14 @@ class StoreProductCartShopping extends FormRequest
     public function rules(): array
     {
         return [
-            'aomunt'=>'required',
             'size'=>'required',
             'color'=>'required',
-            'price'=>'accepted',
-            'user'=>'accepted',
-            'product'=>'accepted',
         ];
     }
 
     public function messages()
     {
         return [
-            'aomunt.required' => 'la cantidad no puede ser 0',
             'size.required' => 'Se debe elegir una talla',
             'color.required' => 'Se debe elegir un color',
         ];
