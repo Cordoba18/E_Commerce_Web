@@ -14,6 +14,7 @@ export default defineConfig({
                 // ------CSS----------
                 'resources/css/app.scss',
                 'resources/css/home.css',
+                'resources/css/customerprofile.css',
                 'resources/css/form.css',
                 'resources/css/ProductCatalog.css',
                 'resources/css/paginaProducto.css',

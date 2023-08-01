@@ -19,7 +19,7 @@
         <div class="columntwo-two">
             @auth
                 <i class="fa-solid fa-cart-shopping"></i><p>carrrito</p>
-                <i class="fa-solid fa-user"></i><p>usuario</p>
+                <i class="fa-solid fa-user"></i><a href="{{route('customerprofile')}}">Usuario</a>
             @endauth
             @guest
                 <a href="{{route('login')}}">Iniciar sesion</a>
