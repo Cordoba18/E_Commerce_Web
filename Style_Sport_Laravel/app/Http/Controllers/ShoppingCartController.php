@@ -5,12 +5,11 @@ use App\Http\Controllers\Auth;
 use App\Http\Requests\StoreProductCartShopping;
 use App\Models\CartShop;
 use App\Models\Product;
-<<<<<<< HEAD
+
 use App\Models\Size;
-=======
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
->>>>>>> 0903eb43bae793d8ec0832d96c79c4e56359037b
+
 
 class ShoppingCartController extends Controller
 {
@@ -37,7 +36,6 @@ class ShoppingCartController extends Controller
     public function store(StoreProductCartShopping $request)
     {
 
-<<<<<<< HEAD
     $existences = CartShop::where('id_producto', $request->product)->where('tallas_id', $request->size)->where('id_user', $request->user)->where('estados_id', '1')->get();
 
     if ($existences){
@@ -47,8 +45,19 @@ class ShoppingCartController extends Controller
         }
     }
 
+    $cartshop = CartShop::create([
+        'cantidad_producto' => $request->amount,
+        'total' => $request->price,
+        'id_user' => $request->user,
+        'id_producto' =>$request->product,
+        'estados_id' => '1',
+        'tallas_id' => $request->size,
+        'colores_id' => $request->color,
+       ]);
 
-    
+
+       return redirect('productprofile/'.$request->product);
+
 
     }
 }
@@ -64,20 +73,6 @@ class ShoppingCartController extends Controller
     //     'colores_id' => $request->color,
     //    ]);
     // return redirect('productprofile/'.$request->product);
-=======
-       $cartshop = CartShop::create([
-        'cantidad_producto' => $request->amount,
-        'total' => $request->price,
-        'id_user' => $request->user,
-        'id_producto' =>$request->product,
-        'estados_id' => '1',
-        'tallas_id' => $request->size,
-        'colores_id' => $request->color,
-       ]);
 
 
-       return redirect('productprofile/'.$request->product);
 
-    }
-}
->>>>>>> 0903eb43bae793d8ec0832d96c79c4e56359037b

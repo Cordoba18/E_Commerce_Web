@@ -14,13 +14,6 @@
     @yield('css')
 </head>
 <body>
-<<<<<<< HEAD
-    
-=======
-
-
-
->>>>>>> 0903eb43bae793d8ec0832d96c79c4e56359037b
     @include('layaouts.partials.navBar')
 
     @yield('content')
