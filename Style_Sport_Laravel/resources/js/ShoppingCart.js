@@ -27,17 +27,21 @@ let user = document.querySelector("#user").innerHTML;
 producto_carrito.forEach(product => {
     let btn_accion = product.querySelector("#btn_accion");
     btn_accion.addEventListener("click", function(){
+        let id_carrito = product.querySelector("#id_carrito").innerHTML;
         if (btn_accion.textContent === "ELIMINAR") {
             Swal.fire({
                 icon: 'error',
                 title: 'PRODUCTO ELIMINADO',
                 text: 'VERIFIQUE SU TABLA',
               })
+              $.ajax({
+                url: "shoppingcart/delete/"+id_carrito+"",
+              },
 
+              )
         }else{
             if (btn_accion.textContent === "SELECCIONAR") {
                 btn_accion.textContent = "CANCELAR"
-                let id_producto = product.querySelector("#id_producto").innerHTML;
             }else{
                 btn_accion.textContent = "SELECCIONAR"
         }

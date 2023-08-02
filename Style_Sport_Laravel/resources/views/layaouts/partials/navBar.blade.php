@@ -18,13 +18,9 @@
         </div>
         <div class="columntwo-two">
             @auth
-<<<<<<< HEAD
-                <i class="fa-solid fa-cart-shopping"></i><p>carrrito</p>
+
                 <i class="fa-solid fa-user"></i><a href="{{route('customerprofile')}}">Usuario</a>
-=======
                 <i class="fa-solid fa-cart-shopping"></i><a href="{{route('shoppingcart')}}">CARRITO</a>
-                <i class="fa-solid fa-user"></i><p>usuario</p>
->>>>>>> 0903eb43bae793d8ec0832d96c79c4e56359037b
             @endauth
             @guest
                 <a href="{{route('login')}}">Iniciar sesion</a>

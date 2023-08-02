@@ -67,7 +67,7 @@
                     }
                 @endphp
                 </select></td>
-                <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button><p hidden id="id_producto">{{ $c->id_producto }}</p></td>
+                <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button><p hidden id="id_carrito">{{ $c->id }}</p></td>
         </tr>
         @endforeach
     </tbody>
