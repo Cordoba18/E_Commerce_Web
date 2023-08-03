@@ -78,9 +78,23 @@
 
 <h3>TOTAL = </h3><h2 id="total_full">{{ $total }}</h2>
 <button id="btn_comprar" class="btn btn-success"> COMPRAR </button>
+<div hidden id="contenedor_btn_comprar">
+    <a id="btn_ir_a_comprar" class="btn btn-primary" href="{{ route('shoppingcart.comprar') }}"> IR A COMPRAR</a>
+</div>
+
 @endsection
 
 @section('js')
+
 @vite(['resources/js/ShoppingCart.js'])
+@if (session('mensaje'))
+<script>
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'NO SELECCIONASTE PRODUCTOS'
+})
+</script>
+@endif
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 @endsection

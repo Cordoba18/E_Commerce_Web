@@ -46,8 +46,8 @@ class ProductController extends Controller
 
         $size = Size::where('id_producto', $product->id)->where('estados_id','1')->get();
 
-        $discount = $product->precio*$product->descuento / 100;
-        
+        $porcentaje = $product->precio*$product->descuento / 100;
+        $discount = $product->precio - $porcentaje;
         return view('products.productProfile', compact('product','category','imgs','color', 'size', 'discount'));
     }
 }

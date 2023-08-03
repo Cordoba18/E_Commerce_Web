@@ -31,8 +31,9 @@ Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('sho
 Route::get('shoppingcart/delete/{id}', [ShoppingCartController::class, 'delete'])->name('shoppingcart.delete');
 Route::post('shoppingcart/editquantity', [ShoppingCartController::class, 'editquantity'])->name('shoppingcart.editquantity');
 Route::post('/shoppingcart/store', [ShoppingCartController::class, 'store'])->name('shoppingcart.store');
-
-
+Route::get('/shoppingcart/comprar', [ShoppingCartController::class, 'comprar'])->name('shoppingcart.comprar');
+Route::get('shoppingcart/seleccionar/{id}', [ShoppingCartController::class, 'seleccionar'])->name('shoppingcart.seleccionar');
+Route::get('shoppingcart/cancelar_seleccion/{id}', [ShoppingCartController::class, 'cancelar_seleccion'])->name('shoppingcart.cancelar_seleccion');
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
 
 Route::get('/customerprofile', [CustomerProfileController::class, 'index'])->name('customerprofile');

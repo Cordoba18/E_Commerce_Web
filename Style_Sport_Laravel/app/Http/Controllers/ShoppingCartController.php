@@ -25,6 +25,7 @@ class ShoppingCartController extends Controller
     {
 
         $id = FacadesAuth::user()->id;
+        DB::select("UPDATE `carrito_compras` SET `estados_id`='1' WHERE id_user = $id AND estados_id = 3");
         $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos");
         $productos = DB::select("SELECT* FROM productos");
         $carrito = DB::select("SELECT c.id, c.cantidad_producto, c.total, t.talla, color.color, p.nombre, t.cantidad AS cantidad_total, c.id_producto FROM carrito_compras c
@@ -75,7 +76,32 @@ public function editquantity(HttpRequest $request){
     $carrito->save();
 
 }
+
+public function comprar(){
+    $id = FacadesAuth::user()->id;
+    $seleccionados = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id=3");
+
+    if ( $seleccionados) {
+        return redirect()->route('paymentmethod');
+    }else{
+        return redirect()->route('shoppingcart')->with('mensaje', 'NO SE AGREGO');
+    }
 }
+
+public function cancelar_seleccion($id){
+    $carrito = CartShop::find($id);
+    $carrito->estados_id = 1;
+    $carrito->save();
+
+}
+
+public function seleccionar($id){
+    $carrito = CartShop::find($id);
+    $carrito->estados_id = 3;
+    $carrito->save();
+}
+}
+
 
 
 

@@ -2,6 +2,7 @@ const btn_comprar = document.querySelector('#btn_comprar');
 const producto_carrito = document.querySelectorAll("#producto_carrito");
 const total_full = document.querySelector("#total_full");
 let accion_boton = false;
+let contenedor_btn_comprar = document.querySelector("#contenedor_btn_comprar");
 btn_comprar.addEventListener("click", function(){
 
     producto_carrito.forEach(product => {
@@ -10,10 +11,13 @@ btn_comprar.addEventListener("click", function(){
             Swal.fire('SELECCIONE LOS PRODUCTOS A COMPRAR')
         btn_accion.textContent = "SELECCIONAR";
         btn_comprar.textContent = "CANCELAR";
+        contenedor_btn_comprar.removeAttribute('hidden');
+
         }
         else{
             btn_accion.textContent = "ELIMINAR";
             btn_comprar.textContent = "COMPRAR";
+           contenedor_btn_comprar.setAttribute('hidden', 'true');
         }
 
     });
@@ -78,8 +82,18 @@ producto_carrito.forEach(product => {
         }else{
             if (btn_accion.textContent === "SELECCIONAR") {
                 btn_accion.textContent = "CANCELAR"
+                $.ajax({
+                    url: "shoppingcart/seleccionar/"+id_carrito+"",
+                  },
+
+                  )
+
             }else{
                 btn_accion.textContent = "SELECCIONAR"
+                $.ajax({
+                    url: "shoppingcart/cancelar_seleccion/"+id_carrito+"",
+                  },
+                  )
         }
     }
     })
