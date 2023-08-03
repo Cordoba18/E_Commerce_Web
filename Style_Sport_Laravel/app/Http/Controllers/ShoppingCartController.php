@@ -8,6 +8,7 @@ use App\Models\Product;
 
 use App\Models\Size;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
 
@@ -65,7 +66,14 @@ class ShoppingCartController extends Controller
         $carrito = CartShop::find($id);
         $carrito->estados_id =2;
         $carrito->save();
-        return redirect('shoppingcart');
+}
+
+public function editquantity(HttpRequest $request){
+    $id = $request->id;
+    $carrito = CartShop::find($id);
+    $carrito->cantidad_producto = $request->cantidad;
+    $carrito->save();
+
 }
 }
 

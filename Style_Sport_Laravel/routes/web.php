@@ -29,7 +29,9 @@ Route::get('/productprofile/{product}', [ProductController::class, 'show'])->nam
 
 Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');
 Route::get('shoppingcart/delete/{id}', [ShoppingCartController::class, 'delete'])->name('shoppingcart.delete');
+Route::post('shoppingcart/editquantity', [ShoppingCartController::class, 'editquantity'])->name('shoppingcart.editquantity');
 Route::post('/shoppingcart/store', [ShoppingCartController::class, 'store'])->name('shoppingcart.store');
+
 
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
 

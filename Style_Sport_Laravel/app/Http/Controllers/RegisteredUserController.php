@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
 
         Mail::to($request->correo)->send(new validateEmail($cod));
 
-        
+
 
         return 'siga';
     }

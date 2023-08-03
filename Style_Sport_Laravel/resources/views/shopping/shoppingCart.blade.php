@@ -53,7 +53,9 @@
             @endunless</td>
             <td>{{ $c->talla }}</td>
             <td>{{ $c->color }}</td>
-            <td><select name="">
+            <td><form action="">
+                @csrf
+                <select id="seleccion_cantidad" name="">
                 <option value="{{ $c->cantidad_producto }}"> {{ $c->cantidad_producto }}</option>
                 @php
                     for ($i=1; $i < $c->cantidad_total+1 ; $i++) {
@@ -66,14 +68,15 @@
                         }
                     }
                 @endphp
-                </select></td>
-                <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button><p hidden id="id_carrito">{{ $c->id }}</p></td>
+                </select></form></td>
+                <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button>  <p hidden id="id_carrito">{{ $c->id }}</p> <p hidden id="total">{{ $c->total}}</p>
+                    <p hidden id="cantidad">{{ $c->cantidad_producto}}</p></td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<h2>TOTAL = ({{ $total }})</h2>
+<h3>TOTAL = </h3><h2 id="total_full">{{ $total }}</h2>
 <button id="btn_comprar" class="btn btn-success"> COMPRAR </button>
 @endsection
 
