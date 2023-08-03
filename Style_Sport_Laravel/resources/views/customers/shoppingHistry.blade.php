@@ -2,6 +2,9 @@
 
 @section('m-content')
 
-<h1>historias de compras</h1>
+<article class="shopphistory">
+            
+</article>
+
 
 @endsection

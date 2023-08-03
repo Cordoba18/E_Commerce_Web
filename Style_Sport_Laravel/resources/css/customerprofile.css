@@ -1,70 +1,18 @@
 .main{
-    box-sizing: border-box;
     width: 100%;
 }
 
-.main .top{
+.main .profile{
     width: 90%;
-    margin: 50px auto 0;
-    height: 300px;
+    margin: 20px auto;
     display: flex;
     flex-direction: row;
 }
 
-.main .top .columnone{
+.main .profile .navegation-profile{
     width: 30%;
-    background: rgb(89, 146, 148);
 }
 
-.main .top .columntwo{
+.main .profile .panel{
     width: 70%;
-    background: rgb(153, 252, 255);
-}
-
-.main .navegation{
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.main .navegation ul{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: rgb(100, 153, 155);
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: space-around;
-}
-
-.main .botton{
-    width: 90%;
-    margin: 0 auto 50px;
-    height: 500px;
-    display: flex;
-    flex-direction: row;
-}
-
-.main .botton .shopphistory{
-    width: 100%;
-    display: none;
-    background: rgb(94, 166, 168);
-}
-
-.main .botton .infouser{
-    width: 100%;
-    display: flex;
-    background: rgb(94, 166, 168);
-}
-
-.main .botton .infouser .showinfo{
-    width: 50%;
-}
-
-.main .botton .infouser .editinfo{
-    width: 50%;
 }
