@@ -41,6 +41,7 @@ producto_carrito.forEach(product => {
 
         const valorSeleccionado = seleccion_cantidad.value;
         const _token = product.querySelector("input[name=_token]").value;
+        let tallas_id = product.querySelector("#tallas_id").innerHTML;
 
         $.ajax({
             url: "shoppingcart/editquantity",
@@ -48,8 +49,22 @@ producto_carrito.forEach(product => {
             data:{
                 cantidad: valorSeleccionado,
                 id: id_carrito,
+                tallas_id: tallas_id,
                 _token: _token,
+            },success: function(response) {
+              if (response['message'] === true) {
+
+              } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'OPPS CANTIDAD INCORRECTA',
+                    text: 'Esa cantidad ya no esta disponible !Actualiza el carrito!'
+                })
+              }
             },
+            error: function(error) {
+                console.error(error);
+            }
           },
           )
           let cambiar_cantidad = product.querySelector("#cantidad");

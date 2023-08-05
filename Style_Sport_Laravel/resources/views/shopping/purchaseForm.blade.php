@@ -73,6 +73,11 @@
 <script>
 let total = document.querySelector('#total_full').innerHTML;
 let _token = document.querySelector('input[name=_token]').value;
+
+setTimeout(() => {
+alert('TIEMPO DE COMPRA EXPIRADO')
+window.location.href = "{{ route('shoppingcart') }}";
+}, 300000);
 paypal.Buttons({
     fundingSource: paypal.FUNDING.CARD,
     createOrder: function(data, actions) {

@@ -53,6 +53,7 @@
             @endunless</td>
             <td>{{ $c->talla }}</td>
             <td>{{ $c->color }}</td>
+            <td id="tallas_id" hidden>{{ $c->tallas_id }}</td>
             <td><form action="">
                 @csrf
                 <select id="seleccion_cantidad" name="">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Bill;
 use App\Models\Buys;
+use App\Models\CartShop;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +29,12 @@ class PurchaseController extends Controller
         INNER JOIN tallas t ON c.tallas_id = t.id
         INNER JOIN colores color ON c.colores_id = color.id
         WHERE c.id_user = $id AND c.estados_id = 3");
-        return view('shopping.purchaseForm', compact('carrito','Imagenes_productos','productos','id', 'user'));
+        if ($carrito) {
+            return view('shopping.purchaseForm', compact('carrito','Imagenes_productos','productos','id', 'user'));
+        }else {
+            return redirect()->route('shoppingcart');
+        }
+
     }
 
     public function show()
@@ -38,6 +45,7 @@ class PurchaseController extends Controller
 
     public function facturar(Request $request)
     {
+        //$fechaHoraActual = Carbon::now()->toRfc850String(); esto servira para las monitorias
         $id_usuario = FacadesAuth::user()->id;
         $fechaHoraActual = Carbon::now();
         $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id_usuario AND estados_id = 3");
@@ -53,6 +61,26 @@ class PurchaseController extends Controller
 
         $factura_creada = DB::select("SELECT * FROM factura WHERE id_user = $id_usuario AND fecha = '$fechaHoraActual'");
         foreach ($carrito as $c){
+            $talla_origen = Size::find($c->tallas_id);
+            $talla_origen->cantidad = $talla_origen->cantidad - $c->cantidad_producto;
+            $talla_origen->save();
+
+            $talla_origen = Size::find($c->tallas_id);
+
+            if ($talla_origen->cantidad <= 0) {
+                $talla_origen->estados_id = 2;
+                $talla_origen->save();
+                DB::select("UPDATE `carrito_compras` SET `estados_id`='2' WHERE tallas_id = $c->tallas_id");
+            }else {
+                $carrito_2 = DB::select("SELECT * FROM carrito_compras WHERE tallas_id = $c->tallas_id");
+
+                foreach($carrito_2 as $c2){
+
+                    if ($talla_origen->cantidad < $c2->cantidad_producto) {
+                        DB::select("UPDATE `carrito_compras` SET `cantidad_producto`=$talla_origen->cantidad WHERE id=$c2->id");
+                    }
+                }
+            }
             $compra = new Buys();
             $compra->id_user = $id_usuario;
             $compra->id_producto = $c->id_producto;
@@ -71,4 +99,6 @@ class PurchaseController extends Controller
         return response()->json(['message' => 'Datos recibidos con éxito'], 200);
 
     }
+
+
 }

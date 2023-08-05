@@ -12,6 +12,7 @@ use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\error;
 
 class ShoppingCartController extends Controller
 {
@@ -28,7 +29,15 @@ class ShoppingCartController extends Controller
         DB::select("UPDATE `carrito_compras` SET `estados_id`='1' WHERE id_user = $id AND estados_id = 3");
         $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos");
         $productos = DB::select("SELECT* FROM productos");
-        $carrito = DB::select("SELECT c.id, c.cantidad_producto, c.total, t.talla, color.color, p.nombre, t.cantidad AS cantidad_total, c.id_producto FROM carrito_compras c
+        $carro_a_validar = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id = 1");
+        foreach($carro_a_validar as $c){
+            $talla_origen = Size::find($c->tallas_id);
+
+            if ($talla_origen->cantidad < $c->cantidad_producto) {
+                DB::select("UPDATE `carrito_compras` SET `cantidad_producto`='1' WHERE id=$c->id");
+            }
+        }
+        $carrito = DB::select("SELECT c.id, c.cantidad_producto, c.total, t.talla, color.color, p.nombre, t.cantidad AS cantidad_total, c.id_producto, c.tallas_id FROM carrito_compras c
         INNER JOIN productos p ON c.id_producto = p.id
         INNER JOIN tallas t ON c.tallas_id = t.id
         INNER JOIN colores color ON c.colores_id = color.id
@@ -38,28 +47,54 @@ class ShoppingCartController extends Controller
 
     public function store(StoreProductCartShopping $request)
     {
+        $id = FacadesAuth::user()->id;
+        $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id = 1 AND id_producto = $request->product AND tallas_id = $request->size");
+        if ($carrito) {
+            $talla_origen = Size::find($request->size);
 
-   // $existences = CartShop::where('id_producto', $request->product)->where('tallas_id', $request->size)->where('id_user', $request->user)->where('estados_id', '1')->get();
+            $total_cantidad = 0;
 
-    //if ($existences){
-       // $size = Size::where('id',$request->size)->where('id_producto', $request->product)->first();
-        //if ($existences->cantidad_producto <= $size->cantidad) {
-       //     dd('ingrese');
-       // }
- //   }
+            foreach($carrito as $c){
+                    $total_cantidad = $total_cantidad + $c->cantidad_producto;
+                    if ($total_cantidad+$request->amount > $talla_origen->cantidad) {
+                        return redirect('productprofile/'.$request->product)->with('mensaje', 'CANTIDAD FUERA DE RANGO');
+                    }
+            }
+            $total_cantidad = 0;
+            foreach($carrito as $c){
+            if ($c->colores_id == $request->color) {
+                $carro = CartShop::find($c->id);
+                $carro->cantidad_producto =$request->amount;
+                $carro->save();
+                return redirect('productprofile/'.$request->product);
+            }
+        }
 
-    $cartshop = CartShop::create([
-        'cantidad_producto' => $request->amount,
-        'total' => $request->price,
-        'id_user' => $request->user,
-        'id_producto' =>$request->product,
-        'estados_id' => '1',
-        'tallas_id' => $request->size,
-        'colores_id' => $request->color,
-       ]);
+        $cartshop = CartShop::create([
+            'cantidad_producto' => $request->amount,
+            'total' => $request->price,
+            'id_user' => $request->user,
+            'id_producto' =>$request->product,
+            'estados_id' => '1',
+            'tallas_id' => $request->size,
+            'colores_id' => $request->color,
+           ]);
+           return redirect('productprofile/'.$request->product);
+        }else {
+            $cartshop = CartShop::create([
+                'cantidad_producto' => $request->amount,
+                'total' => $request->price,
+                'id_user' => $request->user,
+                'id_producto' =>$request->product,
+                'estados_id' => '1',
+                'tallas_id' => $request->size,
+                'colores_id' => $request->color,
+               ]);
+               return redirect('productprofile/'.$request->product);
+        }
 
 
-       return redirect('productprofile/'.$request->product);
+
 
 
     }
@@ -71,10 +106,25 @@ class ShoppingCartController extends Controller
 
 public function editquantity(HttpRequest $request){
     $id = $request->id;
+    $id_user = FacadesAuth::user()->id;
+    $talla_origen = Size::find($request->tallas_id);
+    $total_cantidad = 0;
+    $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id_user AND estados_id = 1 AND tallas_id = $request->tallas_id AND id <> $id");
+            foreach($carrito as $c){
+                    $total_cantidad = $total_cantidad + $c->cantidad_producto;
+                    if ($total_cantidad+$request->cantidad > $talla_origen->cantidad) {
+                        return response()->json(['message' => false], 200);
+                    }
+            }
     $carrito = CartShop::find($id);
-    $carrito->cantidad_producto = $request->cantidad;
-    $carrito->save();
-
+    $talla_origen = Size::find($carrito->tallas_id);
+    if ($talla_origen->cantidad >= $request->cantidad) {
+        $carrito->cantidad_producto = $request->cantidad;
+        $carrito->save();
+        return response()->json(['message' => true], 200);
+    }else {
+        return response()->json(['message' => false], 200);
+    }
 }
 
 public function comprar(){
