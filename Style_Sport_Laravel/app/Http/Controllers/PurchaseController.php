@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
+use App\Models\Buys;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class PurchaseController extends Controller
 {
@@ -16,6 +19,7 @@ class PurchaseController extends Controller
     public function index()
     {
         $id = FacadesAuth::user()->id;
+        $user = FacadesAuth::user()->correo;
         $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos");
         $productos = DB::select("SELECT* FROM productos");
         $carrito = DB::select("SELECT c.id, c.cantidad_producto, c.total, t.talla, color.color, p.nombre, t.cantidad AS cantidad_total, c.id_producto FROM carrito_compras c
@@ -23,11 +27,48 @@ class PurchaseController extends Controller
         INNER JOIN tallas t ON c.tallas_id = t.id
         INNER JOIN colores color ON c.colores_id = color.id
         WHERE c.id_user = $id AND c.estados_id = 3");
-        return view('shopping.purchaseForm', compact('carrito','Imagenes_productos','productos','id'));
+        return view('shopping.purchaseForm', compact('carrito','Imagenes_productos','productos','id', 'user'));
     }
 
     public function show()
     {
         return view('shopping.purchaseConfirmation');
+    }
+
+
+    public function facturar(Request $request)
+    {
+        $id_usuario = FacadesAuth::user()->id;
+        $fechaHoraActual = Carbon::now();
+        $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id_usuario AND estados_id = 3");
+        $total = 0;
+        foreach ($carrito as $c) {
+            $total = $total + $c->total * $c->cantidad_producto;
+        }
+        $factura =  new Bill();
+        $factura->total = $total;
+        $factura->fecha=$fechaHoraActual;
+        $factura->id_user=$id_usuario;
+        $factura->save();
+
+        $factura_creada = DB::select("SELECT * FROM factura WHERE id_user = $id_usuario AND fecha = '$fechaHoraActual'");
+        foreach ($carrito as $c){
+            $compra = new Buys();
+            $compra->id_user = $id_usuario;
+            $compra->id_producto = $c->id_producto;
+            $compra->total = $c->total;
+            $compra->cantidad = $c->cantidad_producto;
+            foreach($factura_creada as $f){
+                $compra->factura_id = $f->id;
+            }
+            $compra->tallas_id = $c->tallas_id;
+            $compra->colores_id = $c->colores_id;
+            $compra->estados_id = 4;
+            $compra->save();
+        }
+        DB::select("UPDATE `carrito_compras` SET `estados_id`='2' WHERE id_user = $id_usuario AND estados_id = 3");
+        $paymentData = $request->input('paymentData');
+        return response()->json(['message' => 'Datos recibidos con éxito'], 200);
+
     }
 }

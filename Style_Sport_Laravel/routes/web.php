@@ -45,3 +45,4 @@ Route::get('/shoppinghistory', [ShoppingHistryController::class, 'index'])->name
 
 Route::get('/purchaseform', [PurchaseController::class, 'index'])->name('paymentmethod');
 Route::get('/purchaseconfirmation', [PurchaseController::class, 'show'])->name('paymentmethod.create');
+Route::post('purchaseform/purchasefacturar', [PurchaseController::class, 'facturar'])->name('paymentmethod.facturar');
