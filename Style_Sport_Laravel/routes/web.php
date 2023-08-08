@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\RecoveryPasswordController;
@@ -37,9 +36,7 @@ Route::get('shoppingcart/cancelar_seleccion/{id}', [ShoppingCartController::clas
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
 
 Route::get('/customerprofile', [CustomerProfileController::class, 'index'])->name('customerprofile');
-
-Route::get('/paymentmethod', [PaymentMethodController::class, 'index'])->name('paymentmethod');
-Route::get('/paymentmethod/create', [PaymentMethodController::class, 'create'])->name('paymentmethod.create');
+Route::post('/customerprofile/store', [CustomerProfileController::class, 'store'])->name('customerprofile.store');
 
 Route::get('/shoppinghistory', [ShoppingHistryController::class, 'index'])->name('shoppinghistory');
 

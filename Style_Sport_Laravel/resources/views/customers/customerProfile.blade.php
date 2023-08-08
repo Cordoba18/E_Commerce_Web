@@ -8,33 +8,34 @@
 
 @section('content')
 
-<main class="main">
+    <main class="main">
 
-<div class="profile">
+        <div class="profile">
 
-<aside class="navegation-profile">
-    <h2>Mi cuenta</h2>
-<ul>
-    <li>Informacion de usuario</li>
-    <li>Historial de compras</li>
-    <li>Cerrar sesion</li>
-    <li>Eliminar cuenta</li>
-</ul>
-</aside>
+            <div class="navegation-profile">
+                <aside>
+                    <h2>Mi cuenta</h2>
+                    <ul>
+                        <li><a href="{{ route('customerprofile') }}">Informacion de usuario</a></li>
+                        <li><a href="{{ route('shoppinghistory') }}">Historial de compras</a></li>
+                        <li><a href="{{ Route('logout') }}">Cerrar sesion</a></li>
+                        <li>Eliminar cuenta</li>
+                    </ul>
+                </aside>
+            </div>
 
-<div class="panel">
-    @yield('m-content')
-</div>
+            <div class="panel">
+                @yield('m-content')
+            </div>
 
-</div>
+        </div>
 
 
 
-</main>
+    </main>
 
 @endsection
-{{-- <p>nombre: {{ $user->nombre }}</p>
-<p>correo: {{ $user->correo }}</p>
-<p>telefono: {{ $user->telefono ? $user->telefono : '********' }}</p>
 
-<p>identificacion: {{ $user->Identificacion ? $user->telefono : '************' }}</p> --}}
+@section('js')
+    @vite(['resources/js/customer.js'])
+@endsection

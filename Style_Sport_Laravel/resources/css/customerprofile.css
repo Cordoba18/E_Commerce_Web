@@ -11,8 +11,29 @@
 
 .main .profile .navegation-profile{
     width: 30%;
+
 }
 
 .main .profile .panel{
     width: 70%;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
 }
+
+.main .profile .navegation-profile aside{
+    width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
