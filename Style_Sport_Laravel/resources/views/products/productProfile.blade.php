@@ -110,8 +110,19 @@
         </div>
     </main>
 
+
+
 @endsection
 
 @section('js')
+@if (session('mensaje'))
+<script>
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'LA CANTIDAD ESTA FUERA DE RANGO'
+})
+</script>
+@endif
     @vite(['resources/js/productProfile.js'])
 @endsection

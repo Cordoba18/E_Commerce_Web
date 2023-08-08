@@ -139,9 +139,9 @@ paypal.Buttons({
         },
         success: function(response) {
             // Manejar la respuesta del controlador si es necesario
-            setTimeout(() => {
-                window.location.href = "{{ route('shoppingcart') }}";
-            }, 1000);
+            clearInterval(validar);
+            window.location.href = "{{ route('shoppingcart') }}";
+
 
         },
         error: function(error) {
