@@ -74,6 +74,38 @@
 let total = document.querySelector('#total_full').innerHTML;
 let _token = document.querySelector('input[name=_token]').value;
 
+
+const validar = setInterval(() => {
+
+    $.ajax({
+        type: 'GET',
+        url: '{{ route("purchaseform.validar") }}',
+        success: function(response) {
+            let total_absoluto = 0;
+
+
+            response['seleccionados'].forEach(element => {
+
+               total_absoluto = total_absoluto + (element.cantidad_producto * element.total)
+            });
+            console.log(total_absoluto);
+            // Manejar la respuesta del controlador si es necesari
+            if (total_absoluto != total) {
+                Swal.fire({
+        icon: 'error',
+        title: 'OCURRIO UN ERROR',
+        text: 'Su carrito a cambiado!'
+    })
+    clearInterval(validar);
+                window.location.href = "{{ route('purchaseform') }}";
+            }
+        },
+        error: function(error) {
+            // Manejar el error si lo hay
+        }
+    });
+}, 1000);
+
 setTimeout(() => {
 alert('TIEMPO DE COMPRA EXPIRADO')
 window.location.href = "{{ route('shoppingcart') }}";
@@ -100,7 +132,7 @@ paypal.Buttons({
         )
         $.ajax({
         type: 'POST',
-        url: '{{ route("paymentmethod.facturar") }}',
+        url: '{{ route("purchaseform.facturar") }}',
         data: {
             paymentData: data,
             _token: _token // Enviar los datos devueltos por la API de PayPal

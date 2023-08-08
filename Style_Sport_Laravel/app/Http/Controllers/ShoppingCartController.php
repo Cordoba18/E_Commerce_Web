@@ -132,7 +132,7 @@ public function comprar(){
     $seleccionados = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id=3");
 
     if ( $seleccionados) {
-        return redirect()->route('paymentmethod');
+        return redirect()->route('purchaseform');
     }else{
         return redirect()->route('shoppingcart')->with('mensaje', 'NO SE AGREGO');
     }
