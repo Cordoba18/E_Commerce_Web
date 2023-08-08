@@ -2,9 +2,6 @@
 
 @section('m-content')
 
-<article class="shopphistory">
-            
-</article>
 
 
 @endsection

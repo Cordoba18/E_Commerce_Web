@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/Slider.js',
                 'resources/js/productProfile.js',
                 'resources/js/ShoppingCart.js',
+                'resources/js/customer.js',
                 // ------CSS----------
                 'resources/css/app.scss',
                 'resources/css/home.css',

@@ -13,16 +13,6 @@
         <section>
             @include('layaouts.partials.slider')
         </section>
-
-        @auth
-            <p>{{ Auth::user()->nombre }}</p>
-
-            <form action="{{ Route('logout') }}" method="post">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
-        @endauth
-
         <section>
             <article class="contenedor">
                 <div class="carousel-productos">
