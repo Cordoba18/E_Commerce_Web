@@ -33,7 +33,7 @@ class CustomerProfileController extends Controller
             if (!Hash::check($request->pass, $user->contrasena)) {
                 return redirect()->route('customerprofile')->with('error', 'la contraseña actual es incorrecta');
             }
-            $user->contrasena = Hash::make($request->pass);
+            $user->contrasena = Hash::make($request->passnow);
         }
         if ($request->nid) {
             $user->Identificacion = $request->nid;
@@ -47,5 +47,18 @@ class CustomerProfileController extends Controller
 
         $user->save();
         return redirect()->route('customerprofile');
+    }
+
+    public function destroy(Request $request){
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->estados_id = '2';
+        $user->save();
+
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
     }
 }

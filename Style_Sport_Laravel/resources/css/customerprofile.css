@@ -11,7 +11,6 @@
 
 .main .profile .navegation-profile{
     width: 30%;
-
 }
 
 .main .profile .panel{
@@ -26,7 +25,7 @@
 }
 
 .main .profile .navegation-profile aside{
-    width: 300px;
+    width: 80%;
     margin: 30px auto;
     padding: 20px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -37,3 +36,32 @@
     flex-direction: column;
 }
 
+.main .profile .navegation-profile aside ul li{
+    margin: 10px 0;
+}
+
+.main .profile .navegation-profile aside ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.main .profile .panel .editView{
+    display: none;
+}
+
+@media (max-width:1200px){
+    
+.main .profile{
+    flex-direction: column;
+}
+.main .profile .panel{
+    width: 100%;
+}
+.main .profile .navegation-profile{
+    width: 100%;
+}
+.main .profile .navegation-profile aside{
+    width: 100%;
+    align-items: start;
+}
+}
