@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/productProfile.js',
                 'resources/js/ShoppingCart.js',
                 'resources/js/customer.js',
+                'resources/js/VerificationEmail.js',
                 // ------CSS----------
                 'resources/css/app.scss',
                 'resources/css/home.css',

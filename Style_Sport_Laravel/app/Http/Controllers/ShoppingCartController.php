@@ -27,7 +27,7 @@ class ShoppingCartController extends Controller
 
         $id = FacadesAuth::user()->id;
         DB::select("UPDATE `carrito_compras` SET `estados_id`='1' WHERE id_user = $id AND estados_id = 3");
-        $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos");
+        $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos WHERE estados_id = 1");
         $productos = DB::select("SELECT* FROM productos");
         $carro_a_validar = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id = 1");
         foreach($carro_a_validar as $c){

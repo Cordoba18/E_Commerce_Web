@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\ShoppingHistryController;
 use App\Http\Controllers\WishListController;
+use App\Http\Controllers\InvoiceDetailsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -23,6 +24,8 @@ Route::post('/register', [RegisteredUserController::class, 'store'])->name('regi
 Route::get('/verification', [RegisteredUserController::class, 'verification'])->name('verification');
 Route::post('/verification', [RegisteredUserController::class, 'validation'])->name('verification.validate');
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
+Route::get('delete/code/{correo}', [RegisteredUserController::class, 'delete_code'])->name('verification.delete_code');
+Route::get('/vista_validar', [RegisteredUserController::class, 'vista_validar'])->name('verification.vista_validar');
 
 Route::get('/productcatalog', [ProductController::class, 'index'])->name('productcatalog');
 Route::get('/productprofile/{product}', [ProductController::class, 'show'])->name('productprofile');
@@ -34,7 +37,9 @@ Route::post('/shoppingcart/store', [ShoppingCartController::class, 'store'])->na
 Route::get('/shoppingcart/comprar', [ShoppingCartController::class, 'comprar'])->name('shoppingcart.comprar');
 Route::get('shoppingcart/seleccionar/{id}', [ShoppingCartController::class, 'seleccionar'])->name('shoppingcart.seleccionar');
 Route::get('shoppingcart/cancelar_seleccion/{id}', [ShoppingCartController::class, 'cancelar_seleccion'])->name('shoppingcart.cancelar_seleccion');
+
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
+Route::get('/wishlist/store/{id}', [WishListController::class, 'store'])->name('wishlist.store');
 
 Route::get('/customerprofile', [CustomerProfileController::class, 'index'])->name('customerprofile');
 Route::post('/customerprofile/store', [CustomerProfileController::class, 'store'])->name('customerprofile.store');
@@ -45,3 +50,6 @@ Route::get('/purchaseform', [PurchaseController::class, 'index'])->name('purchas
 Route::get('/purchaseconfirmation', [PurchaseController::class, 'show'])->name('purchaseform.create');
 Route::post('purchaseform/purchasefacturar', [PurchaseController::class, 'facturar'])->name('purchaseform.facturar');
 Route::get('/purchasevalidar', [PurchaseController::class, 'validar'])->name('purchaseform.validar');
+
+Route::get('/InvoiceDetails/{id}', [InvoiceDetailsController::class, 'index'])->name('InvoiceDetails');
+

@@ -101,7 +101,9 @@
                             <button type="submit" class="addCart">Añadir al carrito</button>
                         </div>
                     </form>
+                    <form action="{{ route('wishlist.store', $product->id) }}" method="get">
                     <button class="wishList">Favoritos</button>
+                </form>
                 </div>
             </section>
         </div>

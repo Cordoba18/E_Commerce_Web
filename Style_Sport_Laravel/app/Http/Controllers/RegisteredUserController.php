@@ -6,6 +6,10 @@ use App\Http\Requests\RegisteredUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\validateEmail;
+use App\Models\Code;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+
 
 class RegisteredUserController extends Controller
 {
@@ -29,15 +33,19 @@ class RegisteredUserController extends Controller
 
         $pass = Hash::make($request->password);
 
-        $data = $request->nombre.'%'.$request->apellido.'%'.$request->correo.'%'.$pass.'%'.$request->date;
+        $data = $request->name.'%'.$request->lastname.'%'.$request->correo.'%'.$pass.'%'.$request->date;
+        $email = $request->correo;
 
         $cod = RegisteredUserController::randNumer();
 
         Mail::to($request->correo)->send(new validateEmail($cod));
 
+        $codificar = new Code();
+        $codificar->email = $email;
+        $codificar->codigo = $cod;
+        $codificar->save();
 
-
-        return 'siga';
+        return redirect()->route('verification.vista_validar')->with('data', $data);
     }
 
 
@@ -45,6 +53,18 @@ class RegisteredUserController extends Controller
         $d=rand(1000,9999);
         return $d;
     }
+
+
+    public function delete_code($correo){
+
+        DB::table('codigos')->where('email', '=', $correo)->delete();
+    }
+
+    public function vista_validar(){
+
+        $datos = session('data');
+        return view('users.validateEmail',compact('datos'));
+}
 }
 // $user = User::create([
 //     'nombre' => $request->name.' '.$request->lastname,

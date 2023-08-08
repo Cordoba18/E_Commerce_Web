@@ -14,6 +14,7 @@
 <body>
 
     @yield('content')
-    
+
 </body>
+@yield('js')
 </html>
