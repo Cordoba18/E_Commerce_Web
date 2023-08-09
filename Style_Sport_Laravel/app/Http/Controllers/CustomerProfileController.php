@@ -25,7 +25,7 @@ class CustomerProfileController extends Controller
 
     public function store(Request $request){
         $user = User::where('id', Auth::user()->id)->first();
-       
+
         if ($request->name && $request->lastname) {
             $user->nombre = $request->name.' '.$request->lastname;
         }

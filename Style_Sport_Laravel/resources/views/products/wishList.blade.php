@@ -1,10 +1,10 @@
-@extends('layaouts.main')
+@extends('customers.customerProfile')
 
 @section('title', 'lista de deseos')
 
-@section('content')
+@section('m-content')
 
-<h1>lista de deseos</h1>
+<h1>LISTA DE DESEOS</h1>
 
 
 <table class="table">
@@ -18,10 +18,10 @@
     </thead>
     <tbody>
         @foreach ($lista_deseos as $l)
-        <tr>
-            <td>{{ $l->id }}</td>
+        <tr id="productos">
+            <td id="id_lista_deseos">{{ $l->id }}</td>
             <td>{{ $l->nombre }}</td>
-            <td>
+            <td><a href="{{route('productprofile', $l->id_producto)}}">
                 @php
                 $foundImage = false;
                 $imagePath = '';
@@ -45,7 +45,8 @@
 
             @unless ($foundImage)
                 <img style="width: 300px; height: 180px; " src="{{ asset('storage/imgs/images.png') }}">
-            @endunless</td>
+            @endunless
+        </a></td>
             <td>{{ $l->precio }}</td>
             <td><button class="btn btn-danger" id="btn_eliminar">ELIMINAR</button></td>
         </tr>
@@ -54,3 +55,8 @@
 </table>
 @endsection
 
+@section('js')
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+@vite(['resources/js/WishList.js'])
+
+@endsection

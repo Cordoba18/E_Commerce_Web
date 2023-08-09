@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/ShoppingCart.js',
                 'resources/js/customer.js',
                 'resources/js/VerificationEmail.js',
+                'resources/js/WishList.js',
                 // ------CSS----------
                 'resources/css/app.scss',
                 'resources/css/home.css',
@@ -24,6 +25,7 @@ export default defineConfig({
                 'resources/css/navbar.css',
                 'resources/css/purchaseform.css',
                 'resources/css/purchaseconfirmation.css',
+                'resources/css/ValidateEmail.css',
             ],
             refresh: true,
         }),

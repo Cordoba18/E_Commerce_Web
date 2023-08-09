@@ -9,7 +9,7 @@ use App\Mail\validateEmail;
 use App\Models\Code;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Request as HttpRequest;
 
 class RegisteredUserController extends Controller
 {
@@ -26,11 +26,10 @@ class RegisteredUserController extends Controller
     public function store(RegisteredUserRequest $request)
     {
         $user = User::where('correo',$request->correo)->where('estados_id','1')->first();
-
         if ($user) {
             return redirect()->route('register')->with('credentials','el correo digitado ya tiene una cuenta existente');
         }
-
+        DB::table('codigos')->where('email', '=', $request->correo)->delete();
         $pass = Hash::make($request->password);
 
         $data = $request->name.'%'.$request->lastname.'%'.$request->correo.'%'.$pass.'%'.$request->date;
@@ -64,6 +63,34 @@ class RegisteredUserController extends Controller
 
         $datos = session('data');
         return view('users.validateEmail',compact('datos'));
+}
+
+
+public function validation(HttpRequest $request){
+
+    $user_code = DB::selectOne("SELECT * FROM codigos WHERE email='$request->correo'");
+    $codigo = $user_code->codigo;
+
+    if($codigo == $request->codigo){
+
+        $usuario = new User();
+
+        $usuario->nombre = $request->nombre;
+        $usuario->correo = $request->correo;
+        $usuario->contrasena = $request->contrasena;
+        $usuario->f_nacimiento = $request->f_nacimiento;
+        $usuario->id_rol= 2;
+        $usuario->estados_id = 1;
+        $usuario->save();
+        return response()->json(['message' => true], 200);
+    }else {
+        return response()->json(['message' => false], 200);
+    }
+
+
+
+
+
 }
 }
 // $user = User::create([

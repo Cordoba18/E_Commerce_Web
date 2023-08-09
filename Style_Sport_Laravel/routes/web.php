@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/login', [AuthenticatedSessionController::class, 'index'])->name('login');
+Route::get('login_inicio', [AuthenticatedSessionController::class, 'index'])->name('login');
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::get('/acount/delete', [CustomerProfileController::class, 'destroy'])->name('customer.delete');
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
-Route::get('/register', [RegisteredUserController::class, 'index'])->name('register');
+Route::get('register_Inicio', [RegisteredUserController::class, 'index'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 Route::get('/verification', [RegisteredUserController::class, 'verification'])->name('verification');
-Route::post('/verification', [RegisteredUserController::class, 'validation'])->name('verification.validate');
+Route::post('verification_code', [RegisteredUserController::class, 'validation'])->name('verification.validate');
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
 Route::get('delete/code/{correo}', [RegisteredUserController::class, 'delete_code'])->name('verification.delete_code');
 Route::get('/vista_validar', [RegisteredUserController::class, 'vista_validar'])->name('verification.vista_validar');
@@ -40,6 +40,7 @@ Route::get('shoppingcart/cancelar_seleccion/{id}', [ShoppingCartController::clas
 
 Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist');
 Route::get('/wishlist/store/{id}', [WishListController::class, 'store'])->name('wishlist.store');
+Route::get('wishlist/delete/{id}', [WishListController::class, 'delete'])->name('wishlist.delete');
 
 Route::get('/customerprofile', [CustomerProfileController::class, 'index'])->name('customerprofile');
 Route::post('/customerprofile/store', [CustomerProfileController::class, 'store'])->name('customerprofile.store');

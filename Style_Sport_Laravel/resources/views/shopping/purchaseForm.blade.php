@@ -104,7 +104,7 @@ const validar = setInterval(() => {
             // Manejar el error si lo hay
         }
     });
-}, 1000);
+}, 3000);
 
 setTimeout(() => {
 alert('TIEMPO DE COMPRA EXPIRADO')
@@ -155,7 +155,7 @@ paypal.Buttons({
         title: 'ERROR EN EL PAGO',
         text: 'Hubo un error con su pago!'
     })
-    console.log(data);
+ ;
 }
 }).render('#paypal-button-container');
 </script>

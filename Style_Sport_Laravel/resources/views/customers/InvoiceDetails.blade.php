@@ -11,18 +11,18 @@
         <th>NOMBRE</th>
         <th>TOTAL</th>
         <th>CANTIDAD</th>
-        <th>TALLAS_ID</th>
-        <th>COLORES_ID</th>
+        <th>TALLA</th>
+        <th>COLOR</th>
     </thead>
     <tbody>
         @foreach ($detalles as $d)
         <tr>
             <td>{{ $d->id }}</td>
             <td>{{ $d->nombre }}</td>
-            <td>{{ $d->total }}</td>
+            <td>${{ $d->total }}</td>
             <td>{{ $d->cantidad }}</td>
-            <td>{{ $d->tallas_id }}</td>
-            <td>{{ $d->colores_id }}</td>
+            <td>{{ $d->talla }}</td>
+            <td>{{ $d->color }}</td>
         </tr>
         @endforeach
 

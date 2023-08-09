@@ -86,7 +86,7 @@
 @endsection
 
 @section('js')
-
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 @vite(['resources/js/ShoppingCart.js'])
 @if (session('mensaje'))
 <script>
@@ -97,5 +97,4 @@ Swal.fire({
 })
 </script>
 @endif
-<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 @endsection

@@ -1,5 +1,7 @@
 @extends('layaouts.app')
-
+@section('css')
+@vite(['resources/css/ValidateEmail.css'])
+@endsection
 @section('title', 'registro')
 
 <!--
@@ -9,13 +11,21 @@
 @section('content')
 
 <p hidden id="datos">{{ $datos }}</p>
-<form action="{{route('verification.validate')}}" method="post">
-        @csrf
-        <input type="number" name="digito" id="digito">
+<div class="contenedor">
+    <br>
+    <br>
+    <br>
 
-        <h1></h1>
-        <input type="submit" value="Enviar">
-    </form>
+  <div class="form-group">
+    <h1 style="font-size: 15px">Estas a punto de crear tu cuenta por favor ingrese el codigo que hemos enviado a su cuenta <b><p id="correo"></p></b></h1>
+    @csrf
+    <strong>
+      <input type="number" id="codigo" maxlength="4">
+      </strong>
+      <br>
+      <br>
+
+      <button  id="btn_siguiente" class="boton">TERMINAR</button>
 
 @endsection
 

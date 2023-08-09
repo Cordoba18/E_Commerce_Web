@@ -19,7 +19,7 @@
                         <li><a href="{{ Route('wishlist') }}">Lista de deseos</a></li>
                         <li><a href="{{ Route('logout') }}">Cerrar sesion</a></li>
                         <li><a href="{{ Route('customer.delete') }}">Eliminar cuenta</a></li>
-                        
+
                     </ul>
                 </aside>
             </div>

@@ -39,4 +39,10 @@ class WishListController extends Controller
 
         }
     }
+
+    public function delete($id_lista_deseos){
+        $id = FacadesAuth::user()->id;
+
+        DB::select("UPDATE `lista_deseos` SET `estados_id`='2' WHERE id_user=$id AND id=$id_lista_deseos");
+    }
 }

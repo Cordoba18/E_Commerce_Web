@@ -37,7 +37,6 @@ producto_carrito.forEach(product => {
     seleccion_cantidad.addEventListener('change', function() {
         let cantidad = parseInt(product.querySelector("#cantidad").innerHTML);
         const total = parseFloat(product.querySelector("#total").innerHTML);
-        total_full.innerHTML = parseFloat(total_full.innerHTML) - (cantidad*total);
 
         const valorSeleccionado = seleccion_cantidad.value;
         const _token = product.querySelector("input[name=_token]").value;
@@ -53,7 +52,10 @@ producto_carrito.forEach(product => {
                 _token: _token,
             },success: function(response) {
               if (response['message'] === true) {
-
+                total_full.innerHTML = parseFloat(total_full.innerHTML) - (cantidad*total);
+                let cambiar_cantidad = product.querySelector("#cantidad");
+                cambiar_cantidad.innerHTML = valorSeleccionado;
+                total_full.innerHTML = parseFloat(total_full.innerHTML) + (valorSeleccionado*total);
               } else {
                 Swal.fire({
                     icon: 'error',
@@ -67,9 +69,6 @@ producto_carrito.forEach(product => {
             }
           },
           )
-          let cambiar_cantidad = product.querySelector("#cantidad");
-          cambiar_cantidad.innerHTML = valorSeleccionado;
-          total_full.innerHTML = parseFloat(total_full.innerHTML) + (valorSeleccionado*total);
     })
 
 
