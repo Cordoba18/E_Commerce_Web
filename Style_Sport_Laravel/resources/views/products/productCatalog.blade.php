@@ -14,19 +14,23 @@
         </div>
         <div class="columntwo">
 
-            <h2>Resultados:</h2>
+            <h2>Resultados: {{ $search }}</h2>
 
             <div class="results">
-                @foreach ($productos as $p)
-                    <a href="{{route('productprofile', $p->id)}}">
-                        <div class="card-product">
+                @forelse ($productos as $P)
+
+                    <a href="{{ route('productprofile', $P->id) }}">
+                        <div class="target">
+                            @if ($P->descuento > 0)
+                                <p class="discount">{{ $P->descuento }}% Off</p>
+                            @endif
                             @php
                                 $foundImage = false;
                                 $imagePath = '';
                             @endphp
 
                             @foreach ($imgProduct as $img)
-                                @if ($img->id_producto == $p->id)
+                                @if ($img->id_producto == $P->id)
                                     @php
                                         $imagePath = 'storage/imgs/' . $img->imagen;
                                     @endphp
@@ -43,19 +47,28 @@
                         @unless ($foundImage)
                             <img src="{{ asset('storage/imgs/images.png') }}">
                         @endunless
-                        <div class="card-product-body">
-                            <div>
-                                <h3>{{ $p->nombre }}</h3>
-                                <p>{{ $p->descripcion }}</p>
-                                <p>Envio gratis</p>
-                            </div>
-                            <div>
-                                <p>${{ $p->precio }}</p>
-                            </div>
+
+                        <div class="target-body">
+                            <h5 class="target-title">{{ $P->nombre }}</h5>
+                            @if ($P->descuento > 0)
+                                @php
+                                    $porcentaje = ($P->precio * $P->descuento) / 100;
+                                    $discount = $P->precio - $porcentaje;
+                                @endphp
+                                <div class="price">
+                                    <p><span>${{ $discount }} </span>
+                                    <p class="after"><span>${{ $P->precio }}</span></p>
+                                    </p>
+                                </div>
+                            @else
+                                <p><span>$</span>{{ $P->precio }} </p>
+                            @endif
                         </div>
                     </div>
                 </a>
-            @endforeach
+            @empty
+                <h1>No hay resultados de {{ $search }}</h1>
+            @endforelse
         </div>
         {{ $productos->appends(['search' => $search])->links() }}
     </div>

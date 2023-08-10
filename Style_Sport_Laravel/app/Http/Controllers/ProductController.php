@@ -18,7 +18,7 @@ class ProductController extends Controller
         $search = $request->search;
 
         if ($search == '') {
-            $productos = Product::where('estados_id', '1')->paginate(3);
+            $productos = Product::where('estados_id', '1')->paginate(15);
         } else {
             $productos = DB::table('productos')
             ->join('categorias', 'productos.categoria', '=', 'categorias.id')
@@ -48,6 +48,9 @@ class ProductController extends Controller
 
         $porcentaje = $product->precio*$product->descuento / 100;
         $discount = $product->precio - $porcentaje;
-        return view('products.productProfile', compact('product','category','imgs','color', 'size', 'discount'));
+
+        $imgProduct = ImgProduct::all();
+        $Products = Product::where('estados_id','1')->where('categoria',$product->categoria)->inRandomOrder()->limit(15)->get();
+        return view('products.productProfile', compact('imgProduct','Products','product','category','imgs','color', 'size', 'discount'));
     }
 }

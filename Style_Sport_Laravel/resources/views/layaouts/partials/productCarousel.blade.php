@@ -1,6 +1,8 @@
-@foreach ($Product as $P)
-<a href="{{route('productprofile', $P->id)}}">
+<a href="{{ route('productprofile', $P->id) }}">
     <div class="target">
+        @if ($P->descuento > 0)
+            <p class="discount">{{ $P->descuento }}% Off</p>
+        @endif
         @php
             $foundImage = false;
             $imagePath = '';
@@ -17,21 +19,29 @@
                         $foundImage = true;
                     @endphp
                 @endif
-                @break
-            @endif
-        @endforeach
+            @break
+        @endif
+    @endforeach
 
-        @unless ($foundImage)
-            <img src="{{ asset('storage/imgs/images.png') }}">
-        @endunless
+    @unless ($foundImage)
+        <img src="{{ asset('storage/imgs/images.png') }}">
+    @endunless
 
-        <div class="target-body">
-            <h5 class="target-title">{{ $P->nombre }}</h5>
-            <p class="target-text">${{ $P->precio }}</p>
-            <p class="target-text">Envio gratis</p>
-        </div>
+    <div class="target-body">
+        <h5 class="target-title">{{ $P->nombre }}</h5>
+        @if ($P->descuento > 0)
+            @php
+                $porcentaje = ($P->precio * $P->descuento) / 100;
+                $discount = $P->precio - $porcentaje;
+            @endphp
+            <div class="price">
+                <p><span>${{ $discount }} </span>
+                <p class="after"><span>${{ $P->precio }}</span></p>
+                </p>
+            </div>
+        @else
+            <p><span>$</span>{{ $P->precio }} </p>
+        @endif
     </div>
+</div>
 </a>
-@endforeach
-
-

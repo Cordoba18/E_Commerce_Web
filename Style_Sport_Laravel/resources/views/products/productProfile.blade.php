@@ -3,6 +3,7 @@
 @section('title', 'perfil producto')
 
 @section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.css">
     @vite(['resources/css/paginaProducto.css'])
 @endsection
 
@@ -108,7 +109,26 @@
             </section>
         </div>
         <div class="carouselProduct">
+            <article class="contenedor">
+                <div class="carousel-productos">
+                    <div class="carousel-contenedor">
+                        <h3>Relaccionados</h3>
+                        <button aria-label="Anterior" class="carousel-anterioro carousel-anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
 
+                        <div class="carousel-listao">
+                            @foreach ($Products as $P)
+                                @include('layaouts.partials.productCarousel')
+                            @endforeach
+                        </div>
+
+                        <button aria-label="Siguiente" class="carousel-siguienteo carousel-siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
         </div>
     </main>
 
@@ -126,5 +146,6 @@ Swal.fire({
 })
 </script>
 @endif
-    @vite(['resources/js/productProfile.js'])
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.js"></script>
+    @vite(['resources/js/productProfile.js','resources/js/productCarousel.js'])
 @endsection
