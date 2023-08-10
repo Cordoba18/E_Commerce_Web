@@ -41,7 +41,6 @@ producto_carrito.forEach(product => {
         const valorSeleccionado = seleccion_cantidad.value;
         const _token = product.querySelector("input[name=_token]").value;
         let tallas_id = product.querySelector("#tallas_id").innerHTML;
-
         $.ajax({
             url: "shoppingcart/editquantity",
             type: "POST",

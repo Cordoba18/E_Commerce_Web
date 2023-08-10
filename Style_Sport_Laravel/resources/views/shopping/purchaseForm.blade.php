@@ -61,7 +61,24 @@
 </table>
 
 <h3>TOTAL = </h3><h2 id="total_full">{{ $total }}</h2>
-<button id="finalizar_compra" class="btn btn-success"> FINALIZAR COMPRA </button>
+
+<div></div>
+
+<div class="contenedor_inputs">
+    <h4>CONFIRMAR INFORMACION :</h4>
+    <label >TELEFONO: </label>
+    <input type="text" id="telefono" placeholder="INGRESE SU NUMERO DE TELEFONO" value="{{ $telefono }}">
+    <p style="color: red" id="error_telefono" hidden></p>
+    <br><br>
+    <label >DIRECCION: </label>
+    <input type="text" id="direccion" placeholder="INGRESE SU NUMERO DIRECCION" value="{{ $direccion }}">
+    <p style="color: red" id="error_direccion" hidden></p>
+    <br><br>
+
+    <button id="finalizar_compra" class="btn btn-success"> FINALIZAR COMPRA </button>
+</div>
+
+
  <center><div id="paypal-button-container">
     @csrf</div></center>
 
@@ -88,7 +105,6 @@ const validar = setInterval(() => {
 
                total_absoluto = total_absoluto + (element.cantidad_producto * element.total)
             });
-            console.log(total_absoluto);
             // Manejar la respuesta del controlador si es necesari
             if (total_absoluto != total) {
                 Swal.fire({
@@ -110,6 +126,11 @@ setTimeout(() => {
 alert('TIEMPO DE COMPRA EXPIRADO')
 window.location.href = "{{ route('shoppingcart') }}";
 }, 300000);
+
+
+
+function cargarPaypal(){
+
 paypal.Buttons({
     fundingSource: paypal.FUNDING.CARD,
     createOrder: function(data, actions) {
@@ -158,5 +179,55 @@ paypal.Buttons({
  ;
 }
 }).render('#paypal-button-container');
+}
+
+
+
+let finalizar_compra = document.querySelector("#finalizar_compra");
+
+finalizar_compra.addEventListener("click", function(e){
+    
+    let error_telefono = document.querySelector("#error_telefono");
+    let error_direccion = document.querySelector("#error_direccion");
+    let contenedor_inputs = document.querySelector(".contenedor_inputs");
+        let telefono = document.querySelector('#telefono');
+        let direccion = document.querySelector('#direccion');
+        if (telefono.value < 0 ||telefono.value == null || telefono.value == "" ) {
+            error_telefono.removeAttribute('hidden')
+            error_telefono.innerHTML = "TELEFONO VACIO";
+            
+        }
+        else if (direccion.value == "") {
+            error_direccion.removeAttribute('hidden')
+            error_direccion.innerHTML = "DIRECCION VACIA";
+        }else {
+        contenedor_inputs.remove();
+        cargarPaypal();
+        $.ajax({
+        type: 'POST',
+        url: '{{ route("purchaseform.save_changes") }}',
+        data: {
+            telefono: telefono,
+            direccion: direccion,
+            _token: _token // Enviar los datos devueltos por la API de PayPal
+        },
+        success: function(response) {
+            // Manejar la respuesta del controlador si es necesario
+
+
+        },
+        error: function(error) {
+            // Manejar el error si lo hay
+            console.error(error);
+        }
+    });
+
+    }
+           
+            
+
+  
+    
+})
 </script>
 @endsection

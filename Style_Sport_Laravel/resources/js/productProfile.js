@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var btnPlus = document.querySelector(".plus");
     var btnLess = document.querySelector(".less");
 
+    
     btnPlus.addEventListener("click", function () {
         var currentValue = parseInt(inputCantidad.value);
         var maxValue = parseInt(inputCantidad.max);
