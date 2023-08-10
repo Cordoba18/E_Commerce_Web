@@ -29,6 +29,8 @@
 
 .main .profileProduct .columnone .img img{
     width: 100%;
+  height: 500px;
+  object-fit: cover; 
 }
 
 .main .profileProduct .columntwo{
@@ -57,4 +59,142 @@ width: 50%;
 
 .main .profileProduct .columntwo .details form .btns{
     margin: 20px auto;
+}
+.carousel-productos {
+    max-width: 1500px;
+    width: 80%;
+    margin: 40px auto;
+}
+
+.carousel-contenedor {
+    position: relative;
+}
+
+.carousel-contenedor h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: #000;
+}
+
+.carousel-contenedor .target{
+    margin: 30px;
+    width: 200px;
+    height: 300px;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 5px;
+    box-shadow: 0 20px 35px rgba(83, 83, 83, 0.1);
+    background: #fff;
+    align-items: center;
+}
+
+.carousel-contenedor .target .discount{
+    background-color: #ffffff;
+    color: #ff0000;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 5px;
+    position: absolute;
+    margin: 5px;
+}
+
+.carousel-contenedor .target img{
+    width: 100%;
+  height: 200px;
+  object-fit: cover; 
+}
+
+.carousel-contenedor a{
+    text-decoration: none;
+    color: #000;
+} 
+
+.carousel-contenedor .target .target-body{
+    padding: 10px;
+}
+
+.carousel-contenedor .target .target-body h5{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.carousel-contenedor .target .target-body .price{
+    display: flex;
+}
+
+.carousel-contenedor .target .target-body .price .after span{
+    color: rgb(129, 128, 128) ;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+.carousel-contenedor .target .target-body .price p{
+    font-size: 15px;
+    margin: 0 10px 0 0;
+}
+
+.carousel-contenedor .target .target-body .price p span{
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
+.carousel-anterior,
+.carousel-siguiente {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(50% - 35px);
+    cursor: pointer;
+    line-height: 30px;
+    background: none;
+    text-align: center;
+    color: black;
+}
+
+.carousel-anterior:hover,
+.carousel-siguiente:hover {
+    background: rgba(0, 0, 0);
+    color: white;
+    border-radius: 50%;
+}
+
+.carousel-anterior {
+    left: -30px;
+}
+
+.carousel-siguiente {
+    right: -30px;
+}
+@media (max-width:900px){
+    .carousel-contenedor .target{
+        margin: 17px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .carousel-contenedor .target{
+        margin: 40px;
+    }
+}
+
+@media (max-width: 680px) {
+    .carousel-contenedor .target{
+        margin: 17px;
+    }
+}
+
+@media (max-width: 530px) {
+
+    .carousel-contenedor .target{
+        margin: 40px;
+    }
+}
+
+@media (max-width: 300px) {
+    .carousel-contenedor .target{
+        margin: 10px;
+    }
 }

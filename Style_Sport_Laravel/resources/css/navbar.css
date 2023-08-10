@@ -122,8 +122,9 @@ body{
     margin: auto 25px;
 }
 
-.navbarbotton ul li a{
-    text-decoration: none;
+.navbarbotton ul li .links{
+    border: 0;
+    background-color: #fff;
     color: #000;
 }
 
