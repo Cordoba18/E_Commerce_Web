@@ -57,7 +57,7 @@ class ShoppingCartController extends Controller
             foreach($carrito as $c){
                     $total_cantidad = $total_cantidad + $c->cantidad_producto;
                     if ($total_cantidad+$request->amount > $talla_origen->cantidad) {
-                        return redirect('productprofile/'.$request->product)->with('mensaje', 'CANTIDAD FUERA DE RANGO');
+                        return redirect('productprofile/'.$request->product)->with('no-cart', false);
                     }
             }
             $total_cantidad = 0;
@@ -66,7 +66,7 @@ class ShoppingCartController extends Controller
                 $carro = CartShop::find($c->id);
                 $carro->cantidad_producto =$request->amount;
                 $carro->save();
-                return redirect('productprofile/'.$request->product);
+                return redirect('productprofile/'.$request->product)->with('cart', true);
             }
         }
 
@@ -79,7 +79,7 @@ class ShoppingCartController extends Controller
             'tallas_id' => $request->size,
             'colores_id' => $request->color,
            ]);
-           return redirect('productprofile/'.$request->product);
+           return redirect('productprofile/'.$request->product)->with('cart', true);
         }else {
             $cartshop = CartShop::create([
                 'cantidad_producto' => $request->amount,
@@ -90,7 +90,7 @@ class ShoppingCartController extends Controller
                 'tallas_id' => $request->size,
                 'colores_id' => $request->color,
                ]);
-               return redirect('productprofile/'.$request->product);
+               return redirect('productprofile/'.$request->product)->with('cart', true);
         }
 
 

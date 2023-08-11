@@ -6,6 +6,7 @@
 @vite(['resources/css/purchaseform.css'])
 @endsection
 @section('content')
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <center><h1 style="font-size: 40px; padding: 40px">PAGINA DE COMPRAR</h1></center>
 <p hidden id="user">{{ $id }}</p>
 @php
@@ -86,7 +87,7 @@
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&components=buttons,funding-eligibility"></script>
+<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID2') }}&components=buttons,funding-eligibility"></script>
 <script>
 let total = document.querySelector('#total_full').innerHTML;
 let _token = document.querySelector('input[name=_token]').value;
@@ -163,7 +164,6 @@ paypal.Buttons({
             clearInterval(validar);
             window.location.href = "{{ route('shoppingcart') }}";
 
-
         },
         error: function(error) {
             // Manejar el error si lo hay
@@ -186,21 +186,22 @@ paypal.Buttons({
 let finalizar_compra = document.querySelector("#finalizar_compra");
 
 finalizar_compra.addEventListener("click", function(e){
-    
+
     let error_telefono = document.querySelector("#error_telefono");
     let error_direccion = document.querySelector("#error_direccion");
     let contenedor_inputs = document.querySelector(".contenedor_inputs");
-        let telefono = document.querySelector('#telefono');
-        let direccion = document.querySelector('#direccion');
-        if (telefono.value < 0 ||telefono.value == null || telefono.value == "" ) {
+        let telefono = document.querySelector('#telefono').value;
+        let direccion = document.querySelector('#direccion').value;
+        if (telefono < 0 ||telefono == null || telefono == "" ) {
             error_telefono.removeAttribute('hidden')
             error_telefono.innerHTML = "TELEFONO VACIO";
-            
+
         }
-        else if (direccion.value == "") {
+        else if (direccion == "") {
             error_direccion.removeAttribute('hidden')
             error_direccion.innerHTML = "DIRECCION VACIA";
         }else {
+            try {
         contenedor_inputs.remove();
         cargarPaypal();
         $.ajax({
@@ -221,13 +222,16 @@ finalizar_compra.addEventListener("click", function(e){
             console.error(error);
         }
     });
+} catch (error) {
+    console.log(error);
+}
 
     }
-           
-            
 
-  
-    
+
+
+
+
 })
 </script>
 @endsection

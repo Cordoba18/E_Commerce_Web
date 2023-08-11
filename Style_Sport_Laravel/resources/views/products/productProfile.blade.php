@@ -137,7 +137,7 @@
 @endsection
 
 @section('js')
-@if (session('mensaje'))
+@if (session('no-cart'))
 <script>
 Swal.fire({
   icon: 'error',
@@ -145,6 +145,30 @@ Swal.fire({
   text: 'LA CANTIDAD ESTA FUERA DE RANGO'
 })
 </script>
+@endif
+@if (session('cart'))
+<script>
+    Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'PRODUCTO AGREGADO AL CARRITO',
+                showConfirmButton: false,
+                timer: 1500
+              })
+</script>
+@endif
+
+@if (session('list')){
+    <script>
+        Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'PRODUCTO AGREGADO ALA LISTA DE DESEOS',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+    </script>
+}
 @endif
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.js"></script>
     @vite(['resources/js/productProfile.js','resources/js/productCarousel.js'])

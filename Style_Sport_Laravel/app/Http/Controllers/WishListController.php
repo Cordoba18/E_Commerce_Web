@@ -27,7 +27,7 @@ class WishListController extends Controller
         $id = FacadesAuth::user()->id;
         $validar = DB::select(" SELECT * FROM lista_deseos WHERE id_user = $id AND id_producto=$id_producto AND estados_id =1");
         if ($validar) {
-            return redirect('productprofile/'.$id_producto);
+            return redirect('productprofile/'.$id_producto)->with('list', true);
         }else {
 
             $cartshop = WihsList::create([
@@ -35,7 +35,7 @@ class WishListController extends Controller
                 'id_producto' => $id_producto,
                 'estados_id' => '1',
                ]);
-               return redirect('productprofile/'.$id_producto);
+               return redirect('productprofile/'.$id_producto)->with('list', true);
 
         }
     }
