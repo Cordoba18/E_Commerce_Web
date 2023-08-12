@@ -51,24 +51,23 @@ class ShoppingCartController extends Controller
         $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id = 1 AND id_producto = $request->product AND tallas_id = $request->size");
         if ($carrito) {
             $talla_origen = Size::find($request->size);
-
             $total_cantidad = 0;
 
             foreach($carrito as $c){
                     $total_cantidad = $total_cantidad + $c->cantidad_producto;
+                    if ($c->colores_id == $request->color) {
+                        $carro = CartShop::find($c->id);
+                        $carro->cantidad_producto =$request->amount;
+                        $carro->save();
+                        return redirect('productprofile/'.$request->product)->with('cart', true);
+                    }else
                     if ($total_cantidad+$request->amount > $talla_origen->cantidad) {
-                        return redirect('productprofile/'.$request->product)->with('no-cart', false);
+                        return redirect('productprofile/'.$request->product)->with('no-cart', true);
                     }
             }
-            $total_cantidad = 0;
-            foreach($carrito as $c){
-            if ($c->colores_id == $request->color) {
-                $carro = CartShop::find($c->id);
-                $carro->cantidad_producto =$request->amount;
-                $carro->save();
-                return redirect('productprofile/'.$request->product)->with('cart', true);
-            }
-        }
+
+
+
 
         $cartshop = CartShop::create([
             'cantidad_producto' => $request->amount,

@@ -80,12 +80,13 @@
                                 for ($i=0; $i < 5 ; $i++) {
                                 print "<i class='fa-regular fa-star'></i>";
                             }
+                            print "<span>(0)</span>";
                             print "<p>No hay calificaciones</p>";
                             }
                         @endphp
 
                     </div>
-                    <button id="btn_calificar" class="btn btn-success">CALIFICAR PRODUCTO</button>
+                    <button id="btn_calificar" class="btn btn-success btn-sm">CALIFICAR PRODUCTO</button>
                     <form action="{{ route('shoppingcart.store') }}" method="post">
                         @csrf
                         @auth
