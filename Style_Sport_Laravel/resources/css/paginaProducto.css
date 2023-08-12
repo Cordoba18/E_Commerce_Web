@@ -30,7 +30,7 @@
 .main .profileProduct .columnone .img img{
     width: 100%;
   height: 500px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .main .profileProduct .columntwo{
@@ -100,13 +100,13 @@ width: 50%;
 .carousel-contenedor .target img{
     width: 100%;
   height: 200px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .carousel-contenedor a{
     text-decoration: none;
     color: #000;
-} 
+}
 
 .carousel-contenedor .target .target-body{
     padding: 10px;
@@ -197,4 +197,62 @@ width: 50%;
     .carousel-contenedor .target{
         margin: 10px;
     }
+}
+
+body{
+    z-index: 1;
+}
+.contenedor_estrellas_1{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+}
+.contenedor_estrellas_2{
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: solid 2px black;
+    padding: 50px 200px;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+.contenedor_estrellas_2 .btn_x{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: black;
+    font-size: 30px;
+}
+.valoracion {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.valoracion input {
+    position: absolute;
+    top: -100px;
+}
+
+
+.valoracion label {
+    float: right;
+    color: #c1b8b8;
+    font-size: 50px;
+}
+
+.valoracion label:hover,
+.valoracion label:hover ~ label,
+.valoracion input:checked ~ label {
+    color: #ffff00;
 }

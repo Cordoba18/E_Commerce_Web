@@ -11,6 +11,7 @@ use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\ShoppingHistryController;
 use App\Http\Controllers\WishListController;
 use App\Http\Controllers\InvoiceDetailsController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,6 +30,7 @@ Route::get('/vista_validar', [RegisteredUserController::class, 'vista_validar'])
 
 Route::get('/productcatalog', [ProductController::class, 'index'])->name('productcatalog');
 Route::get('/productprofile/{product}', [ProductController::class, 'show'])->name('productprofile');
+Route::post('productprofile/calificar', [ProductController::class, 'calificar'])->name('productprofile.calificar');
 
 Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');
 Route::get('shoppingcart/delete/{id}', [ShoppingCartController::class, 'delete'])->name('shoppingcart.delete');

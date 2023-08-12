@@ -1,5 +1,7 @@
 @extends('layaouts.main')
+<div id="contenedor_estrellas">
 
+</div>
 @section('title', 'perfil producto')
 
 @section('css')
@@ -64,6 +66,26 @@
                     <p class="price">${{ $product->precio }} ${{ $discount }} {{ $product->descuento }}%</p>
                 </div>
                 <div class="details">
+                    <div class="promedio">
+                        @php
+                        if ($product->calificacion) {
+                            for ($i=0; $i < intval(round($product->calificacion)) ; $i++) {
+                                print "<i class='fa-solid fa-star'></i>";
+                            }
+                            for ($i=0; $i < 5-intval(round($product->calificacion)) ; $i++) {
+                                print "<i class='fa-regular fa-star'></i>";
+                            }
+                            print "<span>($product->calificacion)</span>";
+                            print "<p>$product->n_p_calificaron calificaciones</p>";}else {
+                                for ($i=0; $i < 5 ; $i++) {
+                                print "<i class='fa-regular fa-star'></i>";
+                            }
+                            print "<p>No hay calificaciones</p>";
+                            }
+                        @endphp
+
+                    </div>
+                    <button id="btn_calificar" class="btn btn-success">CALIFICAR PRODUCTO</button>
                     <form action="{{ route('shoppingcart.store') }}" method="post">
                         @csrf
                         @auth
@@ -105,6 +127,8 @@
                     <form action="{{ route('wishlist.store', $product->id) }}" method="get">
                     <button class="wishList">Favoritos</button>
                 </form>
+
+
                 </div>
             </section>
         </div>
@@ -171,5 +195,6 @@ Swal.fire({
 }
 @endif
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     @vite(['resources/js/productProfile.js','resources/js/productCarousel.js'])
 @endsection

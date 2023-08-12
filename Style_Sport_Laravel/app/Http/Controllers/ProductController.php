@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Calification;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\ImgProduct;
@@ -10,7 +11,7 @@ use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Nette\Utils\Strings;
-
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 class ProductController extends Controller
 {
     public function index(Request $request)
@@ -53,4 +54,41 @@ class ProductController extends Controller
         $Products = Product::where('estados_id','1')->where('categoria',$product->categoria)->inRandomOrder()->limit(15)->get();
         return view('products.productProfile', compact('imgProduct','Products','product','category','imgs','color', 'size', 'discount'));
     }
+
+
+    public function calificar(Request $request){
+        if (FacadesAuth::user() == false || FacadesAuth::user() == null) {
+            return response()->json(['message' => false], 200);
+        } else {
+            $id_user = FacadesAuth::user()->id;
+            $suma = false;
+            $buscar = DB::selectOne("SELECT * FROM calificacion WHERE id_user = $id_user AND id_producto = $request->id_producto");
+            if ($buscar) {
+                DB::update("UPDATE `calificacion` SET `calificacion`='$request->valoracion' WHERE id = $buscar->id");
+            }else {
+                $tbl_calificacion = new Calification();
+                $tbl_calificacion->id_user = $id_user;
+                $tbl_calificacion->id_producto = $request->id_producto;
+                $tbl_calificacion->calificacion = $request->valoracion;
+                $tbl_calificacion->save();
+                $suma = true;
+            }
+
+            $producto = Product::find($request->id_producto);
+            $buscar = DB::select("SELECT * FROM calificacion WHERE id_producto = $request->id_producto");
+            $calificaciones = 0;
+            $numero_personas = 0;
+            foreach ($buscar as $b){
+                $calificaciones = $calificaciones + $b->calificacion;
+                $numero_personas = $numero_personas + 1;
+            }
+            $promedio_calificacion = $calificaciones/$numero_personas;
+            $producto->calificacion = $promedio_calificacion;
+            $producto->n_p_calificaron = $numero_personas;
+            $producto->save();
+        }
+        return response()->json(['message' => true], 200);
+        }
+
+
 }
