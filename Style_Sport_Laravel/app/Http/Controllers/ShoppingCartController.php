@@ -27,8 +27,7 @@ class ShoppingCartController extends Controller
 
         $id = FacadesAuth::user()->id;
         DB::select("UPDATE `carrito_compras` SET `estados_id`='1' WHERE id_user = $id AND estados_id = 3");
-        $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos WHERE estados_id = 1");
-        $productos = DB::select("SELECT* FROM productos");
+        $imgProduct =DB::select("SELECT* FROM Imagenes_productos WHERE estados_id = 1");
         $carro_a_validar = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id = 1");
         foreach($carro_a_validar as $c){
             $talla_origen = Size::find($c->tallas_id);
@@ -42,7 +41,8 @@ class ShoppingCartController extends Controller
         INNER JOIN tallas t ON c.tallas_id = t.id
         INNER JOIN colores color ON c.colores_id = color.id
         WHERE c.id_user = $id AND c.estados_id = 1");
-        return view('shopping.shoppingCart', compact('carrito','Imagenes_productos','productos','id'));
+        $Products = Product::Where('estados_id', '1')->inRandomOrder()->limit(15)->get();
+        return view('shopping.shoppingCart', compact('carrito','imgProduct','id', 'Products'));
     }
 
     public function store(StoreProductCartShopping $request)

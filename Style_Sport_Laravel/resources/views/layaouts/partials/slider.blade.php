@@ -8,7 +8,7 @@
 
         @foreach ($slider as $s)
             @php
-                $imagePath = 'storage/imgs/.' . $s->imagen;
+                $imagePath = 'storage/imgs/' . $s->imagen;
                 $imageInfo = @getimagesize(public_path($imagePath));
             @endphp
             @if ($imageInfo !== false)

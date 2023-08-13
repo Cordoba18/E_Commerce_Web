@@ -7,7 +7,9 @@
 @endsection
 @section('content')
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<center><h1 style="font-size: 40px; padding: 40px">PAGINA DE COMPRAR</h1></center>
+<div class="purchase_content">
+<div class="content_left">
+<h1 >FACTURA</h1>
 <p hidden id="user">{{ $id }}</p>
 @php
     $total = 0;
@@ -41,7 +43,7 @@
                         $imagePath = 'storage/imgs/' . $img->imagen;
                     @endphp
                     @if (file_exists(public_path($imagePath)))
-                        <img  style="width: 300px; height: 180px;" src="{{ asset($imagePath) }}">
+                        <img src="{{ asset($imagePath) }}">
                         @php
                             $foundImage = true;
                         @endphp
@@ -51,7 +53,7 @@
             @endforeach
 
             @unless ($foundImage)
-                <img style="width: 300px; height: 180px; " src="{{ asset('storage/imgs/images.png') }}">
+                <img src="{{ asset('storage/imgs/images.png') }}">
             @endunless</td>
             <td>{{ $c->talla }}</td>
             <td>{{ $c->color }}</td>
@@ -61,38 +63,61 @@
     </tbody>
 </table>
 
-<h3>TOTAL = </h3><h2 id="total_full">{{ $total }}</h2>
+</div>
 
-<div></div>
-
+<div class="content_right">
+<span id="total_full" hidden>{{ $total }}</span>
 <div class="contenedor_inputs">
-    <h4>CONFIRMAR INFORMACION :</h4>
-    <label >TELEFONO: </label>
+    <h1>CONFIRMAR INFORMACION </h1>
+    <label >TELEFONO </label>
     <input type="text" id="telefono" placeholder="INGRESE SU NUMERO DE TELEFONO" value="{{ $telefono }}">
     <p style="color: red" id="error_telefono" hidden></p>
-    <br><br>
-    <label >DIRECCION: </label>
+    <label >DIRECCION </label>
     <input type="text" id="direccion" placeholder="INGRESE SU NUMERO DIRECCION" value="{{ $direccion }}">
     <p style="color: red" id="error_direccion" hidden></p>
-    <br><br>
+    <label for="">DEPARTAMENTOS</label>
+    <select  id="departamentos">
+        <option value="">SELECCIONE UN DEPARTAMENTO</option>
+        @foreach ($departamentos as $d)
+        <option value="{{ $d->id }}">{{ $d->departamento }}</option>
+        @endforeach
+    </select>
+    <label for="">CIUDADES</label>
+    <select id="ciudades">
+        <option value="">SELECCIONE UNA CIUDAD</option>
+    </select>
 
-    <button id="finalizar_compra" class="btn btn-success"> FINALIZAR COMPRA </button>
+    <p style="color: red" id="error_ciudad" hidden></p>
+    <h3>TOTAL  </h3><p class="total">${{ number_format(intval(round($total))) }} COP</p>
+
+    <button id="finalizar_compra"> FINALIZAR COMPRA </button>
+</div>
+
+<div class="content-paypal-logos">
+
+    <img src="{{ asset('storage/imgs/icon/MasterCard_Logo.png') }}">
+    <img src="{{ asset('storage/imgs/icon/VISA-Logo.png') }}">
 </div>
 
 
  <center><div id="paypal-button-container">
     @csrf</div></center>
+</div>
+</div>
 
 @endsection
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID2') }}&components=buttons,funding-eligibility"></script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AW43i_XQWXydfHYWsv2dU-d15gMqO97p3-6trD_TlfaXmohDIS2u2Nyexa12qpgMG4OixEu2iCxIGb_n&currency=USD&components=buttons,funding-eligibility"></script>
+@vite(['resources/js/purchaseForm.js'])
 <script>
 let total = document.querySelector('#total_full').innerHTML;
 let _token = document.querySelector('input[name=_token]').value;
+let total_dolares;
 
-
+total_dolares = total * 0.0003098;
 const validar = setInterval(() => {
 
     $.ajax({
@@ -130,8 +155,11 @@ window.location.href = "{{ route('shoppingcart') }}";
 
 
 
+
+
 function cargarPaypal(){
 
+    try {
 paypal.Buttons({
     fundingSource: paypal.FUNDING.CARD,
     createOrder: function(data, actions) {
@@ -141,12 +169,13 @@ paypal.Buttons({
             },
             purchase_units: [{
                 amount: {
-                    value: total
+                    value:  Math.ceil(total_dolares)
                 }
             }],
         });
     },
     onApprove: function(data, actions) {
+        clearInterval(validar);
         Swal.fire(
         'PAGO APROBADO',
          'Gracias por comprar con nosotros',
@@ -161,7 +190,6 @@ paypal.Buttons({
         },
         success: function(response) {
             // Manejar la respuesta del controlador si es necesario
-            clearInterval(validar);
             window.location.href = "{{ route('shoppingcart') }}";
 
         },
@@ -175,63 +203,23 @@ paypal.Buttons({
         icon: 'error',
         title: 'ERROR EN EL PAGO',
         text: 'Hubo un error con su pago!'
-    })
- ;
+    });
 }
 }).render('#paypal-button-container');
-}
 
-
-
-let finalizar_compra = document.querySelector("#finalizar_compra");
-
-finalizar_compra.addEventListener("click", function(e){
-
-    let error_telefono = document.querySelector("#error_telefono");
-    let error_direccion = document.querySelector("#error_direccion");
-    let contenedor_inputs = document.querySelector(".contenedor_inputs");
-        let telefono = document.querySelector('#telefono').value;
-        let direccion = document.querySelector('#direccion').value;
-        if (telefono < 0 ||telefono == null || telefono == "" ) {
-            error_telefono.removeAttribute('hidden')
-            error_telefono.innerHTML = "TELEFONO VACIO";
-
-        }
-        else if (direccion == "") {
-            error_direccion.removeAttribute('hidden')
-            error_direccion.innerHTML = "DIRECCION VACIA";
-        }else {
-            try {
-        contenedor_inputs.remove();
-        cargarPaypal();
-        $.ajax({
-        type: 'POST',
-        url: '{{ route("purchaseform.save_changes") }}',
-        data: {
-            telefono: telefono,
-            direccion: direccion,
-            _token: _token // Enviar los datos devueltos por la API de PayPal
-        },
-        success: function(response) {
-            // Manejar la respuesta del controlador si es necesario
-
-
-        },
-        error: function(error) {
-            // Manejar el error si lo hay
-            console.error(error);
-        }
-    });
 } catch (error) {
-    console.log(error);
+    Swal.fire({
+        icon: 'error',
+        title: 'OCURRIO UN ERROR',
+        text: 'RECARGANDO COMPRA'
+    })
+    clearInterval(validar);
+    window.location.href = "{{ route('purchaseform') }}";
 }
 
-    }
+}
 
 
 
-
-
-})
 </script>
 @endsection

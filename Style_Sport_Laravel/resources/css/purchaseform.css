@@ -1,48 +1,78 @@
+.purchase_content{
+display: flex;
+flex-wrap: wrap;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-.purchase-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-
-.purchase-title {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 20px;
+.content_left{
+width: 50%;
+margin: 40px;
 }
+.content_right{
+width: 700px;
+margin: 40px;
 
-.table {
+}
+.content_left table{
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    border: 2px solid black;
+    margin-top: 10px;
 }
-
-.table th, .table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
+.content_left table img{
+    width: 350px;
+    height: 300px;
 }
-
-.table th {
-    background-color: #f5f5f5;
+.content_left h1{
+    font-size: 40px;
+    font-weight: bold;
 }
+.content_right h1{
+    font-size: 40px;
+    font-weight: bold;
 
-.contenedor_inputs {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+}
+.content_right label{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+.contenedor_inputs input, select{
+    width: 100%;
     border-radius: 5px;
+    outline: none;
+    height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.contenedor_inputs p{
+    font-weight: bold;
+    font-size: 20px;
+}
+.contenedor_inputs h3{
+font-size: 40px;
+font-weight: bold;
 
-  .error-messages {
-    border: 1px solid #ff0000;
-    background-color: #ffebeb;
-    text-align: left;
-    padding: 10px;
-    margin-bottom: 20px;
+
+}
+.content_right .total{
+    font-size: 35px;
+    color: red;
+    font-weight: bold;
+}
+.content-paypal-logos img{
+width: 140px;
+height: 80px;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.content_right .contenedor_inputs #finalizar_compra{
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    padding: 20px 100px;
+    font-size: 20px;
+    width: 100%;
+}
+.content_right .contenedor_inputs #finalizar_compra:hover{
+    background-color: red;
 }

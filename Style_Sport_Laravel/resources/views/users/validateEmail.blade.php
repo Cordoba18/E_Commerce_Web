@@ -20,7 +20,7 @@
     <h1 style="font-size: 15px">Estas a punto de crear tu cuenta por favor ingrese el codigo que hemos enviado a su cuenta <b><p id="correo"></p></b></h1>
     @csrf
     <strong>
-      <input type="number" id="codigo" maxlength="4">
+      <input style="text-align: center" type="number" id="codigo" maxlength="4">
       </strong>
       <br>
       <br>

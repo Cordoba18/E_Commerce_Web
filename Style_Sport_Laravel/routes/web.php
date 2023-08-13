@@ -51,6 +51,7 @@ Route::get('/shoppinghistory', [ShoppingHistryController::class, 'index'])->name
 
 Route::get('/purchaseform', [PurchaseController::class, 'index'])->name('purchaseform');
 Route::get('/purchaseconfirmation', [PurchaseController::class, 'show'])->name('purchaseform.create');
+Route::get('purchase/ciudades/{id}', [PurchaseController::class, 'cargarciudades'])->name('purchaseform.cargarciudades');
 Route::post('purchaseform/purchasefacturar', [PurchaseController::class, 'facturar'])->name('purchaseform.facturar');
 Route::post('purchaseform/save_changes', [PurchaseController::class, 'save_changes'])->name('purchaseform.save_changes');
 Route::get('/purchasevalidar', [PurchaseController::class, 'validar'])->name('purchaseform.validar');

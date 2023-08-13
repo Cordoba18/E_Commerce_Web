@@ -36,7 +36,8 @@ class CustomerProfileController extends Controller
             $user->contrasena = Hash::make($request->passnow);
         }
         if ($request->nid) {
-            $user->Identificacion = $request->nid;
+            $user->Identificacion = 'CC';
+            $user->N_Identificacion = $request->nid;
         }
         if($request->numberphone){
             $user->telefono = $request->numberphone;

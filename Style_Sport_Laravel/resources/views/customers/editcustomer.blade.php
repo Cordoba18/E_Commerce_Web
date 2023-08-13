@@ -54,7 +54,7 @@
             <button class="editButton">Editar</button>
             <div class="readView">
                 <p><b>Identificacion</b></p>
-                <p>{{ $user->Identificacion ? $user->Identificacion : 'no agregado' }}</p>
+                <p>{{ $user->N_Identificacion ? $user->N_Identificacion : 'no agregado' }}</p>
             </div>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
