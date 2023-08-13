@@ -19,7 +19,7 @@
         <tr>
             <td>{{ $d->id }}</td>
             <td>{{ $d->nombre }}</td>
-            <td>${{ $d->total }}</td>
+            <td>${{ number_format(intval(round($d->total))) }}</td>
             <td>{{ $d->cantidad }}</td>
             <td>{{ $d->talla }}</td>
             <td>{{ $d->color }}</td>

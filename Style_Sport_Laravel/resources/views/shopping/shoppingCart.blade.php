@@ -14,7 +14,7 @@
 @php
     $total = 0;
 @endphp
-<table class="table">
+<table class="table  table-responsive-sm">
 
     <thead>
         <th>NOMBRE</th>
