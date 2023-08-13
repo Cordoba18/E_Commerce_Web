@@ -9,7 +9,7 @@
 @section('content')
 <div class="Content-ShoppinCart">
 <div class="content_left">
-<h1>Carrito de compras</h1>
+<h1>CARRITO DE COMPRAS</h1>
 <p hidden id="user">{{ $id }}</p>
 @php
     $total = 0;
