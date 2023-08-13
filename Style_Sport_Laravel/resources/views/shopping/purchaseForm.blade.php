@@ -29,7 +29,7 @@
         @foreach($carrito as $c)
         <tr id="producto_carrito">
             <td>{{ $c->nombre }}</td>
-            <td>{{ $c->total }}</td>
+            <td>${{ number_format(intval(round($c->total))) }}</td>
             <td>
                 @php
                 $total = $total + ($c->total * $c->cantidad_producto);

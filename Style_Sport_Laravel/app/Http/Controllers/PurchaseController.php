@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Mail\validateEmail;
+use App\Models\Code;
+use Illuminate\Support\Facades\Mail;
 
 class PurchaseController extends Controller
 {
@@ -99,6 +102,7 @@ class PurchaseController extends Controller
         }
         DB::select("UPDATE `carrito_compras` SET `estados_id`='2' WHERE id_user = $id_usuario AND estados_id = 3");
         $paymentData = $request->input('paymentData');
+        Mail::to(FacadesAuth::user()->correo)->send(new validateEmail("MUCHAS GRACIAS POR COMPRAS"));
         return response()->json(['message' => 'Datos recibidos con éxito'], 200);
 
     }

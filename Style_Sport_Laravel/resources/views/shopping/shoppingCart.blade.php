@@ -27,11 +27,11 @@
 
     </thead>
     <tbody>
-        @foreach($carrito as $c)
+        @forelse($carrito as $c)
         <tr id="producto_carrito">
             <td>{{ $c->nombre }}</td>
-            <td>{{ $c->total }}</td>
-            <td>
+            <td>$  {{ number_format(intval(round($c->total))) }}</td>
+            <td><a href="{{route('productprofile', $c->id_producto)}}">
                 @php
                 $total = $total + ($c->total * $c->cantidad_producto);
                 $foundImage = false;
@@ -44,7 +44,7 @@
                         $imagePath = 'storage/imgs/' . $img->imagen;
                     @endphp
                     @if (file_exists(public_path($imagePath)))
-                        <img  style="width: 300px; height: 180px;" src="{{ asset($imagePath) }}">
+                        <img   src="{{ asset($imagePath) }}">
                         @php
                             $foundImage = true;
                         @endphp
@@ -54,8 +54,8 @@
             @endforeach
 
             @unless ($foundImage)
-                <img style="width: 300px; height: 180px; " src="{{ asset('storage/imgs/images.png') }}">
-            @endunless</td>
+                <img  src="{{ asset('storage/imgs/images.png') }}">
+            @endunless </a></td>
             <td>{{ $c->talla }}</td>
             <td>{{ $c->color }}</td>
             <td id="tallas_id" hidden>{{ $c->tallas_id }}</td>
@@ -78,7 +78,9 @@
                 <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button>  <p hidden id="id_carrito">{{ $c->id }}</p> <p hidden id="total">{{ $c->total}}</p>
                     <p hidden id="cantidad">{{ $c->cantidad_producto}}</p></td>
         </tr>
-        @endforeach
+        @empty
+        <h1>No hay resultados productos en tu carrito de compras</h1>
+    @endforelse
     </tbody>
 </table>
 <div class="content-carousel">

@@ -6,7 +6,6 @@
 
 <h1>LISTA DE DESEOS</h1>
 
-
 <table class="table">
 
     <thead>
@@ -17,7 +16,7 @@
         <th>ACCION</th>
     </thead>
     <tbody>
-        @foreach ($lista_deseos as $l)
+        @forelse ($lista_deseos as $l)
         <tr id="productos">
             <td id="id_lista_deseos">{{ $l->id }}</td>
             <td>{{ $l->nombre }}</td>
@@ -47,12 +46,16 @@
                 <img style="width: 300px; height: 180px; " src="{{ asset('storage/imgs/images.png') }}">
             @endunless
         </a></td>
-            <td>{{ $l->precio }}</td>
+            <td>${{ number_format(intval(round($l->precio))) }}</td>
             <td><button class="btn btn-danger" id="btn_eliminar">ELIMINAR</button></td>
         </tr>
-        @endforeach
+        @empty
+                <h1>No hay resultados productos en tu lista de deseos</h1>
+            @endforelse
     </tbody>
 </table>
+
+
 @endsection
 
 @section('js')

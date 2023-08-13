@@ -15,7 +15,7 @@
         <th>COLOR</th>
     </thead>
     <tbody>
-        @foreach ($detalles as $d)
+        @forelse ($detalles as $d)
         <tr>
             <td>{{ $d->id }}</td>
             <td>{{ $d->nombre }}</td>
@@ -24,7 +24,9 @@
             <td>{{ $d->talla }}</td>
             <td>{{ $d->color }}</td>
         </tr>
-        @endforeach
+        @empty
+        <h1>DETALLES DE FACTURA NO ENCONTRADOS</h1>
+    @endforelse
 
     </tbody>
 </table>
