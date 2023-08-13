@@ -32,7 +32,7 @@ Route::get('/productcatalog', [ProductController::class, 'index'])->name('produc
 Route::get('/productprofile/{product}', [ProductController::class, 'show'])->name('productprofile');
 Route::post('productprofile/calificar', [ProductController::class, 'calificar'])->name('productprofile.calificar');
 
-Route::get('/shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');
+Route::get('shoppingcart', [ShoppingCartController::class, 'index'])->name('shoppingcart');
 Route::get('shoppingcart/delete/{id}', [ShoppingCartController::class, 'delete'])->name('shoppingcart.delete');
 Route::post('shoppingcart/editquantity', [ShoppingCartController::class, 'editquantity'])->name('shoppingcart.editquantity');
 Route::post('/shoppingcart/store', [ShoppingCartController::class, 'store'])->name('shoppingcart.store');

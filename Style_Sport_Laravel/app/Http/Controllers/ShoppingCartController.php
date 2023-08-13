@@ -139,15 +139,24 @@ public function comprar(){
 
 public function cancelar_seleccion($id){
     $carrito = CartShop::find($id);
+    if ($carrito->estados_id == 2) {
+        return response()->json(['message' => false], 200);
+    }else{
     $carrito->estados_id = 1;
     $carrito->save();
-
+    return response()->json(['message' => true], 200);
+    }
 }
 
 public function seleccionar($id){
     $carrito = CartShop::find($id);
+    if ($carrito->estados_id == 2) {
+        return response()->json(['message' => false], 200);
+    }else{
     $carrito->estados_id = 3;
     $carrito->save();
+    return response()->json(['message' => true], 200);
+    }
 }
 }
 

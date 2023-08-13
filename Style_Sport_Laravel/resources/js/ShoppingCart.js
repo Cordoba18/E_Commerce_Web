@@ -97,6 +97,16 @@ producto_carrito.forEach(product => {
                 btn_accion.textContent = "CANCELAR"
                 $.ajax({
                     url: "shoppingcart/seleccionar/"+id_carrito+"",
+                    success: function(response) {
+                        if (response['message'] === false) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'LO SIENTO',
+                                text: 'Ese producto ha sido previamente eliminado'
+                            })
+                            window.location.href = "shoppingcart";
+                        }
+                    }
                   },
 
                   )
@@ -105,7 +115,17 @@ producto_carrito.forEach(product => {
                 btn_accion.textContent = "SELECCIONAR"
                 $.ajax({
                     url: "shoppingcart/cancelar_seleccion/"+id_carrito+"",
-                  },
+                    success: function(response) {
+                        if (response['message'] === false) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'LO SIENTO',
+                                text: 'Ese producto ha sido previamente eliminado'
+                            })
+                            window.location.href = "shoppingcart";
+                        }
+                    }
+                },
                   )
         }
     }
