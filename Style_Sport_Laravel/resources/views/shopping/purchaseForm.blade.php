@@ -72,17 +72,17 @@
     <label >TELEFONO </label>
     <input type="text" id="telefono" placeholder="INGRESE SU NUMERO DE TELEFONO" value="{{ $telefono }}">
     <p style="color: red" id="error_telefono" hidden></p>
-    <label >DIRECCION </label>
-    <input type="text" id="direccion" placeholder="INGRESE SU NUMERO DIRECCION" value="{{ $direccion }}">
+    <label >DIRECCIÓN </label>
+    <input type="text" id="direccion" placeholder="INGRESE SU NUMERO DIRECCIÓN" value="{{ $direccion }}">
     <p style="color: red" id="error_direccion" hidden></p>
-    <label for="">DEPARTAMENTOS</label>
+    <label for="">DEPARTAMENTO</label>
     <select  id="departamentos">
         <option value="">SELECCIONE UN DEPARTAMENTO</option>
         @foreach ($departamentos as $d)
         <option value="{{ $d->id }}">{{ $d->departamento }}</option>
         @endforeach
     </select>
-    <label for="">CIUDADES</label>
+    <label for="">CIUDAD</label>
     <select id="ciudades">
         <option value="">SELECCIONE UNA CIUDAD</option>
     </select>

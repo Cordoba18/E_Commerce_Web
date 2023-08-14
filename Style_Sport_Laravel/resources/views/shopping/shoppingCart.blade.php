@@ -83,6 +83,19 @@
     @endforelse
     </tbody>
 </table>
+
+</div>
+
+<div class="content_right">
+<h3>TOTAL </h3> <div class="content-total"><p>$</p><p id="total_full">{{ $total }}</p>  <p class="cop">COP </p></div>
+<button id="btn_comprar" > COMPRAR </button>
+<div hidden id="contenedor_btn_comprar">
+    <a id="btn_ir_a_comprar" href="{{ route('shoppingcart.comprar') }}"> IR A PAGAR</a>
+
+</div>
+<img src="{{ asset('storage/imgs/icon/banner_1.gif') }}">
+</div>
+
 <div class="content-carousel">
     <div class="carouselProduct">
         <article class="contenedor">
@@ -106,17 +119,6 @@
             </div>
         </article>
     </div>
-</div>
-</div>
-
-<div class="content_right">
-<h3>TOTAL </h3> <div class="content-total"><p>$</p><p id="total_full">{{ $total }}</p>  <p class="cop">COP </p></div>
-<button id="btn_comprar" > COMPRAR </button>
-<div hidden id="contenedor_btn_comprar">
-    <a id="btn_ir_a_comprar" href="{{ route('shoppingcart.comprar') }}"> IR A PAGAR</a>
-
-</div>
-<img src="{{ asset('storage/imgs/icon/banner_1.gif') }}">
 </div>
 </div>
 @endsection
