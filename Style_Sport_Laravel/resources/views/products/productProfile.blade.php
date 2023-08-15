@@ -130,19 +130,17 @@
                         @enderror
                         <label>Cantidad:</label>
                         <div class="amount">
-                            <button type="button" class="plus">+</button>
+                            <button type="button" class="plus"><i class="fa-solid fa-plus" style="color: #000000;"></i></button>
                             <input type="number" name="amount" value="0" readonly>
-                            <button type="button" class="less">-</button>
+                            <button type="button" class="less"><i class="fa-solid fa-minus" style="color: #000000;"></i></button>
                         </div>
                         <div class="btns">
-                            <button type="submit" class="addCart">Añadir al carrito</button>
+                            <button type="submit" class="addCart"><i class="fa-solid fa-cart-plus" style="color: #000000;"></i> Añadir al carrito</button>
                         </div>
                     </form>
-                    <form action="{{ route('wishlist.store', $product->id) }}" method="get">
+                    <form class="fav" action="{{ route('wishlist.store', $product->id) }}" method="get">
                         <button class="wishList">Favoritos</button>
                     </form>
-
-
                 </div>
             </section>
         </div>
