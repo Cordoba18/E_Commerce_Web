@@ -1,1 +1,87 @@
-<h1>{{$cod}}</h1>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACTURA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+   
+</head>
+<body style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <center>
+    <div class="content-facture" style="     padding: 20px;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    width: 700px;">
+        <div class="content-header" style="  background-color: red;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        color: white;
+        border-radius: 0px 0px 100px 0px;
+        margin-bottom: 20px;
+    ">
+            <img style="     width: 240px;
+            height: 180px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;" src="https://style-sport.shop/storage/app/public/imgs/icon/Logo.png" alt="">
+            <h1 style=" font-weight: bold; font-size: 60px">STYLE SPORT SHOP</h1>
+        </div>
+        <div class="content-body">
+            <p style="  
+            margin-top: 10px;
+            margin-left: 5px; font-size: 15px">Hola, <span style="  font-weight: bold;">{{ $nombre}}</span> utiliza el codigo de activacion para finalizar la creaciòn de tu cuenta :</p>
+            <br>
+
+            
+            <center><div class="info_codigo" style="text-align: center;
+              border: 1px solid black;
+              width: 300px;
+              align-items: center;
+              align-self: center;
+              align-content: center;
+              margin: 20px;">
+               <h2 style=" background-color: red;
+               color: white;
+               padding: 10px; font-size: 30px">CODIGO</h2>
+               <p style="   font-weight: bold; font-size: 25px">{{ $cod }}</p>
+            </div></center>
+
+            <p class="advertencia" style="   text-align: center;
+            border-bottom: 3px solid red;
+            width: max-content;
+            width: 100%;
+            color: red;
+            font-family: bold;
+            font-weight: bold;
+            margin-top: 40px;">!ADVERTENCIA! EL CODIGO CADUCA EN 5 MINUTOS</p>
+        </div>
+        <div class="content-fooder" style="   background-color: rgba(134, 134, 134, 0.3);
+        flex-wrap: wrap;
+        align-items: center;
+        align-self: center;
+        color: black;
+        padding: 10px;">
+            
+            <div class="content-reds" style=" text-align: center;
+            margin: 30px;">
+                    <h6 style="        font-weight: bold; font-size: 15px">SIGUENOS EN NUESTRAS REDES</h6>
+                    <a href="https://web.facebook.com/profile.php?id=61550475959912"><img
+                            style="width: 30px; height: 30px; margin: 10px"
+                            src="https://style-sport.shop/storage/app/public/imgs/icon/facebook.png" alt=""></a>
+                    <a href="https://www.instagram.com/stylespo_208/"><img
+                            style="width: 30px; height: 30px; margin: 10px"
+                            src="https://style-sport.shop/storage/app/public/imgs/icon/instagram.png"
+                            alt=""></a>
+                    <a href="https://twitter.com/stylespo_208"><img style="width: 30px; height: 30px; margin: 10px"
+                            src="https://style-sport.shop/storage/app/public/imgs/icon/twitter.png" alt=""></a>
+                </div>
+        </div>
+    </div></center>
+</body>
+
+</html>

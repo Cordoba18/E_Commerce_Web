@@ -1,5 +1,5 @@
 @extends('layaouts.main')
-
+<div id="content-carga"></div>
 @section('title', 'formulario compras')
 
 @section('css')
@@ -115,8 +115,8 @@
 <script>
 let total = document.querySelector('#total_full').innerHTML;
 let _token = document.querySelector('input[name=_token]').value;
+let paypal_content = document.querySelector('#paypal-button-container');
 let total_dolares;
-
 total_dolares = total * 0.0003098;
 const validar = setInterval(() => {
 
@@ -146,7 +146,7 @@ const validar = setInterval(() => {
             // Manejar el error si lo hay
         }
     });
-}, 3000);
+}, 5000);
 
 setTimeout(() => {
 alert('TIEMPO DE COMPRA EXPIRADO')
@@ -155,7 +155,7 @@ window.location.href = "{{ route('shoppingcart') }}";
 
 
 
-
+let carga = document.querySelector("#content-carga");
 
 function cargarPaypal(){
 
@@ -176,6 +176,13 @@ paypal.Buttons({
     },
     onApprove: function(data, actions) {
         clearInterval(validar);
+        paypal_content.remove();
+        carga.innerHTML = "<div class='content-fondo-cargando'>"+
+"<div class='content-cargando'>"+
+    "<img src='{{ asset('storage/imgs/icon/Cargando.gif') }}'>"+
+"</div>"+
+"</div>";
+        
         $.ajax({
         type: 'POST',
         url: '{{ route("purchaseform.facturar") }}',
@@ -184,13 +191,16 @@ paypal.Buttons({
             _token: _token // Enviar los datos devueltos por la API de PayPal
         },
         success: function(response) {
+            carga.remove();
               Swal.fire(
         'PAGO APROBADO',
          'Gracias por comprar con nosotros',
          'success'
         )
             // Manejar la respuesta del controlador si es necesario
+            setTimeout(() => {
             window.location.href = "{{ route('shoppinghistory') }}";
+        }, 2000);
 
         },
         error: function(error) {

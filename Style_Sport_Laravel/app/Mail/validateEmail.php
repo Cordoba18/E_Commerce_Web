@@ -14,35 +14,29 @@ class validateEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $cod;
-
+    public $nombre;
     /**
      * Create a new message instance.
      */
-    public function __construct($cod)
+    public function __construct($cod, $nombre)
     {
         $this->cod = $cod;
+        $this->nombre=$nombre;
     }
 
     /**
      * Get the message envelope.
      */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Validate Email',
-        );
-    }
-
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    public function build()
     {
-        return new Content(
-            view: 'mails.sendValidationEmail',
-        );
+        $cod = $this->cod;
+        $nombre = $this->nombre;
+        return $this->subject('CREACION DE CUENTA')
+                    ->view('mails.sendValidationEmail', compact('cod', 'nombre'));
     }
-
     /**
      * Get the attachments for the message.
      *

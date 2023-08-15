@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
 
         $cod = RegisteredUserController::randNumer();
 
-        Mail::to($request->correo)->send(new validateEmail("Tu codigo de activacion  de cuenta es :" . $cod));
+        Mail::to($request->correo)->send(new validateEmail($cod, $request->name));
 
         $codificar = new Code();
         $codificar->email = $email;
