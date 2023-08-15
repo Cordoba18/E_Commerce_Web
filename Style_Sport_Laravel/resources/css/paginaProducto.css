@@ -15,7 +15,7 @@
     flex-direction: row;
     margin: 0 auto 20px auto;
     background-color: #F6F1F1;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+
 }
 
 .main .profileProduct .columnone{
@@ -40,11 +40,95 @@ width: 50%;
 .main .profileProduct .columntwo .description{
     width: 100%;
     display: block;
+    margin-bottom: 20px;
+}
+
+.main .profileProduct .columntwo .description .description-text span{
+    font-size: large;
+    font-weight: bold;
+}
+
+.main .profileProduct .columntwo .description .description-text{
+    width: 480px;
+}
+
+.main .profileProduct .columntwo .description .category span{
+    font-size: large;
+    font-weight: bold;
+}
+.main .profileProduct .columntwo .description .price{
+    display: flex;
+}
+
+.main .profileProduct .columntwo .description .price .after span{
+    color: rgb(129, 128, 128) ;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+.main .profileProduct .columntwo .description .before{
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.main .profileProduct .columntwo .description .price p{
+    font-size: 20px;
+    margin: 0 10px 0 0;
+}
+.main .profileProduct .columntwo .description .price p span{
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+.main .profileProduct .columntwo .description .title{
+    font-weight: bold;
+    font-size: 40px;
 }
 
 .main .profileProduct .columntwo .details{
     width: 100%;
 }
+
+.main .profileProduct .columntwo .details .promedio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:0;
+}
+
+.main .profileProduct .columntwo .details .promedio span{
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.main .profileProduct .columntwo .details .qualify{
+    border: 1px solid #ff0202;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #ff0202;
+    margin: 20px auto;
+}
+
+.main .profileProduct .columntwo .details .size,
+.main .profileProduct .columntwo .details .color{
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    width: 200px;
+    border-radius: 5px;
+    border: 0;
+    padding: 6px;
+    border: 1px solid #ffffff; 
+}
+
+.main .profileProduct .columntwo .details .size:not(:disabled):hover,
+.main .profileProduct .columntwo .details .color:not(:disabled):hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    border: 1px solid #000000; 
+  }
 
 .main .profileProduct .columntwo .details form{
     display: flex;
@@ -56,6 +140,12 @@ width: 50%;
     display: flex;
     flex-direction: row;
 }
+
+.main .profileProduct .columntwo .details form .amount input[type="number"][readonly] {
+    background-color: #f2f2f2; /* Puedes ajustar los estilos según tus preferencias */
+    color: #999;
+    cursor: not-allowed;
+  }
 
 .main .profileProduct .columntwo .details form .btns{
     margin: 20px auto;
@@ -75,6 +165,10 @@ width: 50%;
     font-weight: 500;
     color: #000;
 }
+
+
+/* -------------------------------CAROUSEL----------------------------- */
+
 
 .carousel-contenedor .target{
     margin: 30px;

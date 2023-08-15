@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var selectTalla = document.getElementById("selectTalla");
     var inputCantidad = document.querySelector("input[name='amount']");
 
+    inputCantidad.addEventListener('keydown', (event) => {
+        event.preventDefault(); 
+      });
 
     selectTalla.addEventListener("change", function () {
         var selectedOption = selectTalla.options[selectTalla.selectedIndex];

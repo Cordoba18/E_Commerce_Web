@@ -10,7 +10,6 @@ use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Nette\Utils\Strings;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 class ProductController extends Controller
 {
@@ -30,7 +29,7 @@ class ProductController extends Controller
                     ->orWhere('categorias.categoria', 'LIKE', '%' . $search . '%');
             })
             ->where('estados_id','1')
-            ->paginate(3);
+            ->paginate(15);
         }
         $categories = Category::all();
         $imgProduct = ImgProduct::all();
