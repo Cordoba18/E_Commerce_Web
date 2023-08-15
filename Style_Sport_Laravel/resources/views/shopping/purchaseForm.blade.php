@@ -176,11 +176,6 @@ paypal.Buttons({
     },
     onApprove: function(data, actions) {
         clearInterval(validar);
-        Swal.fire(
-        'PAGO APROBADO',
-         'Gracias por comprar con nosotros',
-         'success'
-        )
         $.ajax({
         type: 'POST',
         url: '{{ route("purchaseform.facturar") }}',
@@ -189,8 +184,13 @@ paypal.Buttons({
             _token: _token // Enviar los datos devueltos por la API de PayPal
         },
         success: function(response) {
+              Swal.fire(
+        'PAGO APROBADO',
+         'Gracias por comprar con nosotros',
+         'success'
+        )
             // Manejar la respuesta del controlador si es necesario
-            window.location.href = "{{ route('shoppingcart') }}";
+            window.location.href = "{{ route('shoppinghistory') }}";
 
         },
         error: function(error) {
