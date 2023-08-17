@@ -133,12 +133,13 @@ const validar = setInterval(() => {
             });
             // Manejar la respuesta del controlador si es necesari
             if (total_absoluto != total) {
+                clearInterval(validar);
                 Swal.fire({
         icon: 'error',
         title: 'OCURRIO UN ERROR',
         text: 'Su carrito a cambiado!'
     })
-    clearInterval(validar);
+        clearInterval(validar);
                 window.location.href = "{{ route('purchaseform') }}";
             }
         },
@@ -146,9 +147,10 @@ const validar = setInterval(() => {
             // Manejar el error si lo hay
         }
     });
-}, 5000);
+}, 3000);
 
 setTimeout(() => {
+    clearInterval(validar);
 alert('TIEMPO DE COMPRA EXPIRADO')
 window.location.href = "{{ route('shoppingcart') }}";
 }, 300000);
@@ -182,7 +184,7 @@ paypal.Buttons({
     "<img src='{{ asset('storage/imgs/icon/Cargando.gif') }}'>"+
 "</div>"+
 "</div>";
-        
+
         $.ajax({
         type: 'POST',
         url: '{{ route("purchaseform.facturar") }}',
@@ -204,11 +206,17 @@ paypal.Buttons({
 
         },
         error: function(error) {
-            // Manejar el error si lo hay
-            console.error(error);
+            carga.remove();
+            Swal.fire({
+        icon: 'error',
+        title: 'ERROR EN EL PAGO',
+        text: 'Hubo un error con su pago!'
+    });
+    window.location.href = "{{ route('purchaseform') }}";
         }
     });
     },onCancel: function(data) {
+        carga.remove();
         Swal.fire({
         icon: 'error',
         title: 'ERROR EN EL PAGO',

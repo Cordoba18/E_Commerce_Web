@@ -3,6 +3,7 @@ const producto_carrito = document.querySelectorAll("#producto_carrito");
 const total_full = document.querySelector("#total_full");
 let accion_boton = false;
 let contenedor_btn_comprar = document.querySelector("#contenedor_btn_comprar");
+
 btn_comprar.addEventListener("click", function(){
 
     producto_carrito.forEach(product => {

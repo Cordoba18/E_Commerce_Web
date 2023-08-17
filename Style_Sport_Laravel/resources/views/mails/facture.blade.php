@@ -28,10 +28,10 @@
         margin-bottom: 20px;">
                 <img style="width: 240px; height: 180px; margin-top: 10px; margin-bottom: 10px; margin-left: 5px;"
                     src="https://style-sport.shop/storage/app/public/imgs/icon/Logo.png" alt="">
-                <h1 style="font-weight: bold; font-size: 30px">STYLE SPORT SHOP</h1>
+                <h1 style=" font-weight: bold; font-size: 60px">STYLE SPORT SHOP</h1>
             </div>
             <div class="content-body">
-                <p style="     
+                <p style="
             margin-top: 10px;
             margin-left: 5px;">Hola, <span
                         style="font-weight: bold;">{{ $datos_usuario->nombre }}</span> te confirmamos la compra de tus

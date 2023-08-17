@@ -1,6 +1,7 @@
 @extends('layaouts.main')
-
+<div id="content-carga"></div>
 @section('title', 'carrito')
+
 
 @section('css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.css">
@@ -90,7 +91,7 @@
 <h3>TOTAL </h3> <div class="content-total"><p>$</p><p id="total_full">{{ $total }}</p>  <p class="cop">COP </p></div>
 <button id="btn_comprar" > COMPRAR </button>
 <div hidden id="contenedor_btn_comprar">
-    <a id="btn_ir_a_comprar" href="{{ route('shoppingcart.comprar') }}"> IR A PAGAR</a>
+    <button id="btn_ir_a_comprar" > IR A PAGAR</button>
 
 </div>
 <img src="{{ asset('storage/imgs/icon/banner_1.gif') }}">
@@ -127,6 +128,23 @@
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 @vite(['resources/js/ShoppingCart.js', 'resources/js/productCarousel.js'] )
+<script>
+    let btn_ir_a_comprar = document.querySelector("#btn_ir_a_comprar");
+let carga = document.querySelector("#content-carga");
+
+
+btn_ir_a_comprar.addEventListener("click", () => {
+    carga.innerHTML = "<div class='content-fondo-cargando'>"+
+    "<div class='content-cargando'>"+
+        "<img src='{{ asset('storage/imgs/icon/Cargando.gif') }}'>"+
+    "</div>"+
+    "</div>";
+
+    setTimeout(() => {
+        window.location.href = "shoppingcart/comprar";
+    }, 5000);
+})
+</script>
 @if (session('mensaje'))
 <script>
 Swal.fire({

@@ -251,3 +251,33 @@
     .content-carousel{
         width: 100%;
     }
+
+
+    .content-fondo-cargando{
+
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 2;
+    }
+
+    .content-fondo-cargando .content-cargando{
+        position: fixed;
+        background-color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        border: solid 1px black;
+        box-shadow: 0px 0px 10px red;
+        padding: 20px 20px;
+        text-align: center;
+        align-items: center;
+        z-index: 2;
+    }
+    .content-fondo-cargando .content-cargando img{
+        width: 500px;
+        height: 600px;
+    }
+
