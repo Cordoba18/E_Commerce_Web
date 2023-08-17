@@ -101,7 +101,7 @@ class PurchaseController extends Controller
             $compra->save();
         }
         DB::select("UPDATE `carrito_compras` SET `estados_id`='2' WHERE id_user = $id_usuario AND estados_id = 3");
-        $paymentData = $request->input('paymentData');
+        //$paymentData = $request->input('paymentData');
         Mail::to(FacadesAuth::user()->correo)->send(new factureEmail($fechaHoraActual));
         return response()->json(['message' => 'Datos recibidos con éxito'], 200);
 

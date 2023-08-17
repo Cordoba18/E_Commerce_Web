@@ -7,20 +7,30 @@
     .content_left{
     width: 60%;
     margin: 40px;
+    
     }
     .content_right{
     width: 500px;
     margin: 40px;
 
     }
+    .content_left table th{
+        border-bottom: 2px solid black;
+        font-size: 18px;
+        padding: 20px;
+    }
     .content_left table{
         width: 100%;
-        border: 2px solid black;
         margin-top: 10px;
+        border-radius: 20px;
+        background-color: white;
+        text-align: center;
+        border: 0.5px solid rgba(125, 125, 125, 0.3);
     }
     .content_left table img{
-        width: 350px;
-        height: 300px;
+        width: 200px;
+        height: 150px;
+        padding: 10px;
     }
     .content_left h1{
         font-size: 40px;
@@ -47,7 +57,6 @@
 
     .content_right h3{
     font-size: 40px;
-    font-weight: bold;
 
 
     }
@@ -63,7 +72,6 @@
     .content_right button{
         background-color: black;
         color: white;
-        border-radius: 40px;
         padding: 20px 100px;
         font-size: 20px;
     }
@@ -71,11 +79,11 @@
         background-color: red;
     }
     .content_right #btn_ir_a_comprar{
-        background-color: rgb(12, 234, 90);
+        background-color:white;
         color: black;
         border: 5px solid black;
-        border-radius: 40px;
-        padding: 20px 193px;
+        padding: 20px 172px;
+        height: 50px;
         font-size: 20px;
         width: 500px;
         text-decoration: none;
@@ -83,7 +91,7 @@
 
     }
     .content_right #btn_ir_a_comprar:hover{
-        background-color: white;
+        background-color: rgb(44, 255, 44);
     }
     .content_right button{
         margin-top: 40px;
@@ -91,24 +99,26 @@
         width: 100%;
     }
 
-    .content_right a{
-        margin-top: 40px;
-        margin-bottom: 40px;
-        width: 100%;
-        text-align: center;
-    }
-
-
     .content_right .content-total{
         display: flex;
-        width: 100%;
         color: red;
-        font-size: 60px;
-        font-weight: bold;
+        font-size: 40px;
+        text-align: center;
+        align-items: center;
+        width: 100%;
     }
     .content_right .content-total .cop {
         margin-left: 10px;
     }
+
+
+    .content_right #content_form_pagar{
+        background-color: white;
+        padding: 50px 20px;
+        border: 0.5px solid grey;
+        width: 100%;
+    }
+    
     .carousel-productos {
         max-width: 1500px;
         width: 80%;

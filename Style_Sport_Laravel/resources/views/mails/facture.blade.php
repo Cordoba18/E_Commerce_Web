@@ -46,7 +46,7 @@
                     <thead>
                         <th>ID</th>
                         <th>NOMBRE</th>
-                        <th>TOTAL</th>
+                        <th>PRECIO</th>
                         <th>CANTIDAD</th>
                         <th>TALLA</th>
                         <th>COLOR</th>

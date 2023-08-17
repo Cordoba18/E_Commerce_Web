@@ -14,7 +14,7 @@
 @php
     $total = 0;
 @endphp
-<table class="table  table-responsive-sm">
+<table class="">
 
     <thead>
         <th>NOMBRE</th>
@@ -87,11 +87,13 @@
 </div>
 
 <div class="content_right">
+    <div id="content_form_pagar">
 <h3>TOTAL </h3> <div class="content-total"><p>$</p><p id="total_full">{{ $total }}</p>  <p class="cop">COP </p></div>
 <button id="btn_comprar" > COMPRAR </button>
 <div hidden id="contenedor_btn_comprar">
     <a id="btn_ir_a_comprar" href="{{ route('shoppingcart.comprar') }}"> IR A PAGAR</a>
 
+</div>
 </div>
 <img src="{{ asset('storage/imgs/icon/banner_1.gif') }}">
 </div>
