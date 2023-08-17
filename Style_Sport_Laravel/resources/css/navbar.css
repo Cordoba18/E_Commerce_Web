@@ -74,6 +74,7 @@ body{
 
 .navbarcentral .columntwo .columntwo-one form button{
     width: 15%;
+    height: 28px;
     background-color: #fff;
     border: solid 1px black;
     border-left: none;
