@@ -11,16 +11,27 @@ margin: 40px;
 .content_right{
 width: 700px;
 margin: 40px;
+background-color: white;
+padding: 30px;
 
+}
+.content_left table th{
+    border-bottom: 2px solid black;
+    font-size: 18px;
+    padding: 20px;
 }
 .content_left table{
     width: 100%;
-    border: 2px solid black;
     margin-top: 10px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    border: 0.5px solid rgba(125, 125, 125, 0.3);
 }
 .content_left table img{
-    width: 350px;
-    height: 300px;
+    width: 200px;
+    height: 150px;
+    padding: 10px;
 }
 .content_left h1{
     font-size: 40px;

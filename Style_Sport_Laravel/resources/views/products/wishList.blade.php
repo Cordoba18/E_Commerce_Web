@@ -6,7 +6,7 @@
 
 <h1>LISTA DE DESEOS</h1>
 
-<table class="table">
+<table class="">
 
     <thead>
         <th>ID</th>

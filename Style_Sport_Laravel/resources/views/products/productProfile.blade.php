@@ -93,6 +93,7 @@
                                 for ($i = 0; $i < 5; $i++) {
                                     print '<i class="fa-regular fa-star fa-2xl" style="color: #8d8c8c;"></i>';
                                 }
+                      
                                 print '<span>(0)</span>';
                                 print '<span>No hay calificaciones</span>';
                             }

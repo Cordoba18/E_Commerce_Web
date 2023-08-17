@@ -65,3 +65,23 @@
     align-items: start;
 }
 }
+
+
+table th{
+    border-bottom: 2px solid black;
+    font-size: 18px;
+    padding: 20px;
+}
+table{
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    border: 0.5px solid rgba(125, 125, 125, 0.3);
+}
+table img{
+    width: 200px;
+    height: 150px;
+    padding: 10px;
+}
