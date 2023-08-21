@@ -70,8 +70,13 @@
 <div class="contenedor_inputs">
     <h1>CONFIRMAR INFORMACION </h1>
     <label >TELEFONO </label>
-    <input type="text" id="telefono" placeholder="INGRESE SU NUMERO DE TELEFONO" value="{{ $telefono }}">
+    <div style="display: flex">
+    <p style="font-size: 16px; margin-right: 10px;  border: 0.5px solid black ; padding: 5px">+57</p><input type="text" id="telefono" placeholder="INGRESE SU NUMERO DE TELEFONO" value="{{ $telefono }}">
+</div>
     <p style="color: red" id="error_telefono" hidden></p>
+    <label >NIT </label>
+    <input type="text" id="identificacion" placeholder="INGRESE SU NUMERO DE IDENTIFICACIÒN" value="{{ $N_Identificacion }}">
+    <p style="color: red" id="error_identificacion" hidden></p>
     <label >DIRECCIÓN </label>
     <input type="text" id="direccion" placeholder="INGRESE SU NUMERO DIRECCIÓN" value="{{ $direccion }}">
     <p style="color: red" id="error_direccion" hidden></p>

@@ -7,7 +7,7 @@
     .content_left{
     width: 60%;
     margin: 40px;
-    
+
     }
     .content_right{
     width: 500px;
@@ -82,10 +82,8 @@
         background-color:white;
         color: black;
         border: 5px solid black;
-        padding: 20px 172px;
-        height: 50px;
         font-size: 20px;
-        width: 500px;
+        width: 100%;
         text-decoration: none;
         text-align: center;
 
@@ -94,8 +92,8 @@
         background-color: rgb(44, 255, 44);
     }
     .content_right button{
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         width: 100%;
     }
 
@@ -118,7 +116,7 @@
         border: 0.5px solid grey;
         width: 100%;
     }
-    
+
     .carousel-productos {
         max-width: 1500px;
         width: 80%;

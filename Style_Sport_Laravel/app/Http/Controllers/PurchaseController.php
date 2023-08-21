@@ -27,6 +27,7 @@ class PurchaseController extends Controller
         $user = FacadesAuth::user()->correo;
         $direccion = FacadesAuth::user()->direccion;
         $telefono = FacadesAuth::user()->telefono;
+        $N_Identificacion = FacadesAuth::user()->N_Identificacion;
         $departamentos =DB::select("SELECT* FROM Departamento");
         $Imagenes_productos =DB::select("SELECT* FROM Imagenes_productos");
         $productos = DB::select("SELECT* FROM productos");
@@ -36,7 +37,7 @@ class PurchaseController extends Controller
         INNER JOIN colores color ON c.colores_id = color.id
         WHERE c.id_user = $id AND c.estados_id = 3");
         if ($carrito) {
-            return view('shopping.purchaseForm', compact('carrito','Imagenes_productos','productos','id', 'user', 'telefono', 'direccion', 'departamentos'));
+            return view('shopping.purchaseForm', compact('carrito','Imagenes_productos','productos','id', 'user', 'telefono', 'direccion', 'departamentos', 'N_Identificacion'));
         }else {
             return redirect()->route('shoppingcart');
         }
@@ -122,7 +123,7 @@ class PurchaseController extends Controller
 
         $id = FacadesAuth::user()->id;
 
-        DB::select("UPDATE `Users` SET `telefono`='$request->telefono',`direccion`='$request->direccion', `id_ciudad`='$request->ciudad' WHERE id=$id");
+        DB::select("UPDATE `Users` SET `telefono`='$request->telefono',`direccion`='$request->direccion', `id_ciudad`='$request->ciudad', `N_Identificacion`='$request->identificacion' WHERE id=$id");
         return response()->json(['mensaje' => true], 200);
     }
 

@@ -87,18 +87,18 @@
                                 for ($i = 0; $i < 5 - intval(round($product->calificacion)); $i++) {
                                     print '<i class="fa-regular fa-star fa-2xl" style="color: #ffa702;"></i>';
                                 }
-                                print "<span>($product->calificacion)</span>";
+                                print "<span>(".round($product->calificacion,1).")</span>";
                                 print "<span>$product->n_p_calificaron calificaciones</span>";
                             } else {
                                 for ($i = 0; $i < 5; $i++) {
                                     print '<i class="fa-regular fa-star fa-2xl" style="color: #8d8c8c;"></i>';
                                 }
-                      
+
                                 print '<span>(0)</span>';
                                 print '<span>No hay calificaciones</span>';
                             }
                         @endphp
-                            
+
                     </div>
                     <button id="btn_calificar" class="qualify">Calificar</button>
                     <form action="{{ route('shoppingcart.store') }}" method="post">
