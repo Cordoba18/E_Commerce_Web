@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/js/VerificationEmail.js',
                 'resources/js/WishList.js',
                 'resources/js/purchaseForm.js',
+                'resources/js/home.js',
                 // ------CSS----------
                 'resources/css/app.scss',
                 'resources/css/home.css',

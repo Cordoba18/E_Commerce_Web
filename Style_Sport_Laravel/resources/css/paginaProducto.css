@@ -19,7 +19,7 @@
 
 .main .profileProduct .columnone{
     width: 50%;
- 
+
 }
 
 .main .profileProduct .columnone .carousel-control-prev-icon,
@@ -159,7 +159,7 @@ box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     border: 0;
     padding: 6px;
-    border: 1px solid #ffffff; 
+    border: 1px solid #ffffff;
 }
 
 .main .profileProduct .columntwo .details .size:not(:disabled):hover,
@@ -167,7 +167,7 @@ box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
     color: #000000;
     border-radius: 5px;
-    border: 1px solid #000000; 
+    border: 1px solid #000000;
   }
 
 .main .profileProduct .columntwo .details form{
@@ -377,7 +377,7 @@ box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
     .main .profileProduct .columntwo{
         width: 100%;
         }
-        
+
     .main .profileProduct .columnone .img img{
         height: 500px;
     }
@@ -446,6 +446,9 @@ body{
     align-items: center;
 }
 
+.contenedor_estrellas_2 .btn_x:hover{
+    transform: scale(1.2);
+}
 
 
 .contenedor_estrellas_2 .btn_x{

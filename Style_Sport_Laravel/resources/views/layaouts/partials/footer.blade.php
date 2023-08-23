@@ -19,19 +19,19 @@
                 <li class="li"><a href="{{route('login')}}" class="a">Iniciar sesion</a></li>
                 <li class="li"><a href="{{route('register')}}" class="a">Registrarse</a></li>
                 @endguest
-            
+
                 <li class="li"><a href="#" class="a">Categorias</a></li>
-                <li class="li"><a href="#" class="a">About</a></li>
-                <li class="li"><a href="#" class="a">Ayuda</a></li>
-                <li class="li"><a href="#" class="a">Terminos y condiciones</a></li>
+                <li id="btn_about" class="li"><a href="#" class="a">About</a></li>
+                <li id="btn_ayuda" class="li"><a href="#" class="a">Ayuda</a></li>
+                <li id="btn_terminos_condiciones" class="li"><a href="#" class="a">Terminos y condiciones</a></li>
             </ul>
         </div>
         <div class="box">
             <h2>SIGUENOS</h2>
             <div class="red-social">
-                <a href="#"> <i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://web.facebook.com/profile.php?id=61550475959912"> <i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/stylespo_208/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/stylespo_208"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>
     </div>
