@@ -62,7 +62,8 @@ class RegisteredUserController extends Controller
     public function vista_validar(){
 
         $datos = session('data');
-        return view('users.validateEmail',compact('datos'));
+        $mensaje = 'Hemos enviado un codigo para crear su cuenta a ';
+        return view('users.validateEmail',compact('datos', 'mensaje'));
 }
 
 

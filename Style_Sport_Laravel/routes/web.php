@@ -25,8 +25,14 @@ Route::post('/register', [RegisteredUserController::class, 'store'])->name('regi
 Route::get('/verification', [RegisteredUserController::class, 'verification'])->name('verification');
 Route::post('verification_code', [RegisteredUserController::class, 'validation'])->name('verification.validate');
 Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->name('recoverypassword');
-Route::get('delete/code/{correo}', [RegisteredUserController::class, 'delete_code'])->name('verification.delete_code');
+Route::get('/delete/code/{correo}', [RegisteredUserController::class, 'delete_code'])->name('verification.delete_code');
 Route::get('/vista_validar', [RegisteredUserController::class, 'vista_validar'])->name('verification.vista_validar');
+
+Route::get('recoverpassword', [RecoveryPasswordController::class, 'index'])->name('recoverpassword');
+Route::post('recoverpassword/validate', [RecoveryPasswordController::class, 'validation_email'])->name('recoverpassword.validation_email');
+Route::post('recoverpassword/validate/code', [RecoveryPasswordController::class, 'validation_code'])->name('recoverpassword.validation_code');
+Route::post('recoverpassword/change_password', [RecoveryPasswordController::class, 'change_password'])->name('recoverpassword.change_password');
+
 
 Route::get('/productcatalog', [ProductController::class, 'index'])->name('productcatalog');
 Route::get('/productprofile/{product}', [ProductController::class, 'show'])->name('productprofile');

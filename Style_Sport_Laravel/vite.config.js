@@ -29,6 +29,7 @@ export default defineConfig({
                 'resources/css/purchaseconfirmation.css',
                 'resources/css/ValidateEmail.css',
                 'resources/css/shoppingcart.css',
+                'resources/css/recoverpassword.css',
             ],
             refresh: true,
         }),

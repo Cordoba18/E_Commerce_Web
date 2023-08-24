@@ -25,7 +25,7 @@
                 {{ session('credentials') }}
             @endif
             <p class="recover">
-                <a href="#">Olvidaste tu contraseña?</a>
+                <a href="{{ route('recoverpassword') }}">Olvidaste tu contraseña?</a>
             </p>
             <button type="submit">Log in</button>
         </form>
