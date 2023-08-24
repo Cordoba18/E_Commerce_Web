@@ -6,12 +6,15 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: #dfe9f5;
+  background: #F6F1F1;
 }
 .wrapper{
   width: 330px;
   padding: 2rem 0 1rem 0;
-  margin: 50px auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
   border-radius: 10px;
   text-align: center;

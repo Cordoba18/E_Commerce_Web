@@ -4,11 +4,11 @@
     <section class="info-profile">
         <h3>Informacion personal</h3>
         <div class="target-profile">
-            <button class="editButton">Editar</button>
             <div class="readView">
                 <p><b>Nombre</b></p>
                 <p>{{ $user->nombre }}</p>
             </div>
+            <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
@@ -27,11 +27,11 @@
             </div>
         </div>
         <div class="target-profile">
-            <button class="editButton">Editar</button>
             <div class="readView">
                 <p><b>Contraseña</b></p>
                 <p>************</p>
             </div>
+            <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
@@ -51,11 +51,11 @@
         </div>
         <h3>Informacion de contacto</h3>
         <div class="target-profile">
-            <button class="editButton">Editar</button>
             <div class="readView">
                 <p><b>Identificacion</b></p>
                 <p>{{ $user->N_Identificacion ? $user->N_Identificacion : 'no agregado' }}</p>
             </div>
+            <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
@@ -66,11 +66,11 @@
             </div>
         </div>
         <div class="target-profile">
-            <button class="editButton">Editar</button>
             <div class="readView">
                 <p><b>Telefono</b></p>
                 <p>{{ $user->telefono ? $user->telefono : 'no agregado' }}</p>
             </div>
+            <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
@@ -81,11 +81,11 @@
             </div>
         </div>
         <div class="target-profile">
-            <button class="editButton">Editar</button>
             <div class="readView">
                 <p><b>Dirección</b></p>
                 <p>{{ $user->direccion ? $user->direccion : 'no agregado' }}</p>
             </div>
+            <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
