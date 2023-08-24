@@ -56,7 +56,7 @@
             <article class="contenedor">
                 <div class="carousel-productos">
                     <div class="carousel-contenedor">
-                        <h3>Otros</h3>
+                        <h3>Descuentos</h3>
                         <button aria-label="Anterior" class="carousel-anterioro carousel-anterior">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
