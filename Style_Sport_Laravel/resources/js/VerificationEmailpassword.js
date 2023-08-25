@@ -87,7 +87,7 @@ btn_siguiente.addEventListener("click", (e) => {
         }
     });
 
-    }, 3000000);
+    }, 300000);
 
 
 
@@ -131,7 +131,7 @@ function validaciones(_token) {
                             )
                             setTimeout(() => {
                                 window.location.href = "../login_inicio";
-                            }, 3000);
+                            }, 2000);
                     }
                 }});
         }
