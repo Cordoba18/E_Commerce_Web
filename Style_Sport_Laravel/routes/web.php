@@ -28,11 +28,12 @@ Route::get('/recoverypassword', [RecoveryPasswordController::class, 'index'])->n
 Route::get('/delete/code/{correo}', [RegisteredUserController::class, 'delete_code'])->name('verification.delete_code');
 Route::get('/vista_validar', [RegisteredUserController::class, 'vista_validar'])->name('verification.vista_validar');
 
-Route::get('recoverpassword', [RecoveryPasswordController::class, 'index'])->name('recoverpassword');
+
+Route::get('recoverpassword/delete/code/{correo}', [RecoveryPasswordController::class, 'delete_code'])->name('recoverpassword.delete_code');
+Route::get('recoverpassword/index', [RecoveryPasswordController::class, 'index'])->name('recoverpassword');
 Route::post('recoverpassword/validate', [RecoveryPasswordController::class, 'validation_email'])->name('recoverpassword.validation_email');
 Route::post('recoverpassword/validate/code', [RecoveryPasswordController::class, 'validation_code'])->name('recoverpassword.validation_code');
 Route::post('recoverpassword/change_password', [RecoveryPasswordController::class, 'change_password'])->name('recoverpassword.change_password');
-
 
 Route::get('/productcatalog', [ProductController::class, 'index'])->name('productcatalog');
 Route::get('/productprofile/{product}', [ProductController::class, 'show'])->name('productprofile');

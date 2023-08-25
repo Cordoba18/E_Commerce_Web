@@ -36,8 +36,7 @@ class RegisteredUserController extends Controller
         $email = $request->correo;
 
         $cod = RegisteredUserController::randNumer();
-
-        Mail::to($request->correo)->send(new validateEmail($cod, $request->name));
+        Mail::to($request->correo)->send(new validateEmail($cod, $request->name, " utiliza el codigo de activacion para finalizar la creaciòn de tu cuenta : ", "CREACION DE CUENTA"));
 
         $codificar = new Code();
         $codificar->email = $email;
@@ -75,7 +74,6 @@ public function validation(HttpRequest $request){
     if($codigo == $request->codigo){
 
         $usuario = new User();
-
         $usuario->nombre = $request->nombre;
         $usuario->correo = $request->correo;
         $usuario->contrasena = $request->contrasena;

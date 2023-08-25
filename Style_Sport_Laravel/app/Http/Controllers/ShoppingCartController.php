@@ -52,7 +52,6 @@ class ShoppingCartController extends Controller
         if ($carrito) {
             $talla_origen = Size::find($request->size);
             $total_cantidad = 0;
-
             foreach($carrito as $c){
                     $total_cantidad = $total_cantidad + $c->cantidad_producto;
                     if ($c->colores_id == $request->color) {

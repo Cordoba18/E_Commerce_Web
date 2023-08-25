@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-   
+
 </head>
 <body style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <center>
@@ -32,12 +32,12 @@
             <h1 style=" font-weight: bold; font-size: 60px">STYLE SPORT SHOP</h1>
         </div>
         <div class="content-body">
-            <p style="  
+            <p style="
             margin-top: 10px;
-            margin-left: 5px; font-size: 15px">Hola, <span style="  font-weight: bold;">{{ $nombre}}</span> utiliza el codigo de activacion para finalizar la creaciòn de tu cuenta :</p>
+            margin-left: 5px; font-size: 15px">Hola, <span style="  font-weight: bold;">{{ $nombre}}</span>{{ $mensaje }}</p>
             <br>
 
-            
+
             <center><div class="info_codigo" style="text-align: center;
               border: 1px solid black;
               width: 300px;
@@ -66,7 +66,7 @@
         align-self: center;
         color: black;
         padding: 10px;">
-            
+
             <div class="content-reds" style=" text-align: center;
             margin: 30px;">
                     <h6 style="        font-weight: bold; font-size: 15px">SIGUENOS EN NUESTRAS REDES</h6>

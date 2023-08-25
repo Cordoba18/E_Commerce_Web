@@ -22,6 +22,9 @@ finalizar_compra.addEventListener("click", function(e){
         }else if (!telefono.value.match(/^\d+$/)) {
             error_telefono.removeAttribute('hidden')
             error_telefono.innerHTML = "SOLO SE PERMITEN NUMEROS";
+        }else if (telefono.value.length > 12 || telefono.value.length < 7) {
+            error_telefono.removeAttribute('hidden')
+            error_telefono.innerHTML = "EL TELEFONO DEBE TENER MAXIMO 12 CARACTERES Y MINIMO 7";
         }
         else if (identificacion.value < 0 ||identificacion.value == null || identificacion.value == "" ) {
             error_identificacion.removeAttribute('hidden')
@@ -32,25 +35,26 @@ finalizar_compra.addEventListener("click", function(e){
             error_identificacion.removeAttribute('hidden')
             error_identificacion.innerHTML = "SOLO SE PERMITEN NUMEROS";
             error_telefono.setAttribute("hidden", "true");
+        }else if(identificacion.value.length > 15 || identificacion.value.length < 5){
+            error_identificacion.removeAttribute('hidden')
+            error_identificacion.innerHTML = "EL NIT DEBE SER MAYOR A 5 Y MENOR A 15 CARACTERES";
+            error_telefono.setAttribute("hidden", "true");
         }
+
         else if (direccion.value == "") {
             error_direccion.removeAttribute('hidden')
             error_direccion.innerHTML = "DIRECCION VACIA";
             error_identificacion.setAttribute("hidden", "true");
+            error_telefono.setAttribute("hidden", "true");
         } else if (ciudades.value == "") {
             error_ciudad.removeAttribute('hidden')
             error_ciudad.innerHTML = "ELIJA UNA CIUDAD";
             error_direccion.setAttribute("hidden", "true");
+            error_identificacion.setAttribute("hidden", "true");
+            error_telefono.setAttribute("hidden", "true");
         }else {
             error_ciudad.setAttribute("hidden", "true");
             try {
-        finalizar_compra.remove();
-        direccion.disabled = true;
-        telefono.disabled = true;
-        ciudades.disabled = true;
-        identificacion.disabled = true;
-        departamento.disabled = true;
-        cargarPaypal();
         $.ajax({
         type: 'POST',
         url: 'purchaseform/save_changes',
@@ -62,17 +66,26 @@ finalizar_compra.addEventListener("click", function(e){
             _token: _token // Enviar los datos devueltos por la API de PayPal
         },
         success: function(response) {
-            // Manejar la respuesta del controlador si es necesario
+            finalizar_compra.remove();
+            direccion.disabled = true;
+            telefono.disabled = true;
+            ciudades.disabled = true;
+            identificacion.disabled = true;
+            departamento.disabled = true;
+            cargarPaypal();
 
 
         },
         error: function(error) {
-            // Manejar el error si lo hay
-            console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'LO SIENTO',
+                text: 'Hubo un error con sus datos'
+            })
         }
     });
 } catch (error) {
-    console.log(error);
+
 }
 
     }

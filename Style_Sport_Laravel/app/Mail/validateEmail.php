@@ -15,13 +15,17 @@ class validateEmail extends Mailable
 
     public $cod;
     public $nombre;
+    public $mensaje;
+    public $sujeto;
     /**
      * Create a new message instance.
      */
-    public function __construct($cod, $nombre)
+    public function __construct($cod, $nombre, $mensaje, $sujeto)
     {
         $this->cod = $cod;
         $this->nombre=$nombre;
+        $this->mensaje=$mensaje;
+        $this->sujeto=$sujeto;
     }
 
     /**
@@ -34,8 +38,10 @@ class validateEmail extends Mailable
     {
         $cod = $this->cod;
         $nombre = $this->nombre;
-        return $this->subject('CREACION DE CUENTA')
-                    ->view('mails.sendValidationEmail', compact('cod', 'nombre'));
+        $sujeto = $this->sujeto;
+        $mensaje = $this->mensaje;
+        return $this->subject($sujeto)
+                    ->view('mails.sendValidationEmail', compact('cod', 'nombre', 'mensaje'));
     }
     /**
      * Get the attachments for the message.
