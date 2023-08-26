@@ -3,7 +3,7 @@
 @section('title', 'producto catalogo')
 
 @section('css')
-    @vite(['resources/css/productCatalog.css'])
+    @vite(['resources/css/ProductCatalog.css'])
 @endsection
 
 @section('content')

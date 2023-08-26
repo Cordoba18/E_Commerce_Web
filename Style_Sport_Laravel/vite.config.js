@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/ShoppingCart.js',
                 'resources/js/customer.js',
                 'resources/js/VerificationEmail.js',
+                'resources/js/VerificationEmailpassword.js',
                 'resources/js/WishList.js',
                 'resources/js/purchaseForm.js',
                 'resources/js/home.js',
