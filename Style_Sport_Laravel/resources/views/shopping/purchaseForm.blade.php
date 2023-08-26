@@ -123,7 +123,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script
-    src="https://www.paypal.com/sdk/js?client-id=AW43i_XQWXydfHYWsv2dU-d15gMqO97p3-6trD_TlfaXmohDIS2u2Nyexa12qpgMG4OixEu2iCxIGb_n&currency=USD&components=buttons,funding-eligibility">
+    src="https://www.paypal.com/sdk/js?client-id=AeC4a91CyzHbXC-fQDdrCjaA5dOlLxBKnGX-NkL3_ADcG_ekZ7uLJ9jWKogicpH7HnmVLn0d5SP-GIdM&components=buttons,funding-eligibility">
 </script>
 @vite(['resources/js/purchaseForm.js'])
 <script>
