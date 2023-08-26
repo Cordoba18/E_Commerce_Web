@@ -264,8 +264,8 @@
     .content-fondo-cargando{
 
         background-color: rgba(0, 0, 0, 0.5);
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         position: fixed;
         z-index: 2;
     }
@@ -283,9 +283,39 @@
         text-align: center;
         align-items: center;
         z-index: 2;
+        height: 400px;
+        width: 500px;
     }
     .content-fondo-cargando .content-cargando img{
-        width: 500px;
-        height: 600px;
+        width: 100%;
+        height: 100%;
     }
 
+    @media (max-width: 650px){
+        .content-fondo-cargando .content-cargando{
+            width: 80%;
+            transition: 2s;
+        }
+        td, th{
+            font-size: 5px;
+            padding: 0;
+        }
+        .content_left table img{
+            width: 100px;
+            height: 80px;
+        }
+        .content_left table th{
+            font-size: 5px;
+            padding: 13px;
+        }
+        .content_left table button{
+            font-size: 5px;
+        }
+        .content_left h1{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .content_left table select{
+            width: 30px;
+        }
+    }

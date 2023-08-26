@@ -298,7 +298,7 @@ body{
     z-index: 2;
     display: flex;
     width: 60%;
-    height: auto;
+    height: 600px;
 }
 .content-fondo-info .btn_x_info{
 
@@ -341,7 +341,14 @@ height: 200px;
 }
 .content-fondo-info .content-info .content-info-right #texto{
     overflow-y: scroll;
-    height: 300px;
+    height: 240px;
     text-align: justify;
     padding: 10px;
+}
+@media (max-width: 650px) {
+    .content-fondo-info .content-info .content-info-left img{
+
+        width: 100px;
+        height: 100px;
+        }
 }

@@ -33,7 +33,7 @@
                         $imagePath = 'storage/imgs/' . $img->imagen;
                     @endphp
                     @if (file_exists(public_path($imagePath)))
-                        <img  style="width: 300px; height: 180px;" src="{{ asset($imagePath) }}">
+                        <img  src="{{ asset($imagePath) }}">
                         @php
                             $foundImage = true;
                         @endphp
@@ -43,11 +43,11 @@
             @endforeach
 
             @unless ($foundImage)
-                <img style="width: 300px; height: 180px; " src="{{ asset('storage/imgs/images.png') }}">
+                <img src="{{ asset('storage/imgs/images.png') }}">
             @endunless
         </a></td>
             <td>${{ number_format(intval(round($l->precio))) }}</td>
-            <td><button class="btn btn-danger" id="btn_eliminar">ELIMINAR</button></td>
+            <td><button class="btn btn-danger btn-sm" id="btn_eliminar">ELIMINAR</button></td>
         </tr>
         @empty
                 <h1>No hay resultados productos en tu lista de deseos</h1>

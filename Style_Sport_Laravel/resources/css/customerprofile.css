@@ -161,3 +161,21 @@ table img {
     height: 150px;
     padding: 10px;
 }
+
+@media (max-width: 650px){
+
+    table th, table td{
+        font-size: 5px;
+        padding: 15px;
+    }
+
+    table img{
+        width: 80px;
+        height: 70px;
+    }
+
+    table button{
+        font-size: 5px;
+        color: black;
+    }
+}

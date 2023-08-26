@@ -441,7 +441,7 @@ body{
     transform: translate(-50%, -50%);
     border-radius: 10px;
     border: solid 2px black;
-    padding: 50px 200px;
+    padding: 50px 50px;
     text-align: center;
     align-items: center;
 }
@@ -481,4 +481,10 @@ body{
 .valoracion label:hover ~ label,
 .valoracion input:checked ~ label {
     color: #ffff00;
+}
+
+@media (max-width: 650px) {
+    .valoracion label {
+        font-size: 30px;
+    }
 }

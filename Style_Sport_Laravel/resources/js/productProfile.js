@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var inputCantidad = document.querySelector("input[name='amount']");
 
     inputCantidad.addEventListener('keydown', (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
       });
 
     selectTalla.addEventListener("change", function () {
@@ -115,7 +115,9 @@ $.ajax({
                  'Gracias por darnos tu opinion',
                  'success'
                 )
+                setTimeout(() => {
             window.location.href = id_producto;
+        }, 2000);
         }else {
             Swal.fire({
                 icon: 'error',

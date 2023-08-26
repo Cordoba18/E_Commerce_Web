@@ -133,7 +133,6 @@
     let total_dolares;
     total_dolares = total * 0.0003098;
     const validar = setInterval(() => {
-
         $.ajax({
             type: 'GET',
             url: '{{ route('purchaseform.validar') }}',
