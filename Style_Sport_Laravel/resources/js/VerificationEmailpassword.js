@@ -99,7 +99,6 @@ function validaciones(_token) {
         e.preventDefault();
         let password = document.querySelector("#password").value;
         let password_confirmation = document.querySelector("#password_confirmation").value;
-
         if (password == "") {
             error.innerHTML = "Contraseña Vacia";
             error.removeAttribute('hidden');
@@ -157,7 +156,7 @@ function validaciones(_token) {
 
     function tieneNumero(texto) {
         for (let i = 0; i < texto.length; i++) {
-            if (!isNaN(texto[i])) {
+            if (isNaN(texto[i])) {
                 return true;
             }
         }
