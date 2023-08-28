@@ -31,7 +31,7 @@
         @forelse($carrito as $c)
         <tr id="producto_carrito">
             <td>{{ $c->nombre }}</td>
-            <td>$  {{ number_format(intval(round($c->total))) }}</td>
+            <td>$  {{ number_format(intval(round($c->total))) }} <p hidden id="total">{{ $c->total}}</p><p hidden id="cantidad">{{ $c->cantidad_producto}}</p></td>
             <td><a href="{{route('productprofile', $c->id_producto)}}">
                 @php
                 $total = $total + ($c->total * $c->cantidad_producto);
@@ -76,8 +76,7 @@
                     }
                 @endphp
                 </select></form></td>
-                <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button>  <p hidden id="id_carrito">{{ $c->id }}</p> <p hidden id="total">{{ $c->total}}</p>
-                    <p hidden id="cantidad">{{ $c->cantidad_producto}}</p></td>
+                <td><button id="btn_accion" class="btn btn-danger">ELIMINAR</button>  <p hidden id="id_carrito">{{ $c->id }}</p></td>
         </tr>
         @empty
         <h1>No hay resultados productos en tu carrito de compras</h1>

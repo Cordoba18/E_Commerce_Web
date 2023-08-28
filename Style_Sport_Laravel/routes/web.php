@@ -15,22 +15,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Cache;
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('storage-link', function (){
-    Artisan::all('storage-link');
-});
-
-Route::get('stop-npm-dev', function () {
-    Cache::put('stop-npm-dev', true, 1); // Establecer un valor en la caché para detener el comando
-    return 'Comando detenido.';
-});
-//Route::get('run-npm-dev', function () {
-//$output = [];
-//exec('npm run dev', $output);
-
-//return '<pre>' . implode(PHP_EOL, $output) . '</pre>';
-//});
-
-
 Route::get('login_inicio', [AuthenticatedSessionController::class, 'index'])->name('login');
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::get('/acount/delete', [CustomerProfileController::class, 'destroy'])->name('customer.delete');

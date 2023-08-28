@@ -301,12 +301,12 @@
             padding: 0;
         }
         .content_left table img{
-            width: 100px;
-            height: 80px;
+            width: 80px;
+            height: 60px;
         }
         .content_left table th{
             font-size: 5px;
-            padding: 13px;
+            padding: 11px;
         }
         .content_left table button{
             font-size: 5px;
