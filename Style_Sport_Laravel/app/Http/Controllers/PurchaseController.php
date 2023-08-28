@@ -54,7 +54,7 @@ class PurchaseController extends Controller
     {
         //$fechaHoraActual = Carbon::now()->toRfc850String(); esto servira para las monitorias
         $id_usuario = FacadesAuth::user()->id;
-        $fechaHoraActual = Carbon::now();
+        $fechaHoraActual = Carbon::now('America/Bogota');
         $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id_usuario AND estados_id = 3");
         $total = 0;
         foreach ($carrito as $c) {
