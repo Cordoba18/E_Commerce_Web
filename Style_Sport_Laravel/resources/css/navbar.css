@@ -147,6 +147,11 @@ body{
     border-radius: 4px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition-duration: .2s;
+    align-items: center;
+}
+
+.navbarcentral .columntwo .columntwo-two a i{
+    margin: auto;
 }
 
 .navbarcentral .columntwo .columntwo-one form input:hover{
