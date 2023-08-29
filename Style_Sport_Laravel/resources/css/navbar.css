@@ -12,19 +12,24 @@ body{
 .navbarcentral{
     background: #fff;
     display: flex;
-    width: 100%;
+    width: 100%; 
     z-index: 0;
 }
 
 .navbarcentral .columnone{
     display: flex;
-    width: 30%;
-    height: 100px;
+    width: 10%;
+    height: 110px;
     align-items: center;
 }
 
 .navbarcentral .columnone .button-responsive{
     display: none;
+    padding: 6px;
+    background-color: #fff;
+    border: 0;
+    color: #000;
+    font-size: larger;
 }
 
 .navbarcentral .columnone a{
@@ -33,7 +38,7 @@ body{
 }
 
 .navbarcentral .columnone a img{
-    width: 80px;
+    width: 90px;
     margin: auto 10px auto 30px;
 }
 
@@ -44,15 +49,15 @@ body{
 
 .navbarcentral .columntwo{
     display: flex;
-    width: 70%;
-    height: 100px;
+    width: 90%;
+    height: 110px;
 }
 
 .navbarcentral .columntwo .columntwo-one{
     display: flex;
     align-items: center;
-    width: 50%;
-    height: 100px;
+    width: 35%;
+    height: 110px;
 }
 
 .navbarcentral .columntwo .columntwo-one form{
@@ -64,19 +69,21 @@ body{
 
 .navbarcentral .columntwo .columntwo-one form input{
     width: 90%;
-    background-color: #fff;
-    border: solid 1px black;
+    background-color: #eeeeee;
+    border: solid 1px #eeeeee;
     border-right: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     outline: none;
+    padding: 6px;
 }
 
 .navbarcentral .columntwo .columntwo-one form button{
     width: 15%;
-    height: 28px;
-    background-color: #fff;
-    border: solid 1px black;
+    height: 38px;
+    padding: 6px;
+    background-color: #eeeeee;
+    border: solid 1px #eeeeee;
     border-left: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -85,9 +92,9 @@ body{
 .navbarcentral .columntwo .columntwo-two{
     display: flex;
     align-items: center;
-    justify-content: right;
-    width: 50%;
-    height: 100px;
+    justify-content: center;
+    width: 15%;
+    height: 110px;
 }
 
 .navbarcentral .columntwo .columntwo-two a{
@@ -106,28 +113,59 @@ body{
     margin: auto 15px;
 }
 
-.navbarbotton{
-    background: #fff;
+.navbarcentral .columntwo .columntwo-three{
     display: flex;
-    width: 100%;
-    justify-content: right;
-    box-shadow: 0 40px 35px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 110px;
 }
 
-.navbarbotton ul{
+.navbarcentral .columntwo .columntwo-three ul{
     display: flex;
+    width: 80%;
     list-style: none;
     justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
 }
 
-.navbarbotton ul li{
-    margin: auto 25px;
-}
-
-.navbarbotton ul li .links{
+.navbarcentral .columntwo .columntwo-three ul li .links{
     border: 0;
     background-color: #fff;
     color: #000;
+}
+
+.navbarcentral .columntwo .columntwo-three ul li .links:hover{
+    border-bottom: 1px solid #cacaca;
+    transition-duration: .2s;
+}
+
+.navbarcentral .columntwo .columntwo-two a:hover{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition-duration: .2s;
+}
+
+.navbarcentral .columntwo .columntwo-one form input:hover{
+    background-color: #e1e0e0;
+    border: solid 1px #e1e0e0;
+    border-right: none;
+    transition-duration: .2s;
+}
+.navbarcentral .columntwo .columntwo-one form button:hover{
+    background-color: #e1e0e0;
+    border: solid 1px #e1e0e0;
+    border-left: none;
+    transition-duration: .2s;
+}
+
+.navbarcentral .columnone .button-responsive:hover{
+    border-radius: 4px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    transition-duration: .5s;
 }
 
 /* -----------------------------------FOOTER--------------------- */
@@ -232,6 +270,7 @@ body{
 
     .navbarcentral .columntwo.active{
         display: flex;
+        transition: 2s;
     }
 }
 
@@ -244,7 +283,7 @@ body{
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 950px) {
 
     .navbarcentral .columntwo{
         flex-direction: column;
@@ -256,14 +295,15 @@ body{
         height: 100px;
     }
 
-    .navbarcentral .columntwo .columntwo-two{
+    .navbarcentral .columntwo .columntwo-two,
+    .navbarcentral .columntwo .columntwo-three{
         width: 100%;
         height: 100px;
         justify-content: space-evenly;
     }
 
-    .navbarbotton ul li{
-        margin: auto 10px;
+    .navbarcentral .columntwo .columntwo-three ul{
+        border-right:0;
     }
 }
 

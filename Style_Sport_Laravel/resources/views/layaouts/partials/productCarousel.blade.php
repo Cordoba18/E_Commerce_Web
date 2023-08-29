@@ -35,12 +35,13 @@
                 $discount = $P->precio - $porcentaje;
             @endphp
             <div class="price">
-                <p><span>${{ number_format(intval(round($discount))) }} </span>
-                <p class="after"><span>${{ number_format(intval(round($P->precio))) }}</span></p>
+                <p>
+                    <p class="after"><span>${{ number_format(intval(round($P->precio))) }}</span></p>
+                    <span><b>${{ number_format(intval(round($discount))) }}</b></span>
                 </p>
             </div>
         @else
-            <p><span>$</span>{{ number_format(intval(round($P->precio))) }} </p>
+            <p class="prices"><span>$</span>{{ number_format(intval(round($P->precio))) }} </p>
         @endif
     </div>
 </div>
