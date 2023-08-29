@@ -38,8 +38,8 @@
         </div>
         <div class="columntwo-two">
             @auth
-                <i class="fa-solid fa-user"></i><a href="{{ route('customerprofile') }}"></a>
-                <i class="fa-solid fa-cart-shopping"></i><a href="{{ route('shoppingcart') }}"></a>
+                <a href="{{ route('customerprofile') }}"><i class="fa-solid fa-user"></i></a>
+                <a href="{{ route('shoppingcart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
             @endauth
             @guest
                 <a href="{{ route('login') }}">Iniciar sesion</a>
