@@ -30,7 +30,7 @@
 
     .content_left .content_target_cart .img_cart{
         width: 900px;
-        height: 500px;
+        height: 100%;
         justify-self: center;
 
     }
@@ -338,13 +338,15 @@
     }
 
     @media (max-width: 850px){
+        .content_left .content_target_cart{
+            height: 400px;
+        }
         .content-fondo-cargando .content-cargando{
             width: 80%;
             transition: 2s;}
         .content_left .content_target_cart .img_cart{
             width: 800px;
-            height: auto;
-    
+
         }
         .content_left .content_target_cart .content_producto_right{
             width: 100%;
@@ -358,28 +360,28 @@
         .content_left .content_target_cart .dates_conent{
             flex-wrap: wrap;
         }
-    
+
         .content_left .content_target_cart .content_producto_right{
             flex-wrap: wrap;
             justify-content: right;
             text-align: end;
         }
-    
+
         .content_left .content_target_cart .content_producto_right h1{
-    
+
             font-size: 15px;
             width: 100%;
             font-weight: bold;
         }
         .content_left .content_target_cart .content_producto_right p{
-    
+
             font-weight: bold;
             font-size: 10px;
             width: 100%;
             font-weight: bold;
         }
         .content_left .content_target_cart .content_producto_right span{
-    
+
             font-weight: lighter;
             font-size: 8px;
             width: 100%;
@@ -393,7 +395,7 @@
                 width:100%;
                 margin: 20px;
                 flex-wrap: wrap;
-            
+
                 }
                 .content_right{
                 width: 100%;
@@ -413,7 +415,7 @@
         .content_left .content_target_cart .img_cart{
             width: 800px;
             height: auto;
-    
+
         }
         .content_left .content_target_cart .content_producto_right{
             width: 100%;
@@ -427,7 +429,7 @@
         .content_left .content_target_cart .dates_conent{
             flex-wrap: wrap;
         }
-    
+
         .content_left .content_target_cart .content_producto_right{
             flex-wrap: wrap;
             justify-content: right;
@@ -442,7 +444,7 @@
                 width:100%;
                 margin: 20px;
                 flex-wrap: wrap;
-            
+
                 }
                 .content_right{
                 width: 100%;
@@ -450,5 +452,5 @@
                 align-items: center;
                 align-content: center;
                 }
-    
+
     }
