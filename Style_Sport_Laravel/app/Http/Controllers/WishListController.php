@@ -24,6 +24,9 @@ class WishListController extends Controller
 
 
     public function store($id_producto){
+        if (DB::select("SELECT * FROM productos WHERE id = $id_producto AND estados_id = 2")) {
+            return redirect('productprofile/'.$id_producto)->with('inactivo', true);
+          }else{
         $id = FacadesAuth::user()->id;
         $validar = DB::select(" SELECT * FROM lista_deseos WHERE id_user = $id AND id_producto=$id_producto AND estados_id =1");
         if ($validar) {
@@ -38,6 +41,7 @@ class WishListController extends Controller
                return redirect('productprofile/'.$id_producto)->with('list', true);
 
         }
+    }
     }
 
     public function delete($id_lista_deseos){

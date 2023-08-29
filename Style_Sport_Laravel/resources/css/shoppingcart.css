@@ -15,11 +15,13 @@
 
     }
     .content_left table th{
-        border-bottom: 2px solid black;
+        border-bottom: 0.5px solid black;
         font-size: 18px;
         padding: 20px;
     }
     .content_left table{
+        box-shadow: 0px 0px 10px black;
+        transition: 2s;
         width: 100%;
         margin-top: 10px;
         border-radius: 20px;
@@ -291,31 +293,37 @@
         height: 100%;
     }
 
-    @media (max-width: 650px){
+    @media (max-width: 850px){
         .content-fondo-cargando .content-cargando{
             width: 80%;
             transition: 2s;
         }
         td, th{
-            font-size: 5px;
+            font-size:8px;
             padding: 0;
+            transition: 2s;
         }
         .content_left table img{
             width: 80px;
             height: 60px;
+            transition: 2s;
         }
         .content_left table th{
-            font-size: 5px;
-            padding: 11px;
+            padding: 3px;
+            font-size:10px;
+            transition: 2s;
         }
         .content_left table button{
-            font-size: 5px;
+            font-size: 10px;
+            transition: 2s;
         }
         .content_left h1{
             font-size: 20px;
             font-weight: bold;
+            transition: 2s;
         }
         .content_left table select{
             width: 30px;
+            transition: 2s;
         }
     }

@@ -21,8 +21,8 @@ class InvoiceDetailsController extends Controller
         INNER JOIN tallas t ON c.tallas_id = t.id
         INNER JOIN colores colors ON c.colores_id = colors.id
         WHERE c.id_user = $id_user AND c.factura_id = $id_factura");
-
-        return view('customers.InvoiceDetails', compact('detalles'));
+        $factura = DB::selectOne("SELECT * FROM factura WHERE id = $id_factura");
+        return view('customers.InvoiceDetails', compact('detalles', 'factura'));
 
     }
 

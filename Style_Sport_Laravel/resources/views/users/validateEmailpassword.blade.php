@@ -18,12 +18,17 @@
                     <p id="correo"></p>
                 </b></h1>
             <strong>
+                <form action="">
                 <input style="text-align: center" type="text" id="codigo" maxlength="4">
             </strong>
             <br>
             <br>
 
             <button id="btn_siguiente" class="boton">TERMINAR</button>
+        </form>
+            <div class="not-member">
+                <a href="{{route('login')}}">Cancelar</a>
+            </div>
         </div>
     </div>
 @endsection

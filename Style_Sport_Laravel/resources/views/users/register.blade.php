@@ -21,7 +21,7 @@
             @error('lastname')
             <h6>{{ $message }}</h6>
             @enderror
-            <input type="date"name="date" placeholder="Fecha de nacimiento">
+            <input type="date" name="date" placeholder="Fecha de nacimiento" max="2005-10-08">
             @error('date')
             <h6>{{ $message }}</h6>
             @enderror

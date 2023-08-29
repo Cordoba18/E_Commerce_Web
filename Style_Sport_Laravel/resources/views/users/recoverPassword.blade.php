@@ -3,6 +3,7 @@
 @section('title', 'recordar contraseña')
 @section('css')
     @vite(['resources/css/recoverpassword.css'])
+    @vite(['resources/css/form.css'])
 @endsection
 @section('content')
 
@@ -17,6 +18,9 @@
                 <br>
                 <input style="text-align: center" type="email" name="email" id="inputEmail3" class="form-control">
                 <button type="submit" class="boton">Enviar codigo</button>
+                <div class="not-member">
+                    <a href="{{route('login')}}">Cancelar</a>
+                </div>
             </div>
         </form>
     </div>

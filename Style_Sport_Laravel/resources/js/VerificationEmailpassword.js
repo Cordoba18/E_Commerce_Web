@@ -18,6 +18,7 @@ correo.innerHTML = email;
 
 
 btn_siguiente.addEventListener("click", (e) => {
+    e.preventDefault();
     let codigo = document.querySelector("#codigo").value;
     const _token = document.querySelector("input[name=_token]").value;
     $.ajax({
@@ -138,16 +139,15 @@ function validaciones(_token) {
 
     function tieneMayuscula(texto) {
         for (let i = 0; i < texto.length; i++) {
-            if (texto[i] === texto[i].toUpperCase()) {
+            if (texto[i] !== texto[i].toLowerCase()) {
                 return true;
             }
         }
         return false;
     }
-
     function tieneMinuscula(texto) {
         for (let i = 0; i < texto.length; i++) {
-            if (texto[i] === texto[i].toLowerCase()) {
+            if (texto[i] !== texto[i].toUpperCase()) {
                 return true;
             }
         }
@@ -156,7 +156,7 @@ function validaciones(_token) {
 
     function tieneNumero(texto) {
         for (let i = 0; i < texto.length; i++) {
-            if (isNaN(texto[i])) {
+            if (!isNaN(texto[i])) {
                 return true;
             }
         }
@@ -164,10 +164,10 @@ function validaciones(_token) {
     }
 
     function largocontrasena(texto) {
-     if (!texto.length > 15 || !texto.length < 8) {
-        return true;
-     }else{
+     if (texto.length > 15 || texto.length < 8) {
         return false;
+     }else{
+        return true;
      }
     }
 }

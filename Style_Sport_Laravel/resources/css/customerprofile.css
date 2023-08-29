@@ -155,18 +155,20 @@ table {
     text-align: center;
     border: 0.5px solid rgba(125, 125, 125, 0.3);
 }
-
+table td{
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
 table img {
     width: 200px;
     height: 150px;
     padding: 10px;
 }
 
-@media (max-width: 650px){
+@media (max-width: 750px){
 
     table th, table td{
-        font-size: 5px;
-        padding: 15px;
+        padding: 3px;
     }
 
     table img{
@@ -178,4 +180,38 @@ table img {
         font-size: 5px;
         color: black;
     }
+}
+
+.info_fact div{
+    margin: 4px;
+    margin-top: 20px;
+}
+.info_fact div h2{
+
+    font-weight: lighter;
+    font-size: 20px;
+
+}
+.info_fact div p{
+
+    font-weight: bolder;
+}
+
+
+.info_fact div  #total_detalles{
+    color: red;
+    border-bottom: 2px solid red;
+    max-width: max-content;
+}
+.info_fact a{
+    text-decoration: none;
+    color: red;
+    margin: 4;
+    font-size: 20px;
+    font-weight: bold;
+}
+.info_fact a:hover{
+   padding: 0 40px;
+    transition: 0.5s;
+    border-bottom: 3px solid red;
 }

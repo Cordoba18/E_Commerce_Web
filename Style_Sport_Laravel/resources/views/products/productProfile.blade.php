@@ -16,8 +16,14 @@
         </div>
         <div class="profileProduct">
             <section class="columnone">
+
                 <div class="img">
                     <div id="carouselExample" class="carousel slide">
+                        @if ($size->isEmpty())
+                        <div class="exhausted">
+                            <h1>AGOTADO</h1>
+                        </div>
+                    @endif
                         <div class="carousel-inner">
                             @php
                                 $imagePath = '';
@@ -87,7 +93,7 @@
                                 for ($i = 0; $i < 5 - intval(round($product->calificacion)); $i++) {
                                     print '<i class="fa-regular fa-star fa-2xl" style="color: #ffa702;"></i>';
                                 }
-                                print "<span>(".round($product->calificacion,1).")</span>";
+                                print '<span>(' . round($product->calificacion, 1) . ')</span>';
                                 print "<span>$product->n_p_calificaron calificaciones</span>";
                             } else {
                                 for ($i = 0; $i < 5; $i++) {
@@ -131,12 +137,15 @@
                         @enderror
                         <label>Cantidad:</label>
                         <div class="amount">
-                            <button type="button" class="plus"><i class="fa-solid fa-plus" style="color: #000000;"></i></button>
+                            <button type="button" class="plus"><i class="fa-solid fa-plus"
+                                    style="color: #000000;"></i></button>
                             <input type="number" name="amount" value="0" readonly>
-                            <button type="button" class="less"><i class="fa-solid fa-minus" style="color: #000000;"></i></button>
+                            <button type="button" class="less"><i class="fa-solid fa-minus"
+                                    style="color: #000000;"></i></button>
                         </div>
                         <div class="btns">
-                            <button type="submit" class="addCart"><i class="fa-solid fa-cart-plus" style="color: #000000;"></i> Añadir al carrito</button>
+                            <button type="submit" class="addCart"><i class="fa-solid fa-cart-plus"
+                                    style="color: #000000;"></i> Añadir al carrito</button>
                         </div>
                     </form>
                     <form class="fav" action="{{ route('wishlist.store', $product->id) }}" method="get">
@@ -191,6 +200,16 @@
                 title: 'PRODUCTO AGREGADO AL CARRITO',
                 showConfirmButton: false,
                 timer: 1500
+            })
+        </script>
+    @endif
+
+    @if (session('inactivo'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'PRODUCTO NO DISPONIBLE',
+                text: 'Este producto ha sido previamente eliminado'
             })
         </script>
     @endif

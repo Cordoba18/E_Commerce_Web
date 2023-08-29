@@ -35,6 +35,7 @@
     width: 20px;
     margin: auto 10px;
     border-radius: 50%;
+    z-index: 0;
 }
 
 .main .profileProduct .columnone .img{
@@ -487,4 +488,26 @@ body{
     .valoracion label {
         font-size: 30px;
     }
+}
+.main .profileProduct .columnone .img #carouselExample .exhausted{
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 1;
+justify-content: center;
+  align-items: center;
+
+}
+.main .profileProduct .columnone .img #carouselExample .exhausted h1{
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 45%;
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 100px;
+    width: 100%;
+
 }

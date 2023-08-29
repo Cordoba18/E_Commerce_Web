@@ -20,7 +20,6 @@
                         <button aria-label="Anterior" class="carousel-anteriorD carousel-anterior">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
-
                         <div class="carousel-listaD">
                             @foreach ($Product_desc as $P)
                                 @include('layaouts.partials.productCarousel')

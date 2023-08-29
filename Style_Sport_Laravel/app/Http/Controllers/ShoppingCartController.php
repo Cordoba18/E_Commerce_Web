@@ -47,6 +47,10 @@ class ShoppingCartController extends Controller
 
     public function store(StoreProductCartShopping $request)
     {
+
+      if (DB::select("SELECT * FROM productos WHERE id = $request->product AND estados_id = 2")) {
+        return redirect('productprofile/'.$request->product)->with('inactivo', true);
+      }else{
         $id = FacadesAuth::user()->id;
         $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id = 1 AND id_producto = $request->product AND tallas_id = $request->size");
         if ($carrito) {
@@ -90,7 +94,7 @@ class ShoppingCartController extends Controller
                ]);
                return redirect('productprofile/'.$request->product)->with('cart', true);
         }
-
+    }
 
 
 
