@@ -2,41 +2,84 @@
     display: flex;
     flex-wrap: wrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
 
     }
     .content_left{
-    width: 60%;
-    margin: 40px;
+    width:50%;
+    margin: 20px;
+    flex-wrap: wrap;
 
     }
     .content_right{
-    width: 500px;
+    width: 30%;
     margin: 40px;
+    align-items: center;
+    align-content: center;
+    }
+    .content_left .content_target_cart{
+        width: 100%;
+        background-color: white;
+        height: auto;
+        display: flex;
+        border-bottom: 1px solid rgb(210, 210, 210);
+    }
+
+    .content_left .content_target_cart .img_cart{
+        width: 900px;
+        height: 500px;
+        justify-self: center;
 
     }
-    .content_left table th{
-        border-bottom: 0.5px solid black;
-        font-size: 18px;
-        padding: 20px;
+    .content_left .content_target_cart .img_cart .no-found{
+        object-fit: cover;
+        height: 500px;
     }
-    .content_left table{
-        box-shadow: 0px 0px 10px black;
-        transition: 2s;
+    .content_left .content_target_cart .content_producto_right{
         width: 100%;
-        margin-top: 10px;
-        border-radius: 20px;
-        background-color: white;
-        text-align: center;
-        border: 0.5px solid rgba(125, 125, 125, 0.3);
-    }
-    .content_left table img{
-        width: 200px;
-        height: 150px;
         padding: 10px;
     }
-    .content_left h1{
-        font-size: 40px;
+    .content_left .content_target_cart img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    }
+    .content_left .content_target_cart .dates_conent{
+        flex-wrap: wrap;
+    }
+
+    .content_left .content_target_cart .content_producto_right{
+        flex-wrap: wrap;
+        justify-content: right;
+
+    }
+
+    .content_left .content_target_cart .content_producto_right h1{
+
+        font-size: 30px;
+        width: 100%;
         font-weight: bold;
+    }
+    .content_left .content_target_cart .content_producto_right p{
+
+        font-weight: bold;
+        font-size: 20px;
+        width: 100%;
+        font-weight: bold;
+    }
+    .content_left .content_target_cart .content_producto_right span{
+
+        font-weight: lighter;
+        font-size: 15px;
+        width: 100%;
+    }
+
+
+    .content_left #tittle{
+        font-size: 40px;
     }
     .content_right h1{
         font-size: 40px;
@@ -50,11 +93,12 @@
 
     }
     .contenedor_inputs input, select{
-        width: 100%;
+        width: 40px;
         border-radius: 5px;
         outline: none;
         height: 40px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border: 0;
     }
 
     .content_right h3{
@@ -115,7 +159,7 @@
     .content_right #content_form_pagar{
         background-color: white;
         padding: 50px 20px;
-        border: 0.5px solid grey;
+        border: 0.5px solid rgb(224, 213, 213);
         width: 100%;
     }
 
@@ -296,34 +340,115 @@
     @media (max-width: 850px){
         .content-fondo-cargando .content-cargando{
             width: 80%;
-            transition: 2s;
+            transition: 2s;}
+        .content_left .content_target_cart .img_cart{
+            width: 800px;
+            height: auto;
+    
         }
-        td, th{
-            font-size:8px;
-            padding: 0;
-            transition: 2s;
+        .content_left .content_target_cart .content_producto_right{
+            width: 100%;
+            padding: 10px;
         }
-        .content_left table img{
-            width: 80px;
-            height: 60px;
-            transition: 2s;
+        .content_left .content_target_cart img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
         }
-        .content_left table th{
-            padding: 3px;
-            font-size:10px;
-            transition: 2s;
+        .content_left .content_target_cart .dates_conent{
+            flex-wrap: wrap;
         }
-        .content_left table button{
-            font-size: 10px;
-            transition: 2s;
+    
+        .content_left .content_target_cart .content_producto_right{
+            flex-wrap: wrap;
+            justify-content: right;
+            text-align: end;
         }
-        .content_left h1{
-            font-size: 20px;
+    
+        .content_left .content_target_cart .content_producto_right h1{
+    
+            font-size: 15px;
+            width: 100%;
             font-weight: bold;
-            transition: 2s;
         }
-        .content_left table select{
-            width: 30px;
-            transition: 2s;
+        .content_left .content_target_cart .content_producto_right p{
+    
+            font-weight: bold;
+            font-size: 10px;
+            width: 100%;
+            font-weight: bold;
         }
+        .content_left .content_target_cart .content_producto_right span{
+    
+            font-weight: lighter;
+            font-size: 8px;
+            width: 100%;
+        }
+        .Content-ShoppinCart{
+            flex-wrap: wrap;
+            margin-left: 20px;
+            margin-right: 20px;
+            }
+        .content_left{
+                width:100%;
+                margin: 20px;
+                flex-wrap: wrap;
+            
+                }
+                .content_right{
+                width: 100%;
+                margin: 40px;
+                align-items: center;
+                align-content: center;
+                }
+                .content_left #tittle{
+                    font-size: 30px;
+                }
+    }
+
+    @media (max-width: 1200px){
+        .content_left .content_target_cart .img_cart .no-found{
+            height: 100%;
+        }
+        .content_left .content_target_cart .img_cart{
+            width: 800px;
+            height: auto;
+    
+        }
+        .content_left .content_target_cart .content_producto_right{
+            width: 100%;
+            padding: 10px;
+        }
+        .content_left .content_target_cart img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        }
+        .content_left .content_target_cart .dates_conent{
+            flex-wrap: wrap;
+        }
+    
+        .content_left .content_target_cart .content_producto_right{
+            flex-wrap: wrap;
+            justify-content: right;
+            text-align: end;
+        }
+        .Content-ShoppinCart{
+            flex-wrap: wrap;
+            margin-left: 20px;
+            margin-right: 20px;
+            }
+        .content_left{
+                width:100%;
+                margin: 20px;
+                flex-wrap: wrap;
+            
+                }
+                .content_right{
+                width: 100%;
+                margin: 40px;
+                align-items: center;
+                align-content: center;
+                }
+    
     }

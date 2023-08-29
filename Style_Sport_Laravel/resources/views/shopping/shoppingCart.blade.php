@@ -9,13 +9,77 @@
 @endsection
 @section('content')
 <div class="Content-ShoppinCart">
-<div class="content_left">
-<h1>CARRITO DE COMPRAS</h1>
-<p hidden id="user">{{ $id }}</p>
+  <div class="content_left">
+<h1 id="tittle">CARRITO DE COMPRAS</h1>
 @php
     $total = 0;
 @endphp
-<table class="">
+
+    @forelse($carrito as $c)
+    <div id="producto_carrito" class="content_target_cart">
+        <div class="img_cart">
+        <a href="{{route('productprofile', $c->id_producto)}}">
+            @php
+            $total = $total + ($c->total * $c->cantidad_producto);
+            $foundImage = false;
+            $imagePath = '';
+        @endphp
+
+        @foreach ($imgProduct as $img)
+            @if ($img->id_producto == $c->id_producto)
+                @php
+                    $imagePath = 'storage/imgs/' . $img->imagen;
+                @endphp
+                @if (file_exists(public_path($imagePath)))
+                    <img   src="{{ asset($imagePath) }}">
+                    @php
+                        $foundImage = true;
+                    @endphp
+                @endif
+                @break
+            @endif
+        @endforeach
+
+        @unless ($foundImage)
+            <img class="no-found" src="{{ asset('storage/imgs/images.png') }}">
+        @endunless </a>
+        </div>
+        <div class="content_producto_right">
+        <h1>{{ $c->nombre }}</h1>
+        <span>PRECIO</span>
+        <p>${{ number_format(intval(round($c->total))) }} <p hidden id="total">{{ $c->total}}</p><p hidden id="cantidad">{{ $c->cantidad_producto}}</p></p></td>
+            <div class="dates_conent">
+                <span>TALLA</span>
+        <p>{{ $c->talla }}</p>
+        <span>COLOR</span>
+        <p>{{ $c->color }}</p>
+        <span>CANTIDAD</span>
+        <p id="tallas_id" hidden>{{ $c->tallas_id }}</p>
+        <form action="">
+            @csrf
+            <select id="seleccion_cantidad" name="">
+            <option value="{{ $c->cantidad_producto }}"> {{ $c->cantidad_producto }}</option>
+            @php
+                for ($i=1; $i < $c->cantidad_total+1 ; $i++) {
+                    if ($i == $c->cantidad_producto) {
+                        # code...
+                    }else {
+                        @endphp
+                        <option value={{ $i }}> {{ $i }} </option>
+                        @php
+                    }
+                }
+            @endphp
+            </select></form>
+                </div>
+            <button id="btn_accion" class="btn btn-danger">ELIMINAR</button>  <p hidden id="id_carrito">{{ $c->id }}</p>
+        </div></div>
+    @empty
+    <h1>No hay resultados productos en tu carrito de compras</h1>
+@endforelse
+<p hidden id="user">{{ $id }}</p>
+
+{{-- <table class="">
 
     <thead>
         <th>NOMBRE</th>
@@ -82,7 +146,7 @@
         <h1>No hay resultados productos en tu carrito de compras</h1>
     @endforelse
     </tbody>
-</table>
+</table> --}}
 
 </div>
 
