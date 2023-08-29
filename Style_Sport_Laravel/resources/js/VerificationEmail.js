@@ -17,8 +17,8 @@ let correo = document.querySelector("#correo");
 correo.innerHTML = verificationCode;
 
 
-btn_siguiente.addEventListener("click", () => {
-
+btn_siguiente.addEventListener("click", (e) => {
+    e.preventDefault();
     let codigo = document.querySelector("#codigo").value;
     const _token = document.querySelector("input[name=_token]").value;
 
