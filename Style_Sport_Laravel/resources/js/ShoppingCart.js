@@ -52,10 +52,32 @@ producto_carrito.forEach(product => {
                 _token: _token,
             },success: function(response) {
               if (response['message'] === true) {
-                total_full.innerHTML = parseFloat(total_full.innerHTML) - (cantidad*total);
-                let cambiar_cantidad = product.querySelector("#cantidad");
-                cambiar_cantidad.innerHTML = valorSeleccionado;
-                total_full.innerHTML = parseFloat(total_full.innerHTML) + (valorSeleccionado*total);
+                calcular_carrito();
+                let timerInterval
+                Swal.fire({
+                  title: 'CALCULANDO',
+                  html: 'Estamos calculando tu total <b></b> milliseconds.',
+                  timer: 1500,
+                  timerProgressBar: true,
+                  didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                      b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                  },
+                  willClose: () => {
+                    clearInterval(timerInterval)
+                  }
+                }).then((result) => {
+                  /* Read more about handling dismissals below */
+                  if (result.dismiss === Swal.DismissReason.timer) {
+                  }
+                })
+
+                setTimeout(() => {
+                total_full.innerHTML = total_calculo;
+            }, 2000);
               } else {
                 Swal.fire({
                     icon: 'error',
@@ -72,8 +94,21 @@ producto_carrito.forEach(product => {
     })
 
 
-
-
+    var total_calculo = "";
+    function calcular_carrito() {
+        total_calculo = "";
+        $.ajax({
+            url: "shoppingcart/calcular",
+            type: "GET",
+            success: function(response) {
+                total_calculo = response['message'];
+            },
+            error: function(error) {
+                console.error(error);
+            }
+          },
+          )
+    }
     btn_accion.addEventListener("click", function(){
         if (btn_accion.textContent === "ELIMINAR") {
             Swal.fire({

@@ -161,6 +161,18 @@ public function seleccionar($id){
     return response()->json(['message' => true], 200);
     }
 }
+
+public function calcular(){
+
+    $id = FacadesAuth::user()->id;
+    $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id=1");
+    $total = 0;
+    foreach($carrito as $c){
+
+        $total = $total + ($c->total * $c->cantidad_producto);
+    }
+    return response()->json(['message' => number_format(intval(round($total)))], 200);
+}
 }
 
 

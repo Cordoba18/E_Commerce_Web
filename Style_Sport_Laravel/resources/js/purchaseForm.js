@@ -54,6 +54,9 @@ finalizar_compra.addEventListener("click", function(e){
             error_telefono.setAttribute("hidden", "true");
         }else {
             error_ciudad.setAttribute("hidden", "true");
+            error_telefono.setAttribute("hidden", "true");
+            error_identificacion.setAttribute("hidden", "true");
+            error_direccion.setAttribute("hidden", "true");
             try {
         $.ajax({
         type: 'POST',
