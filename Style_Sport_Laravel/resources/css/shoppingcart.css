@@ -23,7 +23,7 @@
     .content_left .content_target_cart{
         width: 100%;
         background-color: white;
-        height: auto;
+        height: 500px;
         display: flex;
         border-bottom: 1px solid rgb(210, 210, 210);
     }
@@ -150,6 +150,7 @@
         text-align: center;
         align-items: center;
         width: 100%;
+        border-bottom: 2px solid red;
     }
     .content_right .content-total .cop {
         margin-left: 10px;
@@ -406,6 +407,9 @@
                 .content_left #tittle{
                     font-size: 30px;
                 }
+        .content_right .content-total{
+            font-size: 20px;
+        }
     }
 
     @media (max-width: 1200px){

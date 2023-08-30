@@ -15,11 +15,6 @@ body {
     width: 100vw;
     gap: 20px;
 }
-
-input {
-
-}
-
 .boton {
     border-radius: 10px;
     font-family: sans-serif;

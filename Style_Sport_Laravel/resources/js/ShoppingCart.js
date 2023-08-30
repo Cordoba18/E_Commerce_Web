@@ -124,9 +124,32 @@ producto_carrito.forEach(product => {
 
               )
               product.remove();
-              let cantidad = parseInt(product.querySelector("#cantidad").innerHTML);
-              let total = parseFloat(product.querySelector("#total").innerHTML);
-              total_full.innerHTML = parseFloat(total_full.innerHTML) - (cantidad*total);
+              calcular_carrito();
+                let timerInterval
+                Swal.fire({
+                  title: 'CALCULANDO',
+                  html: 'Estamos calculando tu total <b></b> milliseconds.',
+                  timer: 1500,
+                  timerProgressBar: true,
+                  didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                      b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                  },
+                  willClose: () => {
+                    clearInterval(timerInterval)
+                  }
+                }).then((result) => {
+                  /* Read more about handling dismissals below */
+                  if (result.dismiss === Swal.DismissReason.timer) {
+                  }
+                })
+
+                setTimeout(() => {
+                total_full.innerHTML = total_calculo;
+            }, 2000);
 
         }else{
             if (btn_accion.textContent === "SELECCIONAR") {

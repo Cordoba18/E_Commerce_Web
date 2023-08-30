@@ -154,7 +154,9 @@
                         text: 'Su carrito a cambiado!'
                     })
                     clearInterval(validar);
+                    setTimeout(() => {
                     window.location.href = "{{ route('purchaseform') }}";
+                }, 3000);
                 }
             },
             error: function(error) {
@@ -248,7 +250,9 @@
                 text: 'RECARGANDO COMPRA'
             })
             clearInterval(validar);
+            setTimeout(() => {
             window.location.href = "{{ route('purchaseform') }}";
+        }, 3000);
         }
 
     }

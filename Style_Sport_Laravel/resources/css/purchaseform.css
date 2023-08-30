@@ -54,6 +54,7 @@ padding: 30px;
     outline: none;
     height: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 0.1px solid ;
 }
 .contenedor_inputs p{
     font-weight: bold;
@@ -124,9 +125,10 @@ margin-bottom: 20px;
         transition: 2s;
     }
 
+
     .content_left table th, .content_left table td{
+        padding: 1px;
         font-size: 10px;
-        padding: 5px;
     }
     .content-fondo-cargando .content-cargando{
         width: 80%;
@@ -134,7 +136,33 @@ margin-bottom: 20px;
     }
 
     .content_left table img{
-        width: 100px;
-        height: 80px;
+        width: 80px;
+        height: 70px;
     }
+    .content_right{
+        width: 290px;
+    }
+    .content_right h1{
+        font-size: 25px;
+    }
+    .content_right .total{
+        font-size: 15px;
+    }
+
+    .content_right h3{
+        font-size: 25px;
+        margin-top: 30px;
+    }
+    .content_right .contenedor_inputs #finalizar_compra{
+        font-size: 10px;
+        padding: 20px 50px;
+    }
+
+    .content-paypal-logos img{
+        width: 90px;
+        height: 50px;
+        }
+.content_right .contenedor_inputs select, .content_right .contenedor_inputs input{
+    font-size: 10px;
+}
 }
