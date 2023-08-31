@@ -114,13 +114,13 @@ transform: scale(1.01);
 }
 
 .carousel-inner{
-    height: 500px;
+    height: 400px;
     background-color: #000;
 }
 
 .carousel-inner .carousel-item .img{
     object-fit: cover;
-    height: 500px;
+    height: 400px;
 }
 /* ---------------------slider---------------------------- */
 .carousel-caption{
@@ -152,13 +152,13 @@ transform: scale(1.01);
 
 @media (max-width: 950px){
     .carousel-inner{
-        height: 400px;
+        height: 350px;
         background-color: #000;
     }
     
     .carousel-inner .carousel-item .img{
         object-fit: cover;
-        height: 400px;
+        height: 350px;
     }
 }
 
@@ -174,13 +174,13 @@ transform: scale(1.01);
         margin: 40px;
     }
     .carousel-inner{
-        height: 350px;
+        height: 300px;
         background-color: #000;
     }
     
     .carousel-inner .carousel-item .img{
         object-fit: cover;
-        height: 350px;
+        height: 300px;
     }
 }
 
@@ -190,13 +190,13 @@ transform: scale(1.01);
     }
 
     .carousel-inner{
-        height: 300px;
+        height: 250px;
         background-color: #000;
     }
     
     .carousel-inner .carousel-item .img{
         object-fit: cover;
-        height: 300px;
+        height: 250px;
     }
 }
 
@@ -207,13 +207,13 @@ transform: scale(1.01);
     }
 
     .carousel-inner{
-        height: 250px;
+        height: 150px;
         background-color: #000;
     }
     
     .carousel-inner .carousel-item .img{
         object-fit: cover;
-        height: 250px;
+        height: 150px;
     }
 }
 
@@ -222,13 +222,13 @@ transform: scale(1.01);
         margin: 10px;
     }
     .carousel-inner{
-        height: 200px;
+        height: 100px;
         background-color: #000;
     }
     
     .carousel-inner .carousel-item .img{
         object-fit: cover;
-        height: 200px;
+        height: 100px;
     }
 }
 

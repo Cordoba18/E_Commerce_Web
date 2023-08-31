@@ -13,6 +13,13 @@
             @include('layaouts.partials.slider')
         </section>
         <section>
+            <article>
+                <div>
+                    
+                </div>
+            </article>
+        </section>
+        <section>
             <article class="contenedor">
                 <div class="carousel-productos">
                     <div class="carousel-contenedor">
