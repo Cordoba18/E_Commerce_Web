@@ -5,6 +5,9 @@
       <!-- Slide-start -->
       @foreach ($categorys as $c)
       <div class="swiper-slide tranding-slide">
+        <form action="{{ route('productcatalog') }}" method="get">
+            <input type="hidden" name="search" value="{{ $c->categoria }}">
+            <button style="border: 0" type="submit">
         <div class="tranding-slide-img">
             @php
             $foundImage = false;
@@ -37,6 +40,8 @@
             </h2>
           </div>
         </div>
+    </button>
+        </form>
       </div>
       @endforeach
     </div>
