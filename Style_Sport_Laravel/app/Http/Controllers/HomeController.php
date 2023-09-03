@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ImgProduct;
 use App\Models\Slider;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,11 @@ class HomeController extends Controller
         $Product_novedades = Product::Where('estados_id', '1')->orderByDesc('id')->limit(15)->get();
         $imgProduct = ImgProduct::Where('estados_id', '1')->get();
         $slider = Slider::Where('estados_id', '1')->get();
-        return view('homePage', compact('Product', 'slider','imgProduct','Product_novedades', 'Product_desc'));
+        $categorys = DB::select("SELECT c.categoria, MAX(p.id) AS id
+        FROM categorias c
+        INNER JOIN productos p ON c.id = p.categoria
+        WHERE p.estados_id = 1
+        GROUP BY c.categoria");
+        return view('homePage', compact('Product', 'slider','imgProduct','Product_novedades', 'Product_desc', 'categorys'));
     }
 }

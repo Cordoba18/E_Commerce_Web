@@ -4,6 +4,7 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     @vite(['resources/css/home.css'])
 @endsection
 
@@ -12,12 +13,8 @@
         <section>
             @include('layaouts.partials.slider')
         </section>
-        <section>
-            <article>
-                <div>
-                    
-                </div>
-            </article>
+        <section id="tranding">
+            @include('layaouts.partials.carrosel')
         </section>
         <section>
             <article class="contenedor">
@@ -84,6 +81,9 @@
 @endsection
 
 @section('js')
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.8/glider.min.js"></script>
     @vite(['resources/js/Slider.js', 'resources/js/productCarousel.js'])
 @endsection

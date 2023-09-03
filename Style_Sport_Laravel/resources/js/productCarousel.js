@@ -42,7 +42,7 @@ window.addEventListener('load', function () {
           }
         }
       ]
-  
+
     });
   });
 
@@ -90,10 +90,10 @@ window.addEventListener('load', function () {
           }
         }
       ]
-  
+
     });
   });
-console.log("hola");
+
   window.addEventListener('load', function () {
     new Glider(document.querySelector('.carousel-listao'), {
       slidesToShow: 1,
@@ -138,6 +138,6 @@ console.log("hola");
           }
         }
       ]
-  
+
     });
   });
