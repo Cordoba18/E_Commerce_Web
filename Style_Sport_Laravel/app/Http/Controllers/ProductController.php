@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+//Importo modelos
 use App\Models\Calification;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\ImgProduct;
 use App\Models\Product;
 use App\Models\Size;
+//Importo el metodo que me permite consultar a la base de datos
 use Illuminate\Support\Facades\DB;
+//Importo el request para los parametros por POST
 use Illuminate\Http\Request;
+//Importo FacedesAuth para obtener los datos del usuario autentificado
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 class ProductController extends Controller
 {
@@ -54,13 +58,16 @@ class ProductController extends Controller
         return view('products.productProfile', compact('imgProduct','Products','product','category','imgs','color', 'size', 'discount'));
     }
 
-
+    //Este metodo me permite calificar un producto respondiendo a una ruta la cual pide un request por metodo POST
     public function calificar(Request $request){
+        //Aqui valido si el usuario esta autentificado para calificar. Si no esta autentificado no puede calificar
         if (FacadesAuth::user() == false || FacadesAuth::user() == null) {
             return response()->json(['message' => false], 200);
         } else {
+            //Si esta autentificado obtengo su id
             $id_user = FacadesAuth::user()->id;
             $suma = false;
+            //Busco si existe una calificacion del usuario para ese producto si existe lo que hago es editar la calificacion si no creo la nueva calificacion
             $buscar = DB::selectOne("SELECT * FROM calificacion WHERE id_user = $id_user AND id_producto = $request->id_producto");
             if ($buscar) {
                 DB::update("UPDATE `calificacion` SET `calificacion`='$request->valoracion' WHERE id = $buscar->id");
@@ -73,6 +80,7 @@ class ProductController extends Controller
                 $suma = true;
             }
 
+            //Aqui hago el calculo de las calificaciones sacando su promedio y el numero de personas que calificaron para guardarlo en la base de datos y aplicarlo al producto
             $producto = Product::find($request->id_producto);
             $buscar = DB::select("SELECT * FROM calificacion WHERE id_producto = $request->id_producto");
             $calificaciones = 0;

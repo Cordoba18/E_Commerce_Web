@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\RegisteredUserRequest;
+//Importo modelos
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use App\Mail\validateEmail;
 use App\Models\Code;
+//Importo metodo para encriptar contraseña
+use Illuminate\Support\Facades\Hash;
+//Importo el constructor del envio del correo
+use App\Mail\validateEmail;
+//Importo mail para enviar informacion del correo
 use Illuminate\Support\Facades\Mail;
+//Importo el metodo que me permite consultar a la base de datos
 use Illuminate\Support\Facades\DB;
+//Importo el request para los parametros por POST
 use Illuminate\Http\Request as HttpRequest;
 
 class RegisteredUserController extends Controller
@@ -18,19 +25,24 @@ class RegisteredUserController extends Controller
         $this->middleware('guest');
     }
 
+    //Este metodo responde a una ruta y muestra el formulario del registro
     public function index()
     {
-
         return view('users.register');
     }
 
+    //Este metodo responde a un ruta y lo que hace es avanzar con el registro del usuario enviando un correo para validar la existencia del correo valido
     public function store(RegisteredUserRequest $request)
     {
         $user = User::where('correo',$request->correo)->where('estados_id','1')->first();
+        //validamos si ya tiene una cuenta registrada con ese correo
         if ($user) {
+            //si existe se redirecciona enviandole un mensaje
             return redirect()->route('register')->with('credentials','el correo digitado ya tiene una cuenta existente');
         }
+        //Si no existe en caso de que haya un codigo del usuario se elimina ese
         DB::table('codigos')->where('email', '=', $request->correo)->delete();
+        //Encriptacion de la contraseña
         $pass = Hash::make($request->password);
 
         $data = $request->name.'%'.$request->lastname.'%'.$request->correo.'%'.$pass.'%'.$request->date;
@@ -93,11 +105,3 @@ public function validation(HttpRequest $request){
 
 }
 }
-// $user = User::create([
-//     'nombre' => $request->name.' '.$request->lastname,
-//     'correo' => $request->correo,
-//     'contrasena' => Hash::make($request->password),
-//     'f_nacimiento' => $request->date,
-//     'id_rol' => 2,
-//     'estados_id' => 1,
-// ]);
