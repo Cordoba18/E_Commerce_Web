@@ -254,27 +254,9 @@ transform: scale(1.01);
 
 html {
   font-size: 62.5%;
-  font-family: "Montserrat", sans-serif;
-  scroll-behavior: smooth;
 }
 
-@media (min-width: 1440px) {
-  html {
-    zoom: 1.5;
-  }
-}
 
-@media (min-width: 2560px) {
-  html {
-    zoom: 1.7;
-  }
-}
-
-@media (min-width: 3860px) {
-  html {
-    zoom: 2.5;
-  }
-}
 
 ::-webkit-scrollbar {
   width: 1.3rem;
@@ -296,7 +278,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  background: var(--bg);
+
 }
 
 .container {
@@ -462,8 +444,9 @@ body {
   position: relative;
   width: 15rem;
   bottom: 1rem;
+  padding: 0 10px;
+  width: auto;
 }
-
 .tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
   filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
 }

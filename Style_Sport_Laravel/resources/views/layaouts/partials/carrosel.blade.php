@@ -45,7 +45,7 @@
       </div>
       @endforeach
     </div>
-    <div class="tranding-slider-control">
+    <div class="tranding-slider-control" >
       <div class="swiper-button-prev slider-arrow">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </div>
