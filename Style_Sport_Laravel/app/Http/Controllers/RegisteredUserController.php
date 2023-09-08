@@ -44,33 +44,36 @@ class RegisteredUserController extends Controller
         DB::table('codigos')->where('email', '=', $request->correo)->delete();
         //Encriptacion de la contraseña
         $pass = Hash::make($request->password);
-
+        //creacion de union de datos de registros para hacer un split en javascript
         $data = $request->name.'%'.$request->lastname.'%'.$request->correo.'%'.$pass.'%'.$request->date;
+        //capturo el correo del request
         $email = $request->correo;
-
+        //generacion del codigo aleatorio
         $cod = RegisteredUserController::randNumer();
+        //envio del gmail con codigo, mensaje y asunto
         Mail::to($request->correo)->send(new validateEmail($cod, $request->name, " utiliza el codigo de activacion para finalizar la creaciòn de tu cuenta : ", "CREACION DE CUENTA"));
-
+        //creacion del codigo en la base de datos
         $codificar = new Code();
         $codificar->email = $email;
         $codificar->codigo = $cod;
         $codificar->save();
 
+        //redireccionamiento a la siguiente vista
         return redirect()->route('verification.vista_validar')->with('data', $data);
     }
 
-
+//metodo que crea el codigo numerico de 4 digitos
     public static function randNumer() {
         $d=rand(1000,9999);
         return $d;
     }
 
-
+//metodo que responde a una ruta que recibe el correo para eliminar la fila donde el correo sea el capturado en la base de datos
     public function delete_code($correo){
 
         DB::table('codigos')->where('email', '=', $correo)->delete();
     }
-
+//metodo que responde a una ruta captura la sesion de los datos para previamente capturarlos para finalizar la creacion de la cuenta si todo sale bien
     public function vista_validar(){
 
         $datos = session('data');
@@ -78,14 +81,15 @@ class RegisteredUserController extends Controller
         return view('users.validateEmail',compact('datos', 'mensaje'));
 }
 
-
+//metodo que responde a una ruta que recibe todos los datos del usuario por medio del request
 public function validation(HttpRequest $request){
-
+//traemos los datos del codigo del usuario
     $user_code = DB::selectOne("SELECT * FROM codigos WHERE email='$request->correo'");
+    //capturamos el codigo de los datos del codigo del usuario
     $codigo = $user_code->codigo;
-
+//validamos si el codigo que hay en la base de datos es el mismo que ingreso en el formulario
     if($codigo == $request->codigo){
-
+//si el codigo esta bien creamos el usuario y retornamos un mensaje de aprobacion
         $usuario = new User();
         $usuario->nombre = $request->nombre;
         $usuario->correo = $request->correo;
@@ -96,6 +100,7 @@ public function validation(HttpRequest $request){
         $usuario->save();
         return response()->json(['message' => true], 200);
     }else {
+        //si no retornamos un mensaje de desaprobacion
         return response()->json(['message' => false], 200);
     }
 

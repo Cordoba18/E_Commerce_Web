@@ -3,9 +3,9 @@ let departamentos = document.querySelectorAll('#departamentos');
 let ciudades = document.querySelector('#ciudades');
 
 
-
+//accion para finalizar la compra
 finalizar_compra.addEventListener("click", function(e){
-
+//validacion de campos
     let departamento = document.querySelector('#departamentos');
     let error_telefono = document.querySelector("#error_telefono");
     let error_direccion = document.querySelector("#error_direccion");
@@ -57,6 +57,7 @@ finalizar_compra.addEventListener("click", function(e){
             error_telefono.setAttribute("hidden", "true");
             error_identificacion.setAttribute("hidden", "true");
             error_direccion.setAttribute("hidden", "true");
+            //guardar datos del usuario
             try {
         $.ajax({
         type: 'POST',
@@ -69,6 +70,7 @@ finalizar_compra.addEventListener("click", function(e){
             _token: _token // Enviar los datos devueltos por la API de PayPal
         },
         success: function(response) {
+            //remover boton, inhabilitar campos y cargar botones de paypal
             finalizar_compra.remove();
             direccion.disabled = true;
             telefono.disabled = true;
@@ -94,16 +96,18 @@ finalizar_compra.addEventListener("click", function(e){
     }
 
 })
-departamentos.forEach(departamento => {
 
+//al cambiar el select de los departamentos
+departamentos.forEach(departamento => {
     departamento.addEventListener('change',function(){
+        //consultar la ciudades
         $.ajax({
             type: 'GET',
             url: 'purchase/ciudades/'+departamento.value,
             success: function(response) {
                 // Manejar la respuesta del controlador si es necesario
+                //insertar ciudades en el select de la ciudades
                 ciudades.innerHTML = "<option value=''>SELECCIONE UNA CIUDAD</option>";
-
                 response['ciudades'].forEach(ciudad => {
                     ciudades.innerHTML = ciudades.innerHTML + "<option value='"+ciudad['id']+"'>"+ciudad['ciudades']+"</option>"
                 });

@@ -39,9 +39,9 @@ let btn_calificar = document.querySelector('#btn_calificar');
 let contenedor_estrellas =  document.querySelector("#contenedor_estrellas");
 
 
-
+//accion boton de "calificar"
 btn_calificar.addEventListener("click", function () {
-
+//inserto la informacion en el elemento para mostrar la ventana de calificacion
     contenedor_estrellas.innerHTML = "<div style='transition: 2s' class='contenedor_estrellas_1'> "+
                     "<div class='contenedor_estrellas_2'>"+
                     "<i class='fa-solid fa-x btn_x'></i>"+
@@ -59,10 +59,13 @@ btn_calificar.addEventListener("click", function () {
                     "<label for='radio5'>★</label>"+
                   "</div><br>" +
                   "<button class='btn_confirmar_calificacion btn btn-primary'>CALIFICAR</button></div></div>";
-
+//captura del boton para cerrar ventana
     let btn_x = document.querySelector(".btn_x");
+    //captura de todas las estrellas
     const estrellas = document.querySelectorAll("input[name=estrellas]");
+    //captura elemento para finalizar calificacion
     let btn_confirmar_calificacion = document.querySelector(".btn_confirmar_calificacion");
+   //llamada de metodos
     accion_btn_x(btn_x);
     accion_estrellas(estrellas);
     accion_calificar(btn_confirmar_calificacion);
@@ -71,7 +74,7 @@ btn_calificar.addEventListener("click", function () {
 
 
 function accion_btn_x(btn_x) {
-
+    //cerrar ventana
     btn_x.addEventListener("click", function () {
         contenedor_estrellas.innerHTML="";
     })
@@ -79,10 +82,10 @@ function accion_btn_x(btn_x) {
 let valor_estrella = "";
 
 function accion_estrellas(estrellas) {
+    //recorrer estrellas para llenar variable con su valor cuando se seleccione
     estrellas.forEach(estrella => {
         estrella.addEventListener("click", function () {
             valor_estrella = estrella.value;
-            console.log(valor_estrella);
 
         })
     });
@@ -91,6 +94,7 @@ function accion_calificar(btn_confirmar_calificacion) {
 let id_producto = document.querySelector("input[name=product]").value;
 const _token = document.querySelector("input[name=_token]").value;
 btn_confirmar_calificacion.addEventListener("click", function () {
+    //validacion para que exista un valor de calificacion seleccionado
 if (valor_estrella == "") {
 
     Swal.fire({
@@ -100,6 +104,7 @@ if (valor_estrella == "") {
     })
 } else {
 
+    //calificar
 $.ajax({
     url: "calificar",
     type: "POST",

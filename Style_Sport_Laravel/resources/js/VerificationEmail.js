@@ -3,6 +3,7 @@
 
 let datos =  document.querySelector('#datos').innerHTML;
 let btn_siguiente = document.querySelector("#btn_siguiente");
+//validar si hay datos para el registro del usuario
 if (datos == "") {
 
     alert("LO SIENTO! Algo estuvo mal. Vuelve a intentarlo");
@@ -11,12 +12,14 @@ if (datos == "") {
 
 
 }
+//realizar split de datos del usuario
 const dataArray = datos.split('%');
 const verificationCode = dataArray[2];
 let correo = document.querySelector("#correo");
 correo.innerHTML = verificationCode;
 
 
+//verificacion de codigo para crear la cuenta
 btn_siguiente.addEventListener("click", (e) => {
     e.preventDefault();
     let codigo = document.querySelector("#codigo").value;
@@ -71,6 +74,8 @@ btn_siguiente.addEventListener("click", (e) => {
     });
 
 })
+
+//Despues del tiempo limite de 5 minutos se elimina el codigo y se retorna a la vista anterior para volver a intentar hacer el registro
     setTimeout(() => {
 
         $.ajax({

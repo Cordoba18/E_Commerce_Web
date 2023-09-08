@@ -1,5 +1,4 @@
 @extends('layaouts.main')
-
 @section('title', 'perfil usuario')
 
 @section('css')

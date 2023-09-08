@@ -17,7 +17,7 @@
 // scrollbar: false,
 // });
 
-
+//swiper que controla las categorias de home
 var TrandingSlider = new Swiper('.tranding-slider', {
     effect: 'coverflow',
     grabCursor: false,

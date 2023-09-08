@@ -5,6 +5,7 @@ let email =  document.querySelector('#email').innerHTML;
 let correo =  document.querySelector('#correo');
 let btn_siguiente = document.querySelector("#btn_siguiente");
 let contenedor = document.querySelector(".contenedor");
+//validar si existe el correo del usuario
 if (email == "") {
 
     alert("LO SIENTO! Algo estuvo mal. Vuelve a intentarlo");
@@ -16,7 +17,7 @@ if (email == "") {
 correo.innerHTML = email;
 
 
-
+//validar si el codigo ingresado es real y si lo es genera el formulario para cambiar contraseña si no manda un mensaje de codigo incorrecto
 btn_siguiente.addEventListener("click", (e) => {
     e.preventDefault();
     let codigo = document.querySelector("#codigo").value;
@@ -71,6 +72,7 @@ btn_siguiente.addEventListener("click", (e) => {
     });
 
 })
+//Despues del tiempo limite de 5 minutos se elimina el codigo y se retorna a la vista anterior para volver a intentar hacer el registro
     setTimeout(() => {
 
         $.ajax({
@@ -91,7 +93,7 @@ btn_siguiente.addEventListener("click", (e) => {
     }, 300000);
 
 
-
+//metodo para validar los inputs
 function validaciones(_token) {
 
     let error = document.querySelector("#error");
@@ -100,6 +102,7 @@ function validaciones(_token) {
         e.preventDefault();
         let password = document.querySelector("#password").value;
         let password_confirmation = document.querySelector("#password_confirmation").value;
+        //validaciones
         if (password == "") {
             error.innerHTML = "Contraseña Vacia";
             error.removeAttribute('hidden');
@@ -113,7 +116,7 @@ function validaciones(_token) {
             error.innerHTML = "La contraseña debe ser de mayor a 8 o menor a 15 caracteres";
             error.removeAttribute('hidden');
         }else{
-
+            //cambio de contraseña
             $.ajax({
                 type: "POST",
                 url: "change_password",
@@ -137,6 +140,8 @@ function validaciones(_token) {
         }
     })
 
+
+    //metodo para encontrar mayusculas en un texto
     function tieneMayuscula(texto) {
         for (let i = 0; i < texto.length; i++) {
             if (texto[i] !== texto[i].toLowerCase()) {
@@ -145,6 +150,7 @@ function validaciones(_token) {
         }
         return false;
     }
+        //metodo para encontrar minusculas en un texto
     function tieneMinuscula(texto) {
         for (let i = 0; i < texto.length; i++) {
             if (texto[i] !== texto[i].toUpperCase()) {
@@ -153,7 +159,7 @@ function validaciones(_token) {
         }
         return false;
     }
-
+    //metodo para encontrar numeros en un texto
     function tieneNumero(texto) {
         for (let i = 0; i < texto.length; i++) {
             if (!isNaN(texto[i])) {
@@ -162,6 +168,7 @@ function validaciones(_token) {
         }
         return false;
     }
+        //mvalidar el largo permitido de la contraseña
 
     function largocontrasena(texto) {
      if (texto.length > 15 || texto.length < 8) {

@@ -3,7 +3,7 @@ const producto_carrito = document.querySelectorAll("#producto_carrito");
 const total_full = document.querySelector("#total_full");
 let accion_boton = false;
 let contenedor_btn_comprar = document.querySelector("#contenedor_btn_comprar");
-
+//manejar el cambio de seleccion previo a ir a comprar
 btn_comprar.addEventListener("click", function(){
 
     producto_carrito.forEach(product => {
@@ -28,8 +28,8 @@ btn_comprar.addEventListener("click", function(){
         accion_boton = false;
     }
 });
-
 let user = document.querySelector("#user").innerHTML;
+//Se edita la cantidad utilizando ajax y se calcula el total para ser mostrado rapidamente
 producto_carrito.forEach(product => {
     let id_carrito = product.querySelector("#id_carrito").innerHTML;
     let btn_accion = product.querySelector("#btn_accion");
@@ -93,7 +93,7 @@ producto_carrito.forEach(product => {
           )
     })
 
-
+//funcion que va a un ruta y obtiene el total del carrito y lo llena en una variable
     var total_calculo = "";
     function calcular_carrito() {
         total_calculo = "";
@@ -109,7 +109,9 @@ producto_carrito.forEach(product => {
           },
           )
     }
+    //accion que elimina, selecciona o desseleciona un producto del carrito
     btn_accion.addEventListener("click", function(){
+        //eliminar producto del carrito de compras
         if (btn_accion.textContent === "ELIMINAR") {
             Swal.fire({
                 position: 'top-end',
@@ -152,6 +154,7 @@ producto_carrito.forEach(product => {
             }, 2000);
 
         }else{
+                    //seleccionar producto del carrito de compras
             if (btn_accion.textContent === "SELECCIONAR") {
                 btn_accion.textContent = "CANCELAR"
                 $.ajax({
@@ -171,6 +174,7 @@ producto_carrito.forEach(product => {
                   )
 
             }else{
+                        //cancelar seleccion de producto del carrito de compras
                 btn_accion.textContent = "SELECCIONAR"
                 $.ajax({
                     url: "shoppingcart/cancelar_seleccion/"+id_carrito+"",

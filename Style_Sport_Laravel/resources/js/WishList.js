@@ -1,7 +1,7 @@
 let productos = document.querySelectorAll("#productos");
 
 
-
+//eliminar productos de la lista de deseos
 productos.forEach(element => {
 
     let btn_eliminar = element.querySelector("#btn_eliminar");

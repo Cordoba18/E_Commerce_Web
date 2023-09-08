@@ -1,3 +1,4 @@
+ <!-- Este codigo muestra todas las categorias del sistema con una imagen del ultimo producto de la base de datos-->
 <div class="container">
     <h3>Nuestras categorias</h3>
   <div class="swiper tranding-slider">

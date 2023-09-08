@@ -1,13 +1,16 @@
+   <!-- Extendemos de la plantilla  -->
 @extends('layaouts.app')
 
+<!-- Titulo para la vista utilizando sesion de la plantilla -->
 @section('title', 'registro')
-
+<!-- Sesion del CSS para la plantilla-->
 @section('css')
+<!-- importo el CSS especifico para esta vista por medio de la ruta de viteconfig -->
 @vite(['resources/css/form.css'])
 @endsection
-
+<!-- Agrego el contenido para la plantilla-->
 @section('content')
-
+<!--Formulario de registro -->
     <main class="wrapper">
         <h1>Registrarse</h1>
         <p>Bienvenido!</p>

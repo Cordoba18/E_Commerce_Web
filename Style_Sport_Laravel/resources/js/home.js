@@ -1,5 +1,6 @@
 
 let content_infos = document.querySelector("#content_infos");
+//Informacion de los terminos y condiciones
     let texto_terminos_condiciones = `<b>¡Bienvenido a Style Sport!</b><br><br>
 
     Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de Style Sport, ubicado en www.style-sport.shop.
@@ -89,7 +90,7 @@ let content_infos = document.querySelector("#content_infos");
     Las limitaciones y prohibiciones de responsabilidad establecidas en esta sección y en otras partes de este descargo de responsabilidad: (a) están sujetas al párrafo anterior; y (b) regirá todas las responsabilidades que surjan en virtud de la exención de responsabilidad, incluidas las responsabilidades que surjan en el contrato, en agravio y por incumplimiento de la obligación legal.
 
     Siempre que el sitio web y la información y los servicios en el sitio se proporcionen de forma gratuita, no seremos responsables de ninguna pérdida o daño de cualquier naturaleza.`;
-
+//ayudas
     let ayuda = "<div class='content-fondo-info'>" +
     "<div class='content-info'> "+
         "<i class='fa-solid fa-x btn_x_info'></i>"+
@@ -175,7 +176,7 @@ let content_infos = document.querySelector("#content_infos");
     let btn_about = document.querySelector("#btn_about");
     let btn_terminos_condiciones = document.querySelector("#btn_terminos_condiciones");
     let btn_ayuda = document.querySelector("#btn_ayuda");
-
+//los botones tienen la accion de mostrar la informacion en el div flotante dependiendo de su informacion
     btn_about.addEventListener("click", function(e) {
         e.preventDefault();
         content_infos.innerHTML = about;
@@ -197,7 +198,7 @@ let content_infos = document.querySelector("#content_infos");
         activar_btn_x();
       })
 
-
+//funcion que activa el boton que permite cerrar la ventana informativa
     function activar_btn_x() {
         btn_x_info.addEventListener("click", function() {
 

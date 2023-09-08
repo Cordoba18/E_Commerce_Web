@@ -1,4 +1,5 @@
 @extends('layaouts.main')
+ <!-- contenedor de las estrellas para calificar -->
 <div id="contenedor_estrellas">
 
 </div>
@@ -19,7 +20,8 @@
 
                 <div class="img">
                     <div id="carouselExample" class="carousel slide">
-                        @if ($size->isEmpty())
+                         <!-- validar si hay talla o color para mostrar el titulo de "agotado" -->
+                        @if ($size->isEmpty() || $color->isEmpty())
                         <div class="exhausted">
                             <h1>AGOTADO</h1>
                         </div>
