@@ -19,8 +19,6 @@
                 <li class="li"><a href="{{route('login')}}" class="a">Iniciar sesion</a></li>
                 <li class="li"><a href="{{route('register')}}" class="a">Registrarse</a></li>
                 @endguest
-
-                <li class="li"><a href="#" class="a">Categorias</a></li>
                 <li id="btn_about" class="li"><a href="#" class="a">About</a></li>
                 <li id="btn_ayuda" class="li"><a href="#" class="a">Ayuda</a></li>
                 <li id="btn_terminos_condiciones" class="li"><a href="#" class="a">Terminos y condiciones</a></li>
