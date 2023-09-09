@@ -14,6 +14,9 @@
     flex-wrap: wrap;
 
     }
+    .content_left h1{
+        font-weight: bold;
+    }
     .content_right{
     width: 30%;
     margin: 40px;
@@ -103,6 +106,9 @@
 
     .content_right h3{
     font-size: 40px;
+    font-weight: bold;
+
+
 
 
     }
@@ -364,8 +370,6 @@
 
         .content_left .content_target_cart .content_producto_right{
             flex-wrap: wrap;
-            justify-content: right;
-            text-align: end;
         }
 
         .content_left .content_target_cart .content_producto_right h1{
@@ -436,8 +440,6 @@
 
         .content_left .content_target_cart .content_producto_right{
             flex-wrap: wrap;
-            justify-content: right;
-            text-align: end;
         }
         .Content-ShoppinCart{
             flex-wrap: wrap;

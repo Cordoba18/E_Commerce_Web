@@ -40,7 +40,7 @@
                         <tr id="producto_carrito">
                             <td>{{ $c->nombre }}</td>
                             <td>${{ number_format(intval(round($c->total))) }}</td>
-                            <td>
+                            <td class="img_product">
                                         <!--calculacion del total y manejo de las imagenes -->
                                 @php
                                     $total = $total + $c->total * $c->cantidad_producto;
@@ -123,6 +123,7 @@
 
     <!--contenedor del formulario de paypal -->
         <center>
+
             <div id="paypal-button-container">
                 @csrf</div>
         </center>
@@ -201,7 +202,7 @@
 
         try {
             paypal.Buttons({
-                fundingSource: paypal.FUNDING.CARD,
+                //fundingSource: paypal.FUNDING.CARD,
                 createOrder: function(data, actions) {
                     return actions.order.create({
                         application_context: {
