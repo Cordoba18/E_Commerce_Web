@@ -22,6 +22,7 @@ class RegisteredUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        // validamos los campos name, lastname, date, correo, password
         return [
             'name' => ['required', 'string'],
             'lastname' => ['required', 'string'],
@@ -33,6 +34,7 @@ class RegisteredUserRequest extends FormRequest
 
     public function messages()
     {
+         // aqui editamos los mensajes que queremos mostrar
         return [
             'name.required' => 'el nombre es un valor requerido',
             'lastname.required' => 'el apellido es un valor requerido',

@@ -21,6 +21,7 @@ class AuthenticatedSessionRequest extends FormRequest
      */
     public function rules(): array
     {
+        // validamos el campo email y el campo password
         return [
             'email' => ['required', 'string','email'],
             'password' => ['required', 'string'],
@@ -29,6 +30,7 @@ class AuthenticatedSessionRequest extends FormRequest
 
     public function messages()
     {
+        // aqui editamos los mensajes que queremos mostrar
         return [
             'email.required' => 'el correo es un valor requerido',
             'email.email' => 'el correo debe ser un email valido',

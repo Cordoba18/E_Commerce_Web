@@ -12,6 +12,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
+        // esto utilice para que enviara al login por defauld
         return $request->expectsJson() ? null : route('login');
     }
 }
