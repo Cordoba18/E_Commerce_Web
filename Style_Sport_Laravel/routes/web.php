@@ -11,9 +11,10 @@ use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\ShoppingHistryController;
 use App\Http\Controllers\WishListController;
 use App\Http\Controllers\InvoiceDetailsController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Cache;
+
+//------------------------------------------------------------RUTAS--WEB----------------------------------------------------------------------------------------------
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('login_inicio', [AuthenticatedSessionController::class, 'index'])->name('login');
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

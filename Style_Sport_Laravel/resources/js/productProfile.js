@@ -1,11 +1,14 @@
+// vamos a seleccionar las talllas y validar que no se vulnere el input
 document.addEventListener("DOMContentLoaded", function () {
     var selectTalla = document.getElementById("selectTalla");
     var inputCantidad = document.querySelector("input[name='amount']");
 
+    //prevenimos que se pueda escribir en el input
     inputCantidad.addEventListener('keydown', (event) => {
         event.preventDefault();
       });
 
+      // se hace el cambio de talla
     selectTalla.addEventListener("change", function () {
         var selectedOption = selectTalla.options[selectTalla.selectedIndex];
         var maxCantidad = selectedOption.getAttribute("data-cantidad");
@@ -17,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var btnPlus = document.querySelector(".plus");
     var btnLess = document.querySelector(".less");
 
-
+// para sumar cantidad o disminuir la cantidad
     btnPlus.addEventListener("click", function () {
         var currentValue = parseInt(inputCantidad.value);
         var maxValue = parseInt(inputCantidad.max);
