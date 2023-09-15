@@ -459,10 +459,18 @@ height: 200px;
         .content-fondo-info .content-info .content-info-full .logo_img_descarga img{
             width: 100% !important;
 
-            height: 100% !important;
+            height: 330px !important;
 
         }
         .content-fondo-info .content-info{
             height: auto;
         }
+}
+
+@media (max-width: 375px) {
+    .content-fondo-info .content-info .content-info-full .logo_img_descarga img{
+
+        height: 300px !important;
+
+    }
 }
