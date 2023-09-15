@@ -197,7 +197,7 @@ public function seleccionar($id){
 //funcion que responde a una ruta y calcula los productos del carrito de compras que esten activo y retorna el valor total del carrito del usuario
 public function calcular(){
     $id = FacadesAuth::user()->id;
-    $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id=1");
+    $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id AND estados_id<>2");
     $total = 0;
     foreach($carrito as $c){
 

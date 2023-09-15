@@ -57,6 +57,7 @@
             color: red;
             font-family: bold;
             font-weight: bold;
+            font-size: 25px;
             margin-top: 40px;">!ADVERTENCIA! EL CODIGO CADUCA EN 5 MINUTOS</p>
         </div>
         <div class="content-fooder" style="   background-color: rgba(134, 134, 134, 0.3);
