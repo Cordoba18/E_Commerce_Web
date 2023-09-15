@@ -20,4 +20,8 @@ class Buys extends Model
         'colores_id',
         'estados_id',
     ];
+
+    public function factura(){
+        return $this->belongsTo(Bill::class, 'factura_id');
+    }
 }

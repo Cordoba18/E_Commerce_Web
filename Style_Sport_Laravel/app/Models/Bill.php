@@ -15,4 +15,8 @@ class Bill extends Model
         'id_user',
         'total_neto',
     ];
+
+    public function usuario(){
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

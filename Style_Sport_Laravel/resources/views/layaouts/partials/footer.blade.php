@@ -22,6 +22,7 @@
                 <li id="btn_about" class="li"><a href="#" class="a">About</a></li>
                 <li id="btn_ayuda" class="li"><a href="#" class="a">Ayuda</a></li>
                 <li id="btn_terminos_condiciones" class="li"><a href="#" class="a">Terminos y condiciones</a></li>
+                <li id="btn_descargar_apk" class="li"><a href="#" class="a">Descargar app aquí</a></li>
             </ul>
         </div>
         <div class="box">

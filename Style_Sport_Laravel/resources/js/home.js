@@ -172,14 +172,29 @@ let content_infos = document.querySelector("#content_infos");
     "</div>"
     "</div>";
 
+    let descarga = "<div class='content-fondo-info'>" +
+    "<div class='content-info'> "+
+        "<i class='fa-solid fa-x btn_x_info'></i>"+
+        "<div class='content-info-full'>"+
+        "<div class='logo_img_descarga'> "+"<img src='"+logo+"' alt=''>"+"</div>"+
+            "<a href='"+ruta_descarga+"' download='Style Sport Shop app'>DESCARGAR AHORA  <i class='fa-solid fa-download'></i></a>"+
+            "</div></div>";
     let btn_x_info;
     let btn_about = document.querySelector("#btn_about");
+    let  btn_descargar_apk = document.querySelector("#btn_descargar_apk");
     let btn_terminos_condiciones = document.querySelector("#btn_terminos_condiciones");
     let btn_ayuda = document.querySelector("#btn_ayuda");
 //los botones tienen la accion de mostrar la informacion en el div flotante dependiendo de su informacion
     btn_about.addEventListener("click", function(e) {
         e.preventDefault();
         content_infos.innerHTML = about;
+        btn_x_info = document.querySelector(".btn_x_info");
+        activar_btn_x();
+    })
+
+    btn_descargar_apk.addEventListener("click", function(e) {
+        e.preventDefault();
+        content_infos.innerHTML = descarga;
         btn_x_info = document.querySelector(".btn_x_info");
         activar_btn_x();
     })

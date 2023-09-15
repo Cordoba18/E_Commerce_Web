@@ -253,7 +253,9 @@ body{
 }
 
 @media (max-width: 1000px) {
-
+    .content-fondo-info .content-info{
+        width: 80%;
+    }
     .navbarcentral .columnone .button-responsive{
         display: block;
         margin: auto 30px;
@@ -317,6 +319,7 @@ body{
     .content-fondo-info .content-info{
         font-size: 10px !important;
         flex-wrap: wrap;
+        text-align: center;
      }
 }
 
@@ -329,6 +332,51 @@ body{
     position: fixed;
     z-index: 2;
 }
+
+.content-fondo-info .content-info .content-info-full{
+    flex-wrap: wrap;
+ text-align: center;
+    width: 100% !important;
+}
+.content-fondo-info .content-info .content-info-full .logo_img_descarga{
+width: 100%;
+}
+.content-fondo-info .content-info .content-info-full .logo_img_descarga img{
+    object-fit: cover;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.content-fondo-info .content-info .content-info-full a{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 40px;
+    transition: all 0.5s;
+
+}
+.content-fondo-info .content-info .content-info-full a:hover{
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+border-bottom: 5px solid black;
+}
+@media(max-width: 850px){
+    .content-fondo-info .content-info .content-info-full a{
+        width: 100%;
+        font-size: 10px;
+    }
+    .content-fondo-info .content-info .content-info-full a:hover{
+    border-bottom: 1px solid black;
+    }
+    .content-fondo-info .content-info .content-info-full .logo_img_descarga img{
+        width: 100% !important;
+        height: 100%;
+
+    }
+}
 .content-fondo-info .content-info{
     position: fixed;
     background-color: white;
@@ -337,13 +385,13 @@ body{
     transform: translate(-50%, -50%);
     border-radius: 10px;
     border: solid 1px black;
-    box-shadow: 0px 0px 10px red;
     padding: 70px 20px;
     align-items: center;
     z-index: 2;
     display: flex;
     width: 60%;
     height: 600px;
+    transition: all 0.5s;
 }
 .content-fondo-info .btn_x_info{
 

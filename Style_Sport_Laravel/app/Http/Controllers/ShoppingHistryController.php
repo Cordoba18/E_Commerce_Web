@@ -16,7 +16,7 @@ class ShoppingHistryController extends Controller
     public function index()
     {
         $id = FacadesAuth::user()->id;
-       $factura = DB::select("SELECT * FROM factura WHERE id_user = $id");
+        $factura = DB::select("SELECT * FROM factura WHERE id_user = $id");
         return view('customers.shoppingHistry', compact('factura'));
     }
 }

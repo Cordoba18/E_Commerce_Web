@@ -1,6 +1,4 @@
 
-
-
 let datos =  document.querySelector('#datos').innerHTML;
 let btn_siguiente = document.querySelector("#btn_siguiente");
 //validar si hay datos para el registro del usuario

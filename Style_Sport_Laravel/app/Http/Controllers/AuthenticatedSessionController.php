@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
+
 
 class AuthenticatedSessionController extends Controller
 {
@@ -54,7 +54,7 @@ class AuthenticatedSessionController extends Controller
 
     public function destroy(Request $request)
     {
-        // aqui lo que hacemos es hacer el proceso de logout al usuario 
+        // aqui lo que hacemos es hacer el proceso de logout al usuario
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
@@ -64,5 +64,5 @@ class AuthenticatedSessionController extends Controller
         return redirect()->route('home');
     }
 
-    
+
 }

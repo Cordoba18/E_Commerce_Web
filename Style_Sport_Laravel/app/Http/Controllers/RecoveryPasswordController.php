@@ -79,7 +79,5 @@ class RecoveryPasswordController extends Controller
         }else{
             return response()->json(['message' => false], 200);
         }
-
-
     }
 }

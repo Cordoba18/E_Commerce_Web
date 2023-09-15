@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 class ProductController extends Controller
 {
+
+    //Este metodo recibe un request de una busqueda para mostrar los productos buscados
     public function index(Request $request)
     {
         $search = $request->search;
@@ -39,7 +41,7 @@ class ProductController extends Controller
         $imgProduct = ImgProduct::all();
         return view('products.productCatalog', compact('productos','categories','search','imgProduct'));
     }
-
+    //Este medoto returna la vista de la pagina del producto con sus datos
     public function show(Product $product)
     {
         $category = Category::where('id',$product->categoria)->first();
