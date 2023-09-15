@@ -291,6 +291,9 @@ body{
 }
 
 @media (max-width: 950px) {
+    .content-fondo-info .content-info{
+        width: 90% !important;
+    }
 
     .navbarcentral .columntwo{
         flex-direction: column;
@@ -317,7 +320,7 @@ body{
 
 @media (max-width: 750px) {
     .content-fondo-info .content-info{
-        font-size: 10px !important;
+        font-size: 15px !important;
         flex-wrap: wrap;
         text-align: center;
      }
