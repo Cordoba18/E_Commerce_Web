@@ -34,6 +34,11 @@
     margin: 10px auto;
 }
 
+.main .columnone aside ul li .btn-delete{
+    background-color: #fff;
+    border: none;
+}
+
 .main .columnone aside ul li .links {
     border: 0;
     background-color: #fff;
