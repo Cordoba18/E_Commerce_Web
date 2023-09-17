@@ -2,10 +2,17 @@
 
 @section('m-content')
     <section class="info-profile">
+<<<<<<< HEAD
+        <h3>Informaciòn personal</h3>
+=======
         <h3>Informacion personal</h3>
         @if (session('error'))
             <p class="color: red; font-weight: bold;">{{ session('error') }}</p>
          @endif
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8ac17b97f4f8b555c050ca4c6250ad853584540c
+>>>>>>> Stashed changes
         <div class="target-profile">
             <div class="readView">
                 <p><b>Nombre</b></p>
@@ -55,17 +62,17 @@
                 <p>{{ $user->f_nacimiento }}</p>
             </div>
         </div>
-        <h3>Informacion de contacto</h3>
+        <h3>Informaciòn de contacto</h3>
         <div class="target-profile">
             <div class="readView">
-                <p><b>Identificacion</b></p>
+                <p><b>Identificaciòn</b></p>
                 <p>{{ $user->N_Identificacion ? $user->N_Identificacion : 'no agregado' }}</p>
             </div>
             <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
-                    <input name="nid" type="text" placeholder="N° identificacion">
+                    <input name="nid" type="text" placeholder="N° identificaciòn">
                     <button type="button" class="cancelButton">Cancelar</button>
                     <button type="submit">Enviar</button>
                 </form>
@@ -73,7 +80,7 @@
         </div>
         <div class="target-profile">
             <div class="readView">
-                <p><b>Telefono</b></p>
+                <p><b>Telèfono</b></p>
                 <p>{{ $user->telefono ? $user->telefono : 'no agregado' }}</p>
             </div>
             <button class="editButton">Editar</button>
@@ -95,7 +102,7 @@
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">
                     @csrf
-                    <input name="address" type="text" placeholder="Direccion">
+                    <input name="address" type="text" placeholder="Direcciòn">
                     <button type="button" class="cancelButton">Cancelar</button>
                     <button type="submit">Enviar</button>
                 </form>
