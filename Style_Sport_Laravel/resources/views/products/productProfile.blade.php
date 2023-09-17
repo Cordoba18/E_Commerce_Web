@@ -69,8 +69,8 @@
             <section class="columntwo">
                 <div class="description">
                     <p class="title">{{ $product->nombre }}</p>
-                    <p class="description-text"> <span>Descripcion: </span>{{ $product->descripcion }}</p>
-                    <p class="category"><span>Categoria: </span>{{ $category->categoria }}</p>
+                    <p class="description-text"> <span>Descripciòn: </span>{{ $product->descripcion }}</p>
+                    <p class="category"><span>Categorìa: </span>{{ $category->categoria }}</p>
                     @if ($product->descuento > 0)
                         @php
                             $porcentaje = ($product->precio * $product->descuento) / 100;
@@ -118,7 +118,7 @@
                         <input type="hidden" name="price" value="{{ $discount }}">
                         <label>Color:</label>
                         <select name="color" id="" class="color">
-                            <option disabled selected value="">Escoge una opcion</option>
+                            <option disabled selected value="">Escoge una opciòn</option>
                             @foreach ($color as $c)
                                 <option value="{{ $c->id }}">{{ $c->color }}</option>
                             @endforeach
@@ -160,7 +160,7 @@
             <article class="contenedor">
                 <div class="carousel-productos">
                     <div class="carousel-contenedor">
-                        <h3>Relaccionados</h3>
+                        <h3>Relacionados</h3>
                         <button aria-label="Anterior" class="carousel-anterioro carousel-anterior">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>

@@ -42,7 +42,7 @@
                 <a href="{{ route('shoppingcart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
             @endauth
             @guest
-                <a href="{{ route('login') }}">Iniciar sesion</a>
+                <a href="{{ route('login') }}">Iniciar sesiòn</a>
             @endguest
         </div>
         </div>

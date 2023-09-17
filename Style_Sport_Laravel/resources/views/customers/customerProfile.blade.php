@@ -13,7 +13,7 @@
                 <aside>
                     <h2>Mi cuenta</h2>
                     <ul>
-                        <li><a href="{{ route('customerprofile') }}"><i class="fa-solid fa-user"></i> Informacion de usuario</a></li>
+                        <li><a href="{{ route('customerprofile') }}"><i class="fa-solid fa-user"></i> Informaciòn de usuario</a></li>
                         <li><a href="{{ route('shoppinghistory') }}"><i class="fa-solid fa-file"></i> Historial de compras</a></li>
                         <li><a href="{{ Route('wishlist') }}"><i class="fa-solid fa-list"></i> Lista de deseos</a></li>
                         <li>
@@ -22,7 +22,7 @@
 
                     </ul>
                 </aside>
-                <a class="logout" href="{{ Route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesion</a>
+                <a class="logout" href="{{ Route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesiòn</a>
             </div>
             <div class="panel">
                 @yield('m-content')

@@ -9,7 +9,7 @@
             </figure>
         </div>
         <div class="box">
-            <h2>MAS CONTENIDO</h2>
+            <h2>MÀS CONTENIDO</h2>
             <ul class="list-footer">
                 <li class="li"><a href="{{route('home')}}" class="a">Inicio</a></li>
                 @auth
@@ -21,12 +21,12 @@
                 @endguest
                 <li id="btn_about" class="li"><a href="#" class="a">About</a></li>
                 <li id="btn_ayuda" class="li"><a href="#" class="a">Ayuda</a></li>
-                <li id="btn_terminos_condiciones" class="li"><a href="#" class="a">Terminos y condiciones</a></li>
+                <li id="btn_terminos_condiciones" class="li"><a href="#" class="a">Tèrminos y condiciones</a></li>
                 <li id="btn_descargar_apk" class="li"><a href="#" class="a">Descargar app aquí</a></li>
             </ul>
         </div>
         <div class="box">
-            <h2>SIGUENOS</h2>
+            <h2>SÌGUENOS</h2>
             <div class="red-social">
                 <a href="https://web.facebook.com/profile.php?id=61550475959912"> <i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/stylespo_208/"><i class="fa-brands fa-instagram"></i></a>

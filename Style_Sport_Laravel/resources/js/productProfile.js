@@ -48,7 +48,7 @@ btn_calificar.addEventListener("click", function () {
     contenedor_estrellas.innerHTML = "<div style='transition: 2s' class='contenedor_estrellas_1'> "+
                     "<div class='contenedor_estrellas_2'>"+
                     "<i class='fa-solid fa-x btn_x'></i>"+
-                    "<h1>CALIFICANOS</h1>"+
+                    "<h1>CALIFÌCANOS</h1>"+
                     "<div class='valoracion'>"+
                     "<input id='radio1' type='radio' name='estrellas' value='5'>"+
                     "<label for='radio1'>★</label>"+

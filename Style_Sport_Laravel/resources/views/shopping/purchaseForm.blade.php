@@ -81,8 +81,8 @@
     <div class="content_right">
         <span id="total_full" hidden>{{ $total }}</span>
         <div class="contenedor_inputs">
-            <h1>CONFIRMAR INFORMACION </h1>
-            <label>TELEFONO </label>
+            <h1>CONFIRMAR INFORMACIÒN </h1>
+            <label>TELÈFONO </label>
             <div style="display: flex">
                 <input type="text" id="telefono" placeholder="INGRESE SU NUMERO DE TELEFONO"
                     value="{{ $telefono }}">

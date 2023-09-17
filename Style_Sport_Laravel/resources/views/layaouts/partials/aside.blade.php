@@ -1,5 +1,5 @@
 <aside>
-    <h2>Categorias</h2>
+    <h2>Categorìas</h2>
     <ul>
         @foreach ($categories as $c)
             <li>
