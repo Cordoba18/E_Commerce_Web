@@ -113,13 +113,6 @@ producto_carrito.forEach(product => {
     btn_accion.addEventListener("click", function(){
         //eliminar producto del carrito de compras
         if (btn_accion.textContent === "ELIMINAR") {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'PRODUCTO ELIMINADO DEL CARRITO',
-                showConfirmButton: false,
-                timer: 1500
-              })
               $.ajax({
                 url: "shoppingcart/delete/"+id_carrito+"",
               success: function() {
