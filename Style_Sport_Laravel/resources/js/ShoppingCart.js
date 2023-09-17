@@ -122,36 +122,37 @@ producto_carrito.forEach(product => {
               })
               $.ajax({
                 url: "shoppingcart/delete/"+id_carrito+"",
+              success: function() {
+                product.remove();
+                calcular_carrito();
+                  let timerInterval
+                  Swal.fire({
+                    title: 'CALCULANDO',
+                    html: 'Estamos calculando tu total <b></b> milliseconds.',
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                      Swal.showLoading()
+                      const b = Swal.getHtmlContainer().querySelector('b')
+                      timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                      }, 100)
+                    },
+                    willClose: () => {
+                      clearInterval(timerInterval)
+                    }
+                  }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                    }
+                  })
+
+                  setTimeout(() => {
+                  total_full.innerHTML = total_calculo;
+              }, 2000);
               },
-
+            }
               )
-              product.remove();
-              calcular_carrito();
-                let timerInterval
-                Swal.fire({
-                  title: 'CALCULANDO',
-                  html: 'Estamos calculando tu total <b></b> milliseconds.',
-                  timer: 1500,
-                  timerProgressBar: true,
-                  didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                      b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                  },
-                  willClose: () => {
-                    clearInterval(timerInterval)
-                  }
-                }).then((result) => {
-                  /* Read more about handling dismissals below */
-                  if (result.dismiss === Swal.DismissReason.timer) {
-                  }
-                })
-
-                setTimeout(() => {
-                total_full.innerHTML = total_calculo;
-            }, 2000);
 
         }else{
                     //seleccionar producto del carrito de compras
