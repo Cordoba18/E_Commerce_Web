@@ -30,9 +30,16 @@ class CustomerProfileController extends Controller
         // buscamos al usuario
         $user = User::where('id', Auth::user()->id)->first();
 
+        return redirect()->route('customerprofile')->with('error', 'Campos vacios');
+
         //utilizamos esto para editar toda la informacion del usuario
         if ($request->name && $request->lastname) {
-            $user->nombre = $request->name.' '.$request->lastname;
+            if (!empty($request->name) && !empty($request->lastname)) {
+                $user->nombre = $request->name.' '.$request->lastname;
+            } else {
+                return redirect()->route('customerprofile')->with('error', 'Campos vacios');
+            }
+
         }
         if ($request->pass && $request->passnow) {
             if (!Hash::check($request->pass, $user->contrasena)) {
@@ -50,7 +57,7 @@ class CustomerProfileController extends Controller
         if($request->address){
             $user->direccion = $request->address;
         }
-        
+
         // guardamos el usuario y lo redirrecionaron a la pagina de usuario
         $user->save();
 

@@ -11,7 +11,7 @@ editButtons.forEach((editButton, index) => {
 
         readView.style.display = 'none';
         editView.style.display = 'block';
-        editButton.style.display = 'none'; 
+        editButton.style.display = 'none';
     });
 });
 
@@ -28,3 +28,30 @@ cancelButtons.forEach((cancelButton, index) => {
         editButton.style.display = 'block';
     });
 });
+
+ // Variable para llevar un registro del estado del botón
+
+
+ function detenerBoton(e) {
+
+     e.preventDefault();
+
+   // Muestra una confirmación con SweetAlert
+   Swal.fire({
+     title: "¿Deseas continuar?",
+     icon: "question",
+     showCancelButton: true,
+     confirmButtonText: "Sí",
+     cancelButtonText: "No",
+   }).then((result) => {
+     if (result.isConfirmed) {
+       // Cambia el estado del botón para permitir futuros clics
+       document.querySelector('.btn-delete').closest('form').submit();
+       // Aquí puedes agregar cualquier otra lógica que desees después de la confirmación
+     }
+   });
+ }
+
+ // Agrega un evento click al botón
+ document.querySelector('.btn-delete').addEventListener("click", detenerBoton);
+

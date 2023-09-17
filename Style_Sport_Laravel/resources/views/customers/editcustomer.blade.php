@@ -3,11 +3,17 @@
 @section('m-content')
     <section class="info-profile">
         <h3>Informacion personal</h3>
+        @if (session('error'))
+            {{ session('error') }}
+         @endif
         <div class="target-profile">
             <div class="readView">
                 <p><b>Nombre</b></p>
                 <p>{{ $user->nombre }}</p>
             </div>
+            @error('name')
+            <h6>{{ $message }}</h6>
+            @enderror
             <button class="editButton">Editar</button>
             <div class="editView">
                 <form action="{{ route('customerprofile.store') }}" method="post">

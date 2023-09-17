@@ -16,8 +16,9 @@
                         <li><a href="{{ route('customerprofile') }}"><i class="fa-solid fa-user"></i> Informacion de usuario</a></li>
                         <li><a href="{{ route('shoppinghistory') }}"><i class="fa-solid fa-file"></i> Historial de compras</a></li>
                         <li><a href="{{ Route('wishlist') }}"><i class="fa-solid fa-list"></i> Lista de deseos</a></li>
-                        <li><a class="delete" href="{{ Route('customer.delete') }}"><i class="fa-solid fa-trash"></i> Eliminar cuenta</a></li>
-                        <li></li>
+                        <li>
+                            <form action="{{ Route('customer.delete') }}" method="get"><button class="btn-delete" type="submit"><i class="fa-solid fa-trash"></i>Eliminar cuenta</button></form>
+                        </li>
 
                     </ul>
                 </aside>

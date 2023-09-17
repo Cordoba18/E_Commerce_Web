@@ -124,7 +124,7 @@
                             @endforeach
                         </select>
                         @error('color')
-                            <h6>{{ $message }}</h6>
+                            <h6 style="color: red;">{{ $message }}</h6>
                         @enderror
                         <label>Talla:</label>
                         <select name="size" id="selectTalla" class="size">
@@ -135,7 +135,7 @@
                             @endforeach
                         </select>
                         @error('size')
-                            <h6>{{ $message }}</h6>
+                            <h6 style="color: red;">{{ $message }}</h6>
                         @enderror
                         <label>Cantidad:</label>
                         <div class="amount">
