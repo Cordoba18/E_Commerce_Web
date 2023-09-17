@@ -16,7 +16,7 @@
                 <li class="li"><a href="{{route('customerprofile')}}" class="a">Perfil</a></li>
                 @endauth
                 @guest
-                <li class="li"><a href="{{route('login')}}" class="a">Iniciar sesion</a></li>
+                <li class="li"><a href="{{route('login')}}" class="a">Iniciar sesiòn</a></li>
                 <li class="li"><a href="{{route('register')}}" class="a">Registrarse</a></li>
                 @endguest
                 <li id="btn_about" class="li"><a href="#" class="a">About</a></li>

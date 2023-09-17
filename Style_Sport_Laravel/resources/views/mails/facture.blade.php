@@ -27,7 +27,7 @@ las restricciones y las redes sociales
         border-radius: 0px 0px 100px 0px;
         margin-bottom: 20px;">
                 <img style="width: 240px; height: 180px; margin-top: 10px; margin-bottom: 10px; margin-left: 5px;"
-                    src="https://style-sport.shop/storage/app/public/imgs/icon/Logo.png" alt="">
+                    src="https://style-sport.shop/public/storage/imgs/icon/Logo.png" alt="">
                 <h1 style=" font-weight: bold; font-size: 60px">STYLE SPORT SHOP</h1>
             </div>
             <div class="content-body">
@@ -140,13 +140,13 @@ las restricciones y las redes sociales
                     <h6 style="        font-weight: bold; font-size: 15px">SIGUENOS EN NUESTRAS REDES</h6>
                     <a href="https://web.facebook.com/profile.php?id=61550475959912"><img
                             style="width: 30px; height: 30px; margin: 10px"
-                            src="https://style-sport.shop/storage/app/public/imgs/icon/facebook.png" alt=""></a>
+                            src="https://style-sport.shop/public/storage/imgs/icon/facebook.png" alt=""></a>
                     <a href="https://www.instagram.com/stylespo_208/"><img
                             style="width: 30px; height: 30px; margin: 10px"
-                            src="https://style-sport.shop/storage/app/public/imgs/icon/instagram.png"
+                            src="https://style-sport.shop/public/storage/imgs/icon/instagram.png"
                             alt=""></a>
                     <a href="https://twitter.com/stylespo_208"><img style="width: 30px; height: 30px; margin: 10px"
-                            src="https://style-sport.shop/storage/app/public/imgs/icon/twitter.png" alt=""></a>
+                            src="https://style-sport.shop/public/storage/imgs/icon/twitter.png" alt=""></a>
                 </div>
             </div>
         </div>

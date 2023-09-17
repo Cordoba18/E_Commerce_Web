@@ -31,7 +31,6 @@ class CustomerProfileController extends Controller
         // buscamos al usuario
         $user = User::where('id', Auth::user()->id)->first();
 
-        return redirect()->route('customerprofile')->with('error', 'Campos vacios');
 
         //utilizamos esto para editar toda la informacion del usuario
         if ($request->name && $request->lastname) {
@@ -57,7 +56,7 @@ class CustomerProfileController extends Controller
         if ($request->nid) {
             if (!empty($request->nid) && preg_match('/[0-9]/', $request->nid)) {
                 if (!strlen($request->nid) >= 8 && !strlen($request->nid) <= 11) {
-                    return redirect()->route('customerprofile')->with('error', 'El numero de telefono debe contener 10 digitos'); 
+                    return redirect()->route('customerprofile')->with('error', 'El numero de telefono debe contener 10 digitos');
                 }
                 $user->Identificacion = 'CC';
                 $user->N_Identificacion = $request->nid;
@@ -68,7 +67,7 @@ class CustomerProfileController extends Controller
         if ($request->numberphone) {
             if (!empty($request->numberphone) && preg_match('/[0-9]/', $request->numberphone)) {
                 if (!strlen($request->numberphone) >= 10 && !strlen($request->numberphone) <= 10) {
-                    return redirect()->route('customerprofile')->with('error', 'El numero de telefono debe contener 10 digitos'); 
+                    return redirect()->route('customerprofile')->with('error', 'El numero de telefono debe contener 10 digitos');
                 }
                 $user->telefono = $request->numberphone;
             } else {

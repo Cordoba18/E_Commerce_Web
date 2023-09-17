@@ -2,17 +2,11 @@
 
 @section('m-content')
     <section class="info-profile">
-<<<<<<< HEAD
+
         <h3>Informaciòn personal</h3>
-=======
-        <h3>Informacion personal</h3>
         @if (session('error'))
             <p class="color: red; font-weight: bold;">{{ session('error') }}</p>
          @endif
-<<<<<<< Updated upstream
-=======
->>>>>>> 8ac17b97f4f8b555c050ca4c6250ad853584540c
->>>>>>> Stashed changes
         <div class="target-profile">
             <div class="readView">
                 <p><b>Nombre</b></p>
