@@ -11,6 +11,7 @@ use App\Models\Code;
 use Illuminate\Support\Facades\Hash;
 //Importo el constructor del envio del correo
 use App\Mail\validateEmail;
+use DateTime;
 //Importo mail para enviar informacion del correo
 use Illuminate\Support\Facades\Mail;
 //Importo el metodo que me permite consultar a la base de datos
@@ -44,6 +45,20 @@ class RegisteredUserController extends Controller
         DB::table('codigos')->where('email', '=', $request->correo)->delete();
         //Encriptacion de la contraseña
         $pass = Hash::make($request->password);
+//calculamos si la persona es mayor de edad
+        $fecha_actual = date('Y-m-d');
+
+        $fecha1_obj = DateTime::createFromFormat('Y-m-d', $request->date);
+        $fecha2_obj = DateTime::createFromFormat('Y-m-d', $fecha_actual);
+
+        $diferencia = $fecha1_obj->diff($fecha2_obj);
+
+        $anios_diferencia = $diferencia->y;
+
+        if (!$anios_diferencia >= 18) {
+            return redirect()->route('login')->with('credentials', 'Usted es menor de edad');
+        } 
+        
         //creacion de union de datos de registros para hacer un split en javascript
         $data = $request->name.'%'.$request->lastname.'%'.$request->correo.'%'.$pass.'%'.$request->date;
         //capturo el correo del request

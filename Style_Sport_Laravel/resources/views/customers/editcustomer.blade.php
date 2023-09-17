@@ -4,7 +4,7 @@
     <section class="info-profile">
         <h3>Informacion personal</h3>
         @if (session('error'))
-            {{ session('error') }}
+            <p class="color: red; font-weight: bold;">{{ session('error') }}</p>
          @endif
         <div class="target-profile">
             <div class="readView">

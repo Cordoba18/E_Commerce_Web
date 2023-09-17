@@ -22,7 +22,7 @@
                 <h6>{{ $message }}</h6>
             @enderror
             @if (session('credentials'))
-                {{ session('credentials') }}
+               <p class="color: red; font-weight: bold;"> {{ session('credentials') }}</p>
             @endif
             <p class="recover">
                 <a href="{{ route('recoverpassword') }}">Olvidaste tu contraseña?</a>
