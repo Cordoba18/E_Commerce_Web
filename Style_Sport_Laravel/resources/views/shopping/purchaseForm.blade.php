@@ -192,7 +192,7 @@
         clearInterval(validar);
         alert('TIEMPO DE COMPRA EXPIRADO')
         window.location.href = "{{ route('shoppingcart') }}";
-    }, 300000);
+    }, 600000);
 
 
 

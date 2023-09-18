@@ -85,7 +85,7 @@
         </div></div>
     @empty
                 <!-- si no hay productos en el carrito solo mostramos un mensaje que lo confirma-->
-    <h1>No hay resultados productos en tu carrito de compras</h1>
+    <h1>No hay productos en tu carrito de compras</h1>
 @endforelse
 <p hidden id="user">{{ $id }}</p>
 

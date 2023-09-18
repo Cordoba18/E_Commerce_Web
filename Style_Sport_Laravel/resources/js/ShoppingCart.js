@@ -78,12 +78,22 @@ producto_carrito.forEach(product => {
                 setTimeout(() => {
                 total_full.innerHTML = total_calculo;
             }, 2000);
-              } else {
+              } else if (response['message'] === false) {
                 Swal.fire({
                     icon: 'error',
                     title: 'OPPS CANTIDAD INCORRECTA',
-                    text: 'Esa cantidad ya no esta disponible !Actualiza el carrito!'
+                    text: 'Esa cantidad ya no esta disponible'
                 })
+              }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'OPPS',
+                    text: 'Lo siento el producto ha sido previamente eliminado por un administrador'
+                })
+
+                setTimeout(() => {
+                    window.location.href = "shoppingcart";
+                }, 3000);
               }
             },
             error: function(error) {
@@ -160,7 +170,10 @@ producto_carrito.forEach(product => {
                                 title: 'LO SIENTO',
                                 text: 'Ese producto ha sido previamente eliminado'
                             })
-                            window.location.href = "shoppingcart";
+                            setTimeout(() => {
+                                window.location.href = "shoppingcart";
+                            }, 3000);
+
                         }
                     }
                   },
@@ -179,7 +192,9 @@ producto_carrito.forEach(product => {
                                 title: 'LO SIENTO',
                                 text: 'Ese producto ha sido previamente eliminado'
                             })
-                            window.location.href = "shoppingcart";
+                            setTimeout(() => {
+                                window.location.href = "shoppingcart";
+                            }, 3000);
                         }
                     }
                 },

@@ -51,13 +51,12 @@ class ProductController extends Controller
         $color = Color::where('id_producto', $product->id)->where('estados_id','1')->get();
 
         $size = Size::where('id_producto', $product->id)->where('estados_id','1')->get();
-
+        $state = DB::selectOne("SELECT p.estados_id FROM productos p WHERE id = $product->id");
         $porcentaje = $product->precio*$product->descuento / 100;
         $discount = $product->precio - $porcentaje;
-
         $imgProduct = ImgProduct::all();
         $Products = Product::where('estados_id','1')->where('categoria',$product->categoria)->inRandomOrder()->limit(15)->get();
-        return view('products.productProfile', compact('imgProduct','Products','product','category','imgs','color', 'size', 'discount'));
+        return view('products.productProfile', compact('imgProduct','Products','product','category','imgs','color', 'size', 'discount', 'state'));
     }
 
     //Este metodo me permite calificar un producto respondiendo a una ruta la cual pide un request por metodo POST

@@ -132,6 +132,10 @@ public function editquantity(HttpRequest $request){
     //capturo la talla original de ese producto
     $talla_origen = Size::find($request->tallas_id);
     $total_cantidad = 0;
+
+    if (DB::selectOne("SELECT * FROM carrito_compras c INNER JOIN productos p ON c.id_producto = p.id WHERE c.id=$id AND p.estados_id = 2")) {
+        return response()->json(['message' => 'inhabilitado'], 200);
+    }else{
     //verifico si la cantidad ingresada esta sobre pasando los limites de la cantidad original
     $carrito = DB::select("SELECT * FROM carrito_compras WHERE id_user = $id_user AND estados_id = 1 AND tallas_id = $request->tallas_id AND id <> $id");
             foreach($carrito as $c){
@@ -155,6 +159,7 @@ public function editquantity(HttpRequest $request){
                //retorno de mensaje de desaprobacion
         return response()->json(['message' => false], 200);
     }
+}
 }
 
 //funcion que responde a una ruta para ir al formulario de la compra

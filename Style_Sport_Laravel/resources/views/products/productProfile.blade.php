@@ -26,6 +26,12 @@
                             <h1>AGOTADO</h1>
                         </div>
                     @endif
+
+                    @if ($state->estados_id==2)
+                        <div class="exhausted">
+                            <h1>ELIMINADO</h1>
+                        </div>
+                    @endif
                         <div class="carousel-inner">
                             @php
                                 $imagePath = '';
