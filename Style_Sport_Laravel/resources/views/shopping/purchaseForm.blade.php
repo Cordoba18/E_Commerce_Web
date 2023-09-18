@@ -187,7 +187,7 @@
         });
     }, 3000);
 
-    //cuando pasen 5 minutos expira el plazo para comprar y se redirecciona al carrito de compras
+    //cuando pasen 10 minutos expira el plazo para comprar y se redirecciona al carrito de compras
     setTimeout(() => {
         clearInterval(validar);
         alert('TIEMPO DE COMPRA EXPIRADO')
